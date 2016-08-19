@@ -4,7 +4,7 @@ const todo = (state, action) => {
       return {
         id: action.id,
         text: action.text,
-        completed: false
+        route: action.route
       }
     default:
       return state

@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 
-const Todo = ({ text }) => (
+const Todo = ({ text, route }) => (
   <li>
-    {text}
+    {text} -- {route}
   </li>
 )
 

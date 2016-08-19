@@ -1,20 +1,12 @@
 let nextTodoId = 0
-export const addTodo = (text) => {
+export const addTodo = (text, route) => {
   return {
     type: 'ADD_TODO',
     id: nextTodoId++,
-    text
+    text: text,
+    route: route
   }
 }
-
-// let nextChannelId = 0
-// export const addChannel = (text) => {
-//   return {
-//     type: 'ADD_CHANNEL',
-//     id: nextChannelId++,
-//     text
-//   }
-// }
 
 export const addChannel = (ch) => {
   return {
