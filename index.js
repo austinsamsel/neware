@@ -8,7 +8,7 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import App from './components/App'
 import AddChannel from './containers/AddChannel'
 import About from './components/About'
-import Channel from './components/Channel'
+import ChannelContainer from './containers/ChannelContainer'
 import todos from './reducers/todos'
 import addChannel from './reducers/addChannel'
 
@@ -34,7 +34,7 @@ render(
       <Route path="/" component={App}>
         <IndexRoute component={AddChannel} />
         <Route path="about" component={About} />
-        <Route path="name" component={Channel} />
+        <Route path=":name" component={ChannelContainer} />
       </Route>
     </Router>
   </Provider>,
