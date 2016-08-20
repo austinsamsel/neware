@@ -8,9 +8,9 @@ const Channel = ({name}) => (
 
   <h1>{name}</h1>
 
-  <AddTodo ch={name} />
+  {/* <AddTodo ch={name} /> */}
   {/* <VisibleTodoList /> */}
-  <FireTodos />
+  <FireTodos ch={name} />
 
   </div>
 )

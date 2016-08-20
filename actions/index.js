@@ -8,24 +8,35 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
 const notesRef = firebase.database().ref('todos');
 
-export function fetchTodos() {
+export function fetchTodos(route) {
   return function(dispatch) {
-    console.log('called')
-    notesRef.on('value', snapshot => {
-      console.log(snapshot.val())
-      dispatch({
-        type: 'FETCH_TODOS',
-        payload: snapshot.val()
-      })
+    
+    notesRef.child(route).on('value', snapshot => {
+	  const notes = [];
+      snapshot.forEach((childSnapshot) => {
+        var note = childSnapshot.val();
+        note['key'] = childSnapshot.key;
+        notes.push(note);
+        dispatch({
+          type: 'FETCH_TODOS',
+          payload: snapshot.val()
+        })
+      });
+      // dispatch({
+      //   type: 'FETCH_TODOS',
+      //   payload: snapshot.val()
+      // })
     });
   }
 }
 
-export function createTodo(text) {
-  return dispatch => notesRef.push(text)
+export function createTodo(text, route) {
+  return dispatch => notesRef.child(route).push({
+    createdAt: '11111111',
+    text: text
+  })
 }
 
 // let nextTodoId = 0

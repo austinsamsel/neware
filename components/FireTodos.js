@@ -12,22 +12,36 @@ class FireTodos extends Component {
   }
 
   componentWillMount() {
-    this.props.fetchTodos();
-  }
-
-  handleInputChange(event) {
-    this.setState({ todo: event.target.value });
+    this.props.fetchTodos(this.props.ch);
   }
 
   handleFormSubmit(event) {
     event.preventDefault();
-
-    this.props.createTodo(this.state.todo)
+    const input = this.refs.todoInput;
+    if (!input.value.trim()){
+      return
+    }
+    this.props.createTodo(input.value, this.props.ch)
+    input.value = ''
   }
 
   renderTodos() {
+    const obj = this.props.todos
+
+    console.log('state of todos', obj)
+    
+    // return this.props.todos.map((todo, key) => {
+    // //   return <FireItem key={key} todo={todo.text} id={key}/>
+    // })
+
+
+    // return obj.map((todo, i) => {
+    //   //return <FireItem key={i} todo={todo} id={i} />
+    //   console.log('todo: ', todo)
+    // })
+
     return _.map(this.props.todos, (todo, key) => {
-      return <FireItem key={key} todo={todo} id={key} />
+      return <FireItem key={key} todo={todo.text} id={key} />
     });
   }
 
@@ -35,13 +49,13 @@ class FireTodos extends Component {
     return (
       <div>
         <h4>Create a Todo</h4>
+        Add Note for channel/route: {this.props.ch}
         <form onSubmit={this.handleFormSubmit.bind(this)} className="form-inline">
           <div className="form-group">
             <input
-              className="form-control"
               placeholder="Add a todo"
-              value={this.state.todo}
-              onChange={this.handleInputChange.bind(this)} />
+              ref="todoInput"
+            />
             <button action="submit" className="btn btn-primary">Create Todo</button>
           </div>
         </form>
@@ -53,9 +67,17 @@ class FireTodos extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return { todos: state.todos };
+// container
+
+const mapStateToProps = (state) => {
+  return { 
+    todos: state.todos 
+  };
 }
 
-export default connect(mapStateToProps, actions)(FireTodos)
+
+export default connect(
+  mapStateToProps, 
+  actions
+)(FireTodos)
 
