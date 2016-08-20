@@ -1,7 +1,8 @@
 import 'babel-polyfill'
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers, applyMiddleware } from 'redux'
+import reduxThunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
@@ -20,7 +21,14 @@ const reducer = combineReducers({
 
 // Add the reducer to your store on the `routing` key
 // add chrome dev tools extension
-let store = createStore(
+let createTheStore = createStore(
+  reducer,
+  window.devToolsExtension && window.devToolsExtension()
+)
+
+const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
+
+let store = createStoreWithMiddleware(
   reducer,
   window.devToolsExtension && window.devToolsExtension()
 )
