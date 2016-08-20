@@ -12,7 +12,7 @@ const notesRef = firebase.database().ref('todos');
 
 export function fetchTodos(route) {
   return function(dispatch) {
-    
+
     notesRef.child(route).on('value', snapshot => {
 	  const notes = [];
       snapshot.forEach((childSnapshot) => {
@@ -24,10 +24,6 @@ export function fetchTodos(route) {
           payload: snapshot.val()
         })
       });
-      // dispatch({
-      //   type: 'FETCH_TODOS',
-      //   payload: snapshot.val()
-      // })
     });
   }
 }
@@ -39,15 +35,12 @@ export function createTodo(text, route) {
   })
 }
 
-// let nextTodoId = 0
-// export const addTodo = (text, route) => {
-//   return {
-//     type: 'ADD_TODO',
-//     id: nextTodoId++,
-//     text: text,
-//     route: route
-//   }
-// }
+export function unloadTodos(route) {
+  notesRef.child(route).off()
+  return {
+    type: 'UNLOAD_TODOS_SUCCESS'
+  }
+}
 
 export const addChannel = (ch) => {
   return {

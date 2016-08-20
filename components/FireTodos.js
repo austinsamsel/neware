@@ -5,7 +5,6 @@ import * as actions from '../actions';
 import FireItem from './FireItem';
 
 class FireTodos extends Component {
-  // state = { todo: '' };
   constructor(props){
     super(props)
     this.state = {}
@@ -13,6 +12,10 @@ class FireTodos extends Component {
 
   componentDidMount() {
     this.props.fetchTodos(this.props.ch);
+  }
+
+  componentWillUnmount() {
+    this.props.unloadTodos(this.props.ch);
   }
 
   handleFormSubmit(event) {
@@ -29,7 +32,7 @@ class FireTodos extends Component {
     const obj = this.props.todos
 
     console.log('state of todos', obj)
-    
+
     // using lodash to map an object (since its not an array)
     return _.map(this.props.todos, (todo, key) => {
       return <FireItem key={key} todo={todo.text} id={key} />
@@ -61,14 +64,12 @@ class FireTodos extends Component {
 // container
 
 const mapStateToProps = (state) => {
-  return { 
-    todos: state.todos 
+  return {
+    todos: state.todos
   };
 }
 
-
 export default connect(
-  mapStateToProps, 
+  mapStateToProps,
   actions
 )(FireTodos)
-
