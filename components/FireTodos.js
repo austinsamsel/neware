@@ -11,7 +11,7 @@ class FireTodos extends Component {
     this.state = {}
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchTodos(this.props.ch);
   }
 
@@ -30,16 +30,7 @@ class FireTodos extends Component {
 
     console.log('state of todos', obj)
     
-    // return this.props.todos.map((todo, key) => {
-    // //   return <FireItem key={key} todo={todo.text} id={key}/>
-    // })
-
-
-    // return obj.map((todo, i) => {
-    //   //return <FireItem key={i} todo={todo} id={i} />
-    //   console.log('todo: ', todo)
-    // })
-
+    // using lodash to map an object (since its not an array)
     return _.map(this.props.todos, (todo, key) => {
       return <FireItem key={key} todo={todo.text} id={key} />
     });
