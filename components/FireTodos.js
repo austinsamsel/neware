@@ -1,9 +1,10 @@
-import _ from 'lodash';
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import FireItem from './FireItem';
 import FireForm from './FireForm';
+import FireList from './FireList';
 
 class FireTodos extends Component {
   constructor(props){
@@ -34,13 +35,11 @@ class FireTodos extends Component {
   render() {
     return (
       <div>
-        <h4>Create a Todo</h4>
         <FireForm onSubmit={this.submitHandler}
           route={this.props.ch}
         />
-        <ul>
-          {this.renderTodos()}
-        </ul>
+        {/* {this.renderTodos()} */}
+        <FireList todos={this.props.todos} />
       </div>
     );
   }
