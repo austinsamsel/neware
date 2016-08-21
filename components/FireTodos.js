@@ -3,11 +3,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import FireItem from './FireItem';
+import FireForm from './FireForm';
 
 class FireTodos extends Component {
   constructor(props){
     super(props)
     this.state = {}
+    this.submitHandler = this.submitHandler.bind(this);
   }
 
   componentDidMount() {
@@ -18,14 +20,8 @@ class FireTodos extends Component {
     this.props.unloadTodos(this.props.ch);
   }
 
-  handleFormSubmit(event) {
-    event.preventDefault();
-    const input = this.refs.todoInput;
-    if (!input.value.trim()){
-      return
-    }
-    this.props.createTodo(input.value, this.props.ch)
-    input.value = ''
+  submitHandler(input){
+    this.props.createTodo(input, this.props.ch)
   }
 
   renderTodos() {
@@ -39,15 +35,9 @@ class FireTodos extends Component {
     return (
       <div>
         <h4>Create a Todo</h4>
-        <form onSubmit={this.handleFormSubmit.bind(this)}>
-          <div>
-            <input
-              placeholder="Add a todo"
-              ref="todoInput"
-            />
-            <button action="submit">Create Todo</button>
-          </div>
-        </form>
+        <FireForm onSubmit={this.submitHandler}
+          route={this.props.ch}
+        />
         <ul>
           {this.renderTodos()}
         </ul>

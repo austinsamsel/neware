@@ -28,14 +28,14 @@ export function fetchTodos(route) {
   }
 }
 
-export function createTodo(text, route) {
+export const createTodo = (text, route) => {
   return dispatch => notesRef.child(route).push({
     createdAt: '11111111',
     text: text
   })
 }
 
-export function unloadTodos(route) {
+export const unloadTodos = (route) => {
   notesRef.child(route).off()
   return {
     type: 'UNLOAD_TODOS_SUCCESS'
