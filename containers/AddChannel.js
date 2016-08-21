@@ -19,9 +19,7 @@ let AddChannel = ({ dispatch }) => {
           input = node
         }}
       />
-
       <GoTo />
-
     </div>
   )
 }

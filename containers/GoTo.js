@@ -11,7 +11,3 @@ const GoTo = connect(
   mapStateToProps
 )(GoToChannel)
 export default GoTo
-
-// export default connect(
-//   state => ({ ch: state.ch })
-// )(GoToChannel)

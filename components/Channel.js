@@ -16,27 +16,3 @@ const Channel = ({name}) => (
 )
 
 export default Channel
-
-
-// class Channel extends Component {
-//   constructor(props){
-//     super(props)
-//   }
-//
-//   componentWillMount() {
-//     actions.fetchTodos()
-//   }
-//
-//   render() {
-//     return (    
-//       <div>
-//       <h1>{name}</h1>
-//
-//       <AddTodo ch={name} />
-//       <VisibleTodoList />
-//
-//       </div>
-//     )
-//   }
-// }
-// export default Channel
