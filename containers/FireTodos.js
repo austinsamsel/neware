@@ -1,10 +1,9 @@
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
-import FireItem from './FireItem';
-import FireForm from './FireForm';
-import FireList from './FireList';
+import FireItem from '../components/FireItem';
+import FireForm from '../components/FireForm';
+import FireList from '../components/FireList';
 
 class FireTodos extends Component {
   constructor(props){
