@@ -1,25 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
+import React, { PropTypes } from 'react'
 
-class FireItem extends Component {
-  handleClick() {
-    this.props.deleteTodo(this.props.id);
-  }
-
-  render() {
-    return (
-      <li className="list-group-item">
-        {this.props.todo}
-        <button
-          onClick={this.handleClick.bind(this)}
-          className="btn btn-danger right">
-          Delete
-        </button>
-      </li>
-    );
-  }
+const FireItem = ( props ) => {
+  return(
+    <li>
+      {props.todo}
+    </li>
+  );
 }
 
-export default connect(null, actions)(FireItem);
+FireItem.propTypes = {
+  todo: PropTypes.string.isRequired
+}
 
+export default FireItem

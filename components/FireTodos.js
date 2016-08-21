@@ -25,20 +25,12 @@ class FireTodos extends Component {
     this.props.createTodo(input, this.props.ch)
   }
 
-  renderTodos() {
-    // using lodash to map an object (since its not an array)
-    return _.map(this.props.todos, (todo, key) => {
-      return <FireItem key={key} todo={todo.text} id={key} />
-    });
-  }
-
   render() {
     return (
       <div>
         <FireForm onSubmit={this.submitHandler}
           route={this.props.ch}
         />
-        {/* {this.renderTodos()} */}
         <FireList todos={this.props.todos} />
       </div>
     );
