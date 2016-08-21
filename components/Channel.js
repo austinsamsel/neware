@@ -6,11 +6,9 @@ import FireTodos from '../containers/FireTodos'
 const Channel = ({name}) => (
   <div>
 
-  <h1>{name}</h1>
+    <h1>{name}</h1>
 
-  {/* <AddTodo ch={name} /> */}
-  {/* <VisibleTodoList /> */}
-  <FireTodos ch={name} />
+    <FireTodos ch={name} />
 
   </div>
 )
