@@ -13,16 +13,10 @@ const notesRef = firebase.database().ref('todos');
 export const fetchTodos = (route) => {
   return function(dispatch) {
     notesRef.child(route).on('value', snapshot => {
-	  const notes = [];
-      snapshot.forEach((childSnapshot) => {
-        var note = childSnapshot.val();
-        note['key'] = childSnapshot.key;
-        notes.push(note);
-        dispatch({
-          type: 'FETCH_TODOS',
-          payload: snapshot.val()
-        })
-      });
+      dispatch({
+        type: 'FETCH_TODOS',
+        payload: snapshot.val()
+      })
     });
   }
 }
