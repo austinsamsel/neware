@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import AddTodo from '../containers/AddTodo'
 import VisibleTodoList from '../containers/VisibleTodoList'
-import FireTodos from './FireTodos'
+import FireTodos from '../containers/FireTodos'
 
 const Channel = ({name}) => (
   <div>
