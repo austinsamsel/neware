@@ -18,6 +18,7 @@ class FireTodos extends Component {
 
   componentWillUnmount() {
     this.props.unloadTodos(this.props.ch);
+    this.props.clearTodos();
   }
 
   submitHandler(input){

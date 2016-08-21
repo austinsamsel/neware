@@ -10,9 +10,8 @@ firebase.initializeApp(config);
 
 const notesRef = firebase.database().ref('todos');
 
-export function fetchTodos(route) {
+export const fetchTodos = (route) => {
   return function(dispatch) {
-
     notesRef.child(route).on('value', snapshot => {
 	  const notes = [];
       snapshot.forEach((childSnapshot) => {
@@ -25,6 +24,12 @@ export function fetchTodos(route) {
         })
       });
     });
+  }
+}
+
+export const clearTodos = () => {
+  return {
+    type: 'CLEAR_TODOS'
   }
 }
 
