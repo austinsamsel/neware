@@ -2,25 +2,30 @@ import expect from 'expect'
 import * as actions from '../../actions'
 
 describe('todo actions', () => {
-  it('addTodo should create ADD_TODO action', () => {
-    expect(actions.addTodo('Use Redux')).toEqual({
-      type: 'ADD_TODO',
-      id: 0,
-      text: 'Use Redux'
+  it('fetch todos should create FETCH_TODOS action', () => {
+    expect(actions.fetchTodos('another')).toEqual({
+      type: 'FETCH_TODOS',
+      payload: ''
     })
   })
 
-  it('setVisibilityFilter should create SET_VISIBILITY_FILTER action', () => {
-    expect(actions.setVisibilityFilter('active')).toEqual({
-      type: 'SET_VISIBILITY_FILTER',
-      filter: 'active'
+  it('clear todos should create CLEAR_TODOS action', () => {
+    expect(actions.clearTodos()).toEqual({
+      type: 'CLEAR_TODOS'
     })
   })
 
-  it('toggleTodo should create TOGGLE_TODO action', () => {
-    expect(actions.toggleTodo(1)).toEqual({
-      type: 'TOGGLE_TODO',
-      id: 1
+  it('create todo should create CREATE_TODO action', () => {
+    expect(actions.createTodo('hi', 'route')).toEqual({
+      type: 'CREATE_TODO',
+      text: 'hi'
+    })
+  })
+
+  it('add channel should create ADD_CHANNEL action', () => {
+    expect(actions.addChannel('route')).toEqual({
+      type: 'ADD_CHANNEL',
+      ch: 'route'
     })
   })
 })

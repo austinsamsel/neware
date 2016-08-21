@@ -2,6 +2,7 @@ import expect from 'expect'
 import todos from '../../reducers/todos'
 
 describe('todos reducer', () => {
+
   it('should handle initial state', () => {
     expect(
       todos(undefined, {})
@@ -18,7 +19,6 @@ describe('todos reducer', () => {
     ).toEqual([
       {
         text: 'Run the tests',
-        completed: false,
         id: 0
       }
     ])
@@ -27,7 +27,6 @@ describe('todos reducer', () => {
       todos([
         {
           text: 'Run the tests',
-          completed: false,
           id: 0
         }
       ], {
@@ -80,33 +79,10 @@ describe('todos reducer', () => {
     ])
   })
 
-  it('should handle TOGGLE_TODO', () => {
+  it('should handle CLEAR_TODOS', () => {
     expect(
-      todos([
-        {
-          text: 'Run the tests',
-          completed: false,
-          id: 1
-        }, {
-          text: 'Use Redux',
-          completed: false,
-          id: 0
-        }
-      ], {
-        type: 'TOGGLE_TODO',
-        id: 1
-      })
-    ).toEqual([
-      {
-        text: 'Run the tests',
-        completed: true,
-        id: 1
-      }, {
-        text: 'Use Redux',
-        completed: false,
-        id: 0
-      }
-    ])
+      todos([], {})
+    ).toEqual([])
   })
 
 })
