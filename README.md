@@ -18,6 +18,4 @@ for deploying used surge, I needed to create a 200 catch all as explained [here]
 
 This way, if you create a note at the URL neware.surge.sh/test you can go straight to that URL later on.
 
-I also have a script that runs every 24 hours that checks the database for posts older than 24 hours and deletes them.
-
-So all posts on neware are transient.
+I also have a script that runs every 24 hours that checks the database for posts older than 24 hours and deletes them. So all posts on neware are temporary.

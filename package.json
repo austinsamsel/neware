@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "description": "Redux Todos example",
   "scripts": {
-    "server": "node server.js",
     "start": "webpack-dev-server --no-info --hot --devtool #sourcemap --devtool #@eval",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",
     "test:watch": "npm test -- --watch",
