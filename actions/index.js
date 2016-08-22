@@ -29,7 +29,7 @@ export const clearNotes = () => {
 
 export const createNote = (text, route) => {
   return dispatch => notesRef.child(route).push({
-    createdAt: '11111111', // TODO: firebase server val.
+    createdAt: firebase.database.ServerValue.TIMESTAMP,
     text: text
   })
 }
