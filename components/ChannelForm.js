@@ -2,7 +2,7 @@ import React from 'react'
 import GoTo from '../containers/GoTo'
 
 let input;
-const AddChannelForm = (props) => (
+const ChannelForm = (props) => (
   <div>
     <div>
       create or go to a channel:
@@ -22,8 +22,8 @@ const AddChannelForm = (props) => (
     <GoTo />
   </div>
 )
-export default AddChannelForm
+export default ChannelForm
 
-AddChannelForm.propTypes = {
+ChannelForm.propTypes = {
   onKeyUp: React.PropTypes.func.isRequired
 };

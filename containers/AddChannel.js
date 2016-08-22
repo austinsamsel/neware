@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import AddChannelForm from '../components/AddChannelForm'
+import ChannelForm from '../components/ChannelForm'
 import { addChannel } from '../actions'
 
 const mapStateToProps = () => {
@@ -17,5 +17,5 @@ const mapDispatchToProps = (dispatch) => {
 const AddChannel = connect(
   null,
   mapDispatchToProps
-)(AddChannelForm)
+)(ChannelForm)
 export default AddChannel
