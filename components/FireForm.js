@@ -24,6 +24,5 @@ const FireForm = ( props ) => (
 export default FireForm
 
 FireForm.propTypes = {
-  onSubmit: React.PropTypes.func.isRequired,
-  route: React.PropTypes.string.isRequired // maybe not necessary
+  onSubmit: React.PropTypes.func.isRequired
 };

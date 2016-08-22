@@ -37,8 +37,6 @@ class FireNotes extends Component {
   }
 }
 
-// container
-
 const mapStateToProps = (state) => {
   return {
     notes: state.notes

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { Link } from 'react-router';
 
 const GoToChannel = ({ ch }) => (
@@ -8,7 +8,7 @@ const GoToChannel = ({ ch }) => (
 )
 
 GoToChannel.propTypes = {
-  ch: PropTypes.string.isRequired
+  ch: React.PropTypes.string.isRequired
 }
 
 export default GoToChannel
