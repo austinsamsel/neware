@@ -5,7 +5,7 @@ import FireItem from '../components/FireItem';
 import FireForm from '../components/FireForm';
 import FireList from '../components/FireList';
 
-class FireTodos extends Component {
+class FireNotes extends Component {
   constructor(props){
     super(props)
     this.state = {}
@@ -13,16 +13,16 @@ class FireTodos extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchTodos(this.props.ch);
+    this.props.fetchNotes(this.props.ch);
   }
 
   componentWillUnmount() {
-    this.props.unloadTodos(this.props.ch);
-    this.props.clearTodos();
+    this.props.unloadNotes(this.props.ch);
+    this.props.clearNotes();
   }
 
   submitHandler(input){
-    this.props.createTodo(input, this.props.ch)
+    this.props.createNote(input, this.props.ch)
   }
 
   render() {
@@ -31,7 +31,7 @@ class FireTodos extends Component {
         <FireForm onSubmit={this.submitHandler}
           route={this.props.ch}
         />
-        <FireList todos={this.props.todos} />
+        <FireList notes={this.props.notes} />
       </div>
     );
   }
@@ -41,11 +41,11 @@ class FireTodos extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    todos: state.todos
+    notes: state.notes
   };
 }
 
 export default connect(
   mapStateToProps,
   actions
-)(FireTodos)
+)(FireNotes)

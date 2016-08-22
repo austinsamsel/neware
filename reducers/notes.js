@@ -1,12 +1,12 @@
-const todos = (state = [], action) => {
+const notes = (state = [], action) => {
   switch (action.type) {
-    case 'FETCH_TODOS':
+    case 'FETCH_NOTES':
       return action.payload;
-    case 'CLEAR_TODOS':
+    case 'CLEAR_NOTES':
       return state = [];
     default:
       return state
   }
 }
 
-export default todos
+export default notes

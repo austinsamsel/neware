@@ -16,7 +16,7 @@ const FireForm = ( props ) => (
         <input ref={node => {
           input = node
         }} />
-        <button action="submit">Create Todo</button>
+        <button action="submit">Create Note</button>
       </div>
     </form>
   </div>

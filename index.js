@@ -10,12 +10,12 @@ import App from './components/App'
 import AddChannel from './containers/AddChannel'
 import About from './components/About'
 import ChannelContainer from './containers/ChannelContainer'
-import todos from './reducers/todos'
+import notes from './reducers/notes'
 import addChannel from './reducers/addChannel'
 
 const reducer = combineReducers({
   addChannel,
-  todos,
+  notes,
   routing: routerReducer
 })
 

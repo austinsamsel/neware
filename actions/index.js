@@ -8,36 +8,36 @@ var config = {
 };
 firebase.initializeApp(config);
 
-const notesRef = firebase.database().ref('todos');
+const notesRef = firebase.database().ref('notes');
 
-export const fetchTodos = (route) => {
+export const fetchNotes = (route) => {
   return function(dispatch) {
     notesRef.child(route).on('value', snapshot => {
       dispatch({
-        type: 'FETCH_TODOS',
+        type: 'FETCH_NOTES',
         payload: snapshot.val()
       })
     });
   }
 }
 
-export const clearTodos = () => {
+export const clearNotes = () => {
   return {
-    type: 'CLEAR_TODOS'
+    type: 'CLEAR_NOTES'
   }
 }
 
-export const createTodo = (text, route) => {
+export const createNote = (text, route) => {
   return dispatch => notesRef.child(route).push({
-    createdAt: '11111111',
+    createdAt: '11111111', // TODO: firebase server val.
     text: text
   })
 }
 
-export const unloadTodos = (route) => {
+export const unloadNotes = (route) => {
   notesRef.child(route).off()
   return {
-    type: 'UNLOAD_TODOS_SUCCESS'
+    type: 'UNLOAD_NOTES_SUCCESS'
   }
 }
 

@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import FireTodos from '../containers/FireTodos'
+import FireNotes from '../containers/FireNotes'
 
 const Channel = ({name}) => (
   <div>
 
     <h1>{name}</h1>
 
-    <FireTodos ch={name} />
+    <FireNotes ch={name} />
 
   </div>
 )

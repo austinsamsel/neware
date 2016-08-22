@@ -3,21 +3,21 @@ import FireItem from './FireItem';
 import _ from 'lodash';
 
 const FireList = ( props ) => {
-  const renderTodos = () => {
-    return _.map(props.todos, (todo, key) => {
-      return <FireItem key={key} todo={todo.text} id={key} />
+  const renderNotes = () => {
+    return _.map(props.notes, (note, key) => {
+      return <FireItem key={key} note={note.text} id={key} />
     });
   }
   return(
     <ul>
-      {renderTodos()}
+      {renderNotes()}
     </ul>
   )
 
 }
 
 FireList.propTypes = {
-  // todos: PropTypes.arrayOf(PropTypes.shape({
+  // notes: PropTypes.arrayOf(PropTypes.shape({
   //   id: PropTypes.number.isRequired,
   //   text: PropTypes.string.isRequired
   // }).isRequired).isRequired

@@ -3,13 +3,13 @@ import React, { PropTypes } from 'react'
 const FireItem = ( props ) => {
   return(
     <li>
-      {props.todo}
+      {props.note}
     </li>
   );
 }
 
 FireItem.propTypes = {
-  todo: PropTypes.string.isRequired
+  note: PropTypes.string.isRequired
 }
 
 export default FireItem
