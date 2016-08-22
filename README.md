@@ -6,11 +6,12 @@ To note:
 
 * tests for actions and reducers
 * thunk for async actions
+* react redux router
 * also, useful...
 
 Seemingly 100% of write operations on the internet are protected by authentication... and for someone that uses a password manager, if I find myself on a public computer or a friend's device, I kinda can't do much except read stuff and visit websites. But sometimes I really want to remember a link or write a note for later... so I made n e ware. 
 
-It didn't really need redux/thunk but I used it anyway since I wanted to make sure I had a good handle of how these libraries work. 
+It didn't really need redux/thunk but I used it anyway since I wanted to make sure I had a good handle of how these libraries work. Now all my state is stored in one place. Nice. 
 
 Also, it is deployed using [surge.sh](https://surge.sh) -- an awesome service to quickly deploy clientside apps super fast.
 

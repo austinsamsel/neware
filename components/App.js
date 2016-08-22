@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 const App = ({ children }) => (
   <div>
-    <Link to="/">neware</Link>
+    <Link to="/">NEWARE</Link>
     {children}
   </div>
 )
