@@ -1,31 +1,21 @@
-import React from 'react'
 import { connect } from 'react-redux'
+import AddChannelForm from '../components/AddChannelForm'
 import { addChannel } from '../actions'
-import GoTo from './GoTo'
 
-let AddChannel = ({ dispatch }) => {
-  let input
-
-  return (
-    <div>
-      <div>
-        create or go to a channel:
-      </div>
-      <input
-        onKeyUp={e => {
-          if (!input.value.trim()) {
-            return
-          }
-          dispatch(addChannel(input.value))
-        }}
-        ref={node => {
-          input = node
-        }}
-      />
-      <GoTo />
-    </div>
-  )
+const mapStateToProps = () => {
+  return
 }
-AddChannel = connect()(AddChannel)
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onKeyUp: (input) => {
+      dispatch(addChannel(input))
+    }
+  }
+}
+
+const AddChannel = connect(
+  null,
+  mapDispatchToProps
+)(AddChannelForm)
 export default AddChannel
