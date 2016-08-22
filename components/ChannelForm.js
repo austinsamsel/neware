@@ -15,7 +15,6 @@ const ChannelForm = (props) => (
     <div>
       create or go to a channel:
     </div>
-    {console.log(props)}
     <input
       onKeyUp={e => {
         if (!input.value.trim()) {
