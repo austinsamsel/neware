@@ -12,12 +12,11 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/static/'
   },
-  plugins: [
-    // not working:
-    // new webpack.optimize.OccurrenceOrderPlugin(),
-    // new webpack.HotModuleReplacementPlugin(),
-    // new webpack.NoErrorsPlugin()
-  ],
+  // plugins: [
+  //   new webpack.optimize.OccurrenceOrderPlugin(),
+  //   new webpack.HotModuleReplacementPlugin(),
+  //   new webpack.NoErrorsPlugin()
+  // ],
   module: {
     loaders: [
       {
