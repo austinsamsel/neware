@@ -8,6 +8,9 @@ let AddChannel = ({ dispatch }) => {
 
   return (
     <div>
+      <div>
+        create or go to a channel:
+      </div>
       <input
         onKeyUp={e => {
           if (!input.value.trim()) {

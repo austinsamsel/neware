@@ -1,12 +1,9 @@
 import React from 'react'
-
-import { Link, browserHistory } from 'react-router'
+import { Link } from 'react-router'
 
 const App = ({ children }) => (
   <div>
-    <Link to="/">Home</Link>
-    <Link to="/about">About</Link>
-    <button onClick={() => browserHistory.push('/about')}>Go to /about</button>
+    <Link to="/">neware</Link>
     {children}
   </div>
 )

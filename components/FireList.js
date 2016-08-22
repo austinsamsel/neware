@@ -10,7 +10,7 @@ const FireList = ( props ) => {
   }
   return(
     <ul>
-      {renderNotes()}
+      { _.reverse(renderNotes()) }
     </ul>
   )
 

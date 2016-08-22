@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import FireNotes from '../containers/FireNotes'
 
 const Channel = ({name}) => (
