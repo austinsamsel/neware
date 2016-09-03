@@ -7,7 +7,7 @@ require('es6-promise').polyfill();
 require('isomorphic-fetch');
 
 import expect from 'expect'
-import * as actions from '../../actions'
+import * as actions from '../../src/actions'
 
 describe('async actions', () => {
   afterEach(() => {

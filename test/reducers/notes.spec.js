@@ -1,5 +1,5 @@
 import expect from 'expect'
-import notes from '../../reducers/notes'
+import notes from '../../src/reducers/notes'
 
 describe('notes reducer', () => {
 

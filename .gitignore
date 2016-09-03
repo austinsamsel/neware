@@ -1,14 +1,17 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
 node_modules
-dist/bundle.js
-dist/npm-debug.log
 
-npm-debug.log
-a/npm-debug.log
-b/npm-debug.log
+# testing
+coverage
 
+# production
+build
+
+# misc
 .DS_Store
-
-node_modules
+npm-debug.log
 
 # swap
 [._]*.s[a-w][a-z]
