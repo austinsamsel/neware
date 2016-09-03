@@ -13,7 +13,9 @@ const Channel = ({name}) => (
           width:'40px',
           marginRight:'10px',
         }} 
-        src="http://emojipedia-us.s3.amazonaws.com/cache/f8/69/f869f6512b0d7187f4e475fc9aa7f250.png" />
+        src="http://emojipedia-us.s3.amazonaws.com/cache/f8/69/f869f6512b0d7187f4e475fc9aa7f250.png" 
+        alt=":thumbs up emoji:"
+      />
       {name}
     </h1>
     <p style={{
