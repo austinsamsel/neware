@@ -3,7 +3,14 @@ import { Link } from 'react-router'
 
 const App = ({ children }) => (
   <div>
-    <Link to="/">NEWARE</Link>
+    <Link to="/" style={{textDecoration:'none'}}>
+      <h1 style={{
+        color:'fuchsia',
+        fontSize:'48px',
+      }}> 
+        NEWARE
+      </h1>
+    </Link>
     {children}
   </div>
 )

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import GoToChannel from '../components/GoToChannel'
+import ChannelBtn from '../components/ChannelBtn'
 
 const mapStateToProps = (state) => {
   return {
@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
   };
 }
 
-const GoTo = connect(
+const ChannelSubmit = connect(
   mapStateToProps
-)(GoToChannel)
-export default GoTo
+)(ChannelBtn)
+export default ChannelSubmit
