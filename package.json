@@ -6,7 +6,7 @@
     "start": "webpack-dev-server --no-info --hot --devtool #sourcemap --devtool #@eval",
     "test": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js",
     "test:watch": "npm test -- --watch",
-    "deploy": "webpack -p && surge /Users/lilsiri1/TEMPORARY/_TMP/redux-official-todos-WIP-neware/dist --domain neware.surge.sh"
+    "deploy": "webpack -p && surge ./dist --domain neware.surge.sh"
   },
   "repository": {
     "type": "git",
