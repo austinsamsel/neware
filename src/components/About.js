@@ -14,6 +14,9 @@ const About = () => (
     <p>
       <strong>How it works:</strong> Create a memorable channel, which is just a URL, for example: neware.surge.sh/<strong>MYCHANNEL</strong>, and save your note to it. No log in, no sign up, no account necessary. Your note will <strong>not</strong> be private, but you can access it later. All notes are posted for 24 hours and after that, they get removed.
     </p>
+    <p>
+      Made by <a style={{color:'fuchsia'}} href="https://hightops.co">High Tops</a>.
+    </p>
   </div>
 )
 export default About
