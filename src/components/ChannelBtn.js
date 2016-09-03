@@ -9,8 +9,7 @@ const ChannelBtn = ({ ch }) => (
       color:'white',
       border:'none',
       height:'60px',
-      width:'74px',
-      verticalAlign:'1px',
+      padding:'0 12px',
       letterSpacing:'0.1rem',
       fontWeight:'bold',
     }}>

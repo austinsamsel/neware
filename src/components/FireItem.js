@@ -2,7 +2,9 @@ import React, { PropTypes } from 'react'
 
 const FireItem = ( props ) => {
   return(
-    <li>
+    <li style={{
+      padding:'12px 24px'
+    }}>
       {props.note}
     </li>
   );

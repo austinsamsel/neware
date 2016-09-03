@@ -1,6 +1,7 @@
 import React from 'react'
 import ChannelSubmit from '../containers/ChannelSubmit'
 import About from './About'
+import Hr from './ui/Hr'
 
 const s = {
   input: {
@@ -31,10 +32,7 @@ const ChannelForm = (props) => (
       }}
     />
     <ChannelSubmit />
-    <hr style={{
-      height:'72px',
-      border:'none'
-    }} />
+    <Hr height='72px' />
     <About />
   </div>
 )
