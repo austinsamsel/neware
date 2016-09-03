@@ -6,12 +6,14 @@ import Hr from './ui/Hr'
 const s = {
   input: {
     border:'blue solid',
-    borderWidth:'3px 0px 3px 3px',
+    borderWidth:'3px 3px 3px 3px',
     color: 'black',
     padding:'12px',
     fontSize:'24px',
     height:'60px',
     fontWeight:'bold',
+    boxSizing:'border-box',
+    maxWidth:'100%'
   }
 }
 
