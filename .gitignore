@@ -3,6 +3,8 @@ dist/bundle.js
 dist/npm-debug.log
 
 npm-debug.log
+a/npm-debug.log
+b/npm-debug.log
 
 .DS_Store
 
