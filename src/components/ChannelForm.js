@@ -13,7 +13,8 @@ const s = {
     height:'60px',
     fontWeight:'bold',
     boxSizing:'border-box',
-    maxWidth:'100%'
+    maxWidth:'100%',
+    borderRadius:'0px',
   }
 }
 
