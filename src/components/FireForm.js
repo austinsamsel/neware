@@ -11,6 +11,7 @@ const s = {
     height:'120px',
     width:'100%',
     boxSizing:'border-box',
+    borderRadius:'0px',
   }
 }
 
