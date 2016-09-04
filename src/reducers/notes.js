@@ -20,6 +20,7 @@ const notes = (state = [], action) => {
     case 'CLEAR_NOTES':
       return state = [];
     case 'DECRYPT_NOTE':
+      console.log(state)
       return state.map(t =>
         note(t, action)
       )
