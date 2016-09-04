@@ -5,15 +5,6 @@ let input;
 const FireEncrypted = ( props ) => {
   return(
     <div>
-      {
-       /* if secret
-        *   show the input and button
-        * else 
-        *   show the decrypted message.
-        *   and hide the input and button
-        *   and show a lock button.
-        * */
-      }
       (SECRET): {props.decrypted}
 
       <form onSubmit={e => {
@@ -28,7 +19,7 @@ const FireEncrypted = ( props ) => {
            
           if (plaintext.length > 0){
             // console.log(plaintext, props.id)
-            props.onSubmit(plaintext, true)
+            props.onSubmit(plaintext, props.id)
           }
           input.value = ''
         }
