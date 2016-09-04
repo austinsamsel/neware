@@ -1,12 +1,13 @@
 const initialState = {
-  note: ''
+  plaintext: '',
+  id: '',
 }
 
 const decryptNote = (state = initialState, action) => {
   if (action.type === 'DECRYPT_NOTE') {
     return {
-      note: action.note,
-      id: action.id
+      plaintext: action.plaintext,
+      id: action.id,
     }
   }
   return state

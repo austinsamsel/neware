@@ -5,7 +5,7 @@ let input;
 const FireEncrypted = ( props ) => {
   return(
     <div>
-      (SECRET): {props.decrypted}
+      (SECRET): {props.decrypted} -- {props.num}
 
       <form onSubmit={e => {
           e.preventDefault();
@@ -40,6 +40,7 @@ FireEncrypted.propTypes = {
   note: PropTypes.string.isRequired,
   onSubmit: React.PropTypes.func.isRequired,
   decrypted: React.PropTypes.string.isRequired,
+  num: React.PropTypes.string.isRequired,
 }
 
 export default FireEncrypted

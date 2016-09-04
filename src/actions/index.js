@@ -21,10 +21,10 @@ export const fetchNotes = (route) => {
   }
 }
 
-export const decryptNote = (note, id) => {
+export const decryptNote = (plaintext, id) => {
   return {
     type: 'DECRYPT_NOTE',
-    note: note,
+    plaintext: plaintext,
     id: id,
   }
 }

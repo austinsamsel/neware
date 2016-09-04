@@ -4,7 +4,8 @@ import { decryptNote } from '../actions'
 
 const mapStateToProps = (state) => {
   return {
-    decrypted: state.decryptNote.note,
+    decrypted: state.decryptNote.plaintext,
+    num: state.decryptNote.id,
   };
 }
 
