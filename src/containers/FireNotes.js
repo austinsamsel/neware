@@ -20,8 +20,8 @@ class FireNotes extends Component {
     this.props.clearNotes();
   }
 
-  submitHandler(input){
-    this.props.createNote(input, this.props.ch)
+  submitHandler(input, encrypted){
+    this.props.createNote(input, this.props.ch, encrypted)
   }
 
   render() {

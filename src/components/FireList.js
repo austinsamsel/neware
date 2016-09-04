@@ -5,7 +5,11 @@ import _ from 'lodash';
 const FireList = ( props ) => {
   const renderNotes = () => {
     return _.map(props.notes, (note, key) => {
-      return <FireItem key={key} note={note.text} id={key} />
+      return <FireItem key={key} 
+               note={note.text} 
+               encrypted={note.encrypted}  
+               id={key} 
+             />
     });
   }
   return(

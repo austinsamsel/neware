@@ -1,4 +1,12 @@
 import React from 'react'
+import CryptoJS from 'crypto-js'
+
+ // Encrypt 
+ // var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123');
+
+ // Decrypt 
+ // var bytes  = CryptoJS.AES.decrypt(ciphertext.toString(), 'secret key 123');
+ // var plaintext = bytes.toString(CryptoJS.enc.Utf8);
 
 const s = {
   input: {
@@ -15,7 +23,7 @@ const s = {
   }
 }
 
-let textarea;
+let textarea, input;
 const FireForm = ( props ) => (
   <div>
     <form onSubmit={e => {
@@ -23,14 +31,32 @@ const FireForm = ( props ) => (
         if (!textarea.value.trim()){
           return
         }
-        props.onSubmit(textarea.value)
+        //encrypt
+        var cipher = CryptoJS.AES.encrypt(textarea.value, input.value)
+        //stringify
+        var ciphertext = cipher.toString()
+         
+        let encrypted;
+        if (input.value.trim()){
+          encrypted = true;
+        } 
+       
+        props.onSubmit(ciphertext, encrypted)
+        
         textarea.value = ''
+        input.value = ''
       }
     }>
       <div style={{
          display:'flex',
          flexWrap: 'wrap',
       }}>
+
+        <input 
+          ref={node => {
+            input = node
+          }} 
+        />
         <textarea 
           style={s.input}
           ref={node => {

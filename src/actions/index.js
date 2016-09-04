@@ -21,16 +21,25 @@ export const fetchNotes = (route) => {
   }
 }
 
+export const decryptNote = (note, id) => {
+  return {
+    type: 'DECRYPT_NOTE',
+    note: note,
+    id: id,
+  }
+}
+
 export const clearNotes = () => {
   return {
     type: 'CLEAR_NOTES'
   }
 }
 
-export const createNote = (text, route) => {
+export const createNote = (text, route, encrypted) => {
   return dispatch => notesRef.child(route).push({
     createdAt: firebase.database.ServerValue.TIMESTAMP,
-    text: text
+    text: text,
+    encrypted: encrypted,
   })
 }
 
