@@ -35,7 +35,7 @@ const ChannelForm = (props) => (
       }}
     />
     <ChannelSubmit />
-    <Hr height='72px' />
+    <Hr height='48px' />
     <About />
   </div>
 )

@@ -9,7 +9,10 @@ const FireList = ( props ) => {
     });
   }
   return(
-    <ul>
+    <ul style={{
+      margin:'24px 0px 48px',
+      paddingLeft:'18px',
+    }}>
       { _.reverse(renderNotes()) }
     </ul>
   )

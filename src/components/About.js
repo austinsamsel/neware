@@ -14,11 +14,16 @@ const About = () => (
       These days if you want to do anything on the internet you need to create an account, sign up and login. If your password is any good, you probably can't remember it. So when you find yourself on a public computer or a friend's device... but you need to save a note for later... you can use NEWARE.
     </p>
     <p>
-      <strong>How it works:</strong> Create a memorable channel, which is just a URL, for example: 
+      <strong>How it works:</strong> Create a memorable channel, which becomes a URL, for example: 
     </p>
 
-    <p>
-    {window.location.href}<strong>MYCHANNEL</strong> 
+    <p style={{
+      fontFamily:'Consolas,monaco,monospace',
+      backgroundColor:'#eee',
+      padding:'12px',
+      borderRadius:'3px'
+    }}>
+    {window.location.href}<strong>your-channel-here</strong> 
     </p>
 
     <p>
