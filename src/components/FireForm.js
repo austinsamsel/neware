@@ -36,13 +36,13 @@ const FireForm = ( props ) => (
         //stringify
         var ciphertext = cipher.toString()
          
-        let encrypted;
         if (input.value.trim()){
-          encrypted = true;
+          // if encrypted
+          props.onSubmit(ciphertext, true)
+        } else {
+          // not encrypted
+          props.onSubmit(textarea.value, false)
         } 
-       
-        props.onSubmit(ciphertext, encrypted)
-        
         textarea.value = ''
         input.value = ''
       }

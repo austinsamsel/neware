@@ -5,9 +5,9 @@ const initialState = {
 
 const decryptNote = (state = initialState, action) => {
   if (action.type === 'DECRYPT_NOTE') {
-    return {
+    return { 
       plaintext: action.plaintext,
-      id: action.id,
+      num: action.id
     }
   }
   return state

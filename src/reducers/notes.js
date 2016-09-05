@@ -1,5 +1,3 @@
-import _ from 'lodash'
-
 const notes = (state = [], action) => {
   switch (action.type) {
     case 'FETCH_NOTES':
