@@ -1,17 +1,4 @@
-const note = (state = {}, action) => {
-  switch(action.type){
-    case 'DECRYPT_NOTE':
-      if (state.id !== action.id) {
-        return state
-      }
-
-      return Object.assign({}, state, {
-        plaintext: state.plaintext
-      })
-    default:
-      return state
-  }
-}
+import _ from 'lodash'
 
 const notes = (state = [], action) => {
   switch (action.type) {
@@ -19,11 +6,6 @@ const notes = (state = [], action) => {
       return action.payload;
     case 'CLEAR_NOTES':
       return state = [];
-    case 'DECRYPT_NOTE':
-      console.log(state)
-      return state.map(t =>
-        note(t, action)
-      )
     default:
       return state
   }

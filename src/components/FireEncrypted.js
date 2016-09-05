@@ -5,7 +5,7 @@ let input;
 const FireEncrypted = ( props ) => {
   return(
     <div>
-      (SECRET): {props.decrypted} -- {props.num}
+      (SECRET): {props.num === props.id ? props.decrypted : ''}
 
       <form onSubmit={e => {
           e.preventDefault();
