@@ -39,8 +39,8 @@ const FireEncrypted = ( props ) => {
 FireEncrypted.propTypes = {
   note: PropTypes.string.isRequired,
   onSubmit: React.PropTypes.func.isRequired,
-  decrypted: React.PropTypes.string.isRequired,
-  num: React.PropTypes.string.isRequired,
+  // decrypted: React.PropTypes.string.isRequired,
+  // num: React.PropTypes.string.isRequired,
 }
 
 export default FireEncrypted
