@@ -11,7 +11,7 @@ const FireItem = ( props ) => {
           <FireEncrypted 
             note={props.note} 
             plaintext={props.plaintext}
-            onDecrypt={props.onDecrypt} 
+            onSubmit={props.onSubmit} 
             id={props.id} 
           />
         : props.note

@@ -9,7 +9,7 @@ const FireList = ( props ) => {
                note={note.text}
                plaintext={note.plaintext} 
                encrypted={note.encrypted}
-               onDecrypt={props.onDecrypt}
+               onSubmit={props.onSubmit}
                id={key} 
              />
     });

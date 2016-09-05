@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react'
 import CryptoJS from 'crypto-js'
 
-let input;
 const FireEncrypted = ( props ) => {
+let input;
   return(
     <div>
       (SECRET): plaintext: {props.plaintext}
-
       <form onSubmit={e => {
           e.preventDefault();
           if (!input.value.trim()){
@@ -18,7 +17,7 @@ const FireEncrypted = ( props ) => {
           const parsed = bytes.toString(CryptoJS.enc.Utf8);
 
           if (parsed.length > 0){
-            props.onDecrypt(parsed, props.id)
+            props.onSubmit(parsed, props.id)
             input.value = ''
           }
         }
@@ -27,7 +26,6 @@ const FireEncrypted = ( props ) => {
           placeholder="Enter your secret"
           ref={(node) => {
             input = node
-            console.log(input)
           }}
         />
         <button>decrypt</button>
@@ -38,7 +36,7 @@ const FireEncrypted = ( props ) => {
 
 FireEncrypted.propTypes = {
   note: PropTypes.string.isRequired,
-  onDecrypt: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
   plaintext: PropTypes.string.isRequired,
 }
 
