@@ -40,6 +40,7 @@ export const createNote = (text, route, encrypted) => {
     createdAt: firebase.database.ServerValue.TIMESTAMP,
     text: text,
     encrypted: encrypted,
+    plaintext: '',
   })
 }
 

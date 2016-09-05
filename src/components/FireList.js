@@ -6,8 +6,10 @@ const FireList = ( props ) => {
   const renderNotes = () => {
     return _.map(props.notes, (note, key) => {
       return <FireItem key={key} 
-               note={note.text} 
+               note={note.text}
+               plaintext={note.plaintext} 
                encrypted={note.encrypted}
+               onDecrypt={props.onDecrypt}
                id={key} 
              />
     });

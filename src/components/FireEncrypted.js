@@ -5,29 +5,29 @@ let input;
 const FireEncrypted = ( props ) => {
   return(
     <div>
-      (SECRET): {props.num === props.id ? props.decrypted : ''}
+      (SECRET): plaintext: {props.plaintext}
 
       <form onSubmit={e => {
           e.preventDefault();
           if (!input.value.trim()){
             return
           }
-          
+
           //decrypt
-          var bytes  = CryptoJS.AES.decrypt(props.note, input.value);
-          var plaintext = bytes.toString(CryptoJS.enc.Utf8);
-           
-          if (plaintext.length > 0){
-            // console.log(plaintext, props.id)
-            props.onSubmit(plaintext, props.id)
+          const bytes  = CryptoJS.AES.decrypt(props.note, input.value);
+          const parsed = bytes.toString(CryptoJS.enc.Utf8);
+
+          if (parsed.length > 0){
+            props.onDecrypt(parsed, props.id)
+            input.value = ''
           }
-          input.value = ''
         }
       }>
         <input
           placeholder="Enter your secret"
-          ref={node => {
+          ref={(node) => {
             input = node
+            console.log(input)
           }}
         />
         <button>decrypt</button>
@@ -38,9 +38,8 @@ const FireEncrypted = ( props ) => {
 
 FireEncrypted.propTypes = {
   note: PropTypes.string.isRequired,
-  onSubmit: React.PropTypes.func.isRequired,
-  // decrypted: React.PropTypes.string.isRequired,
-  // num: React.PropTypes.string.isRequired,
+  onDecrypt: PropTypes.func.isRequired,
+  plaintext: PropTypes.string.isRequired,
 }
 
 export default FireEncrypted

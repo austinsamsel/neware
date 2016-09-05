@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import FireToggle from '../containers/FireToggle'
+import FireEncrypted from './FireEncrypted'
 
 const FireItem = ( props ) => {
   
@@ -8,7 +8,12 @@ const FireItem = ( props ) => {
       padding:'12px 0'
     }}>
       { props.encrypted ?
-          <FireToggle note={props.note} id={props.id} />
+          <FireEncrypted 
+            note={props.note} 
+            plaintext={props.plaintext}
+            onDecrypt={props.onDecrypt} 
+            id={props.id} 
+          />
         : props.note
       }
 
@@ -17,7 +22,9 @@ const FireItem = ( props ) => {
 }
 
 FireItem.propTypes = {
-  note: PropTypes.string.isRequired
+  note: PropTypes.string.isRequired,
+  plaintext: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 }
 
 export default FireItem

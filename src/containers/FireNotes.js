@@ -9,6 +9,7 @@ class FireNotes extends Component {
     super(props)
     this.state = {}
     this.submitHandler = this.submitHandler.bind(this);
+    this.onDecrypt = this.onDecrypt.bind(this);
   }
 
   componentDidMount() {
@@ -24,13 +25,17 @@ class FireNotes extends Component {
     this.props.createNote(input, this.props.ch, encrypted)
   }
 
+  onDecrypt(plaintext, id){
+    this.props.decryptNote(plaintext, id)
+  }
+
   render() {
     return (
       <div>
         <FireForm onSubmit={this.submitHandler}
           route={this.props.ch}
         />
-        <FireList notes={this.props.notes} />
+        <FireList notes={this.props.notes} onDecrypt={this.onDecrypt} />
       </div>
     );
   }
