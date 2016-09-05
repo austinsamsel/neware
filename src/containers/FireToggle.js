@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const FireToggle = connect(
-  mapStateToProps,
+  null, //mapStateToProps,
   mapDispatchToProps
 )(FireEncrypted)
 export default FireToggle

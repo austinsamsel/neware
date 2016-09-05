@@ -4,6 +4,16 @@ const notes = (state = [], action) => {
       return action.payload;
     case 'CLEAR_NOTES':
       return state = [];
+    case 'DECRYPT_NOTE':
+      console.log(state)
+      return _.mapValues(state, (note, index) => {
+        if (index === action.id) {
+          return _.assign({}, note, {
+            plaintext: action.plaintext
+          })
+        }
+        return note
+      })
     default:
       return state
   }
