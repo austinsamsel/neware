@@ -1,20 +1,3 @@
-<<<<<<< HEAD
-const initialState = {
-  plaintext: '',
-  id: '',
-}
-
-const decryptNote = (state = initialState, action) => {
-  if (action.type === 'DECRYPT_NOTE') {
-    return { 
-      plaintext: action.plaintext,
-      num: action.id
-    }
-  }
-  return state
-}
-export default decryptNote
-=======
 // const initialState = {
 //   plaintext: '',
 //   id: '',
@@ -30,4 +13,3 @@ export default decryptNote
 //   return state
 // }
 // export default decryptNote
->>>>>>> encrypt-single-note-immutable
