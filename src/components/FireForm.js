@@ -1,5 +1,6 @@
 import React from 'react'
 import CryptoJS from 'crypto-js'
+import FirePasscode from './FirePasscode'
 
 const s = {
   input: {
@@ -37,60 +38,42 @@ const FireForm = ( props ) => (
          
         if (input.value.trim()){
           // if encrypted
-          props.onSubmit(ciphertext, true)
+          console.log(ciphertext, true)
+          //props.onSubmit(ciphertext, true)
         } else {
           // not encrypted
-          props.onSubmit(textarea.value, false)
+          console.log(textarea.valuel, false)
+          //props.onSubmit(textarea.value, false)
         } 
         textarea.value = ''
         input.value = ''
       }
     }>
-      <div style={{
-         display:'flex',
-         flexWrap: 'wrap',
-      }}>
-        <textarea 
-          style={{...s.input, ...s.large}}
-          ref={node => {
-            textarea = node
-          }}
-          placeholder='Stuff to save for later' 
-        >
-        </textarea>
-        <input
-          style={{...s.input, ...s.small}}
-          placeholder='Optional. Add a passcode to encrypt it.' 
-          ref={node => {
-            input = node
-          }} 
-        />
+      <FirePasscode />  
+      <textarea 
+        style={{...s.input, ...s.large}}
+        ref={node => {
+          textarea = node
+        }}
+        placeholder='Stuff to save for later' 
+      >
+      </textarea>
 
-        <button style={{
-            backgroundColor:'blue',
-            fontSize:'24px',
-            color:'white',
-            border:'none',
-            height:'60px',
-            padding:'0 12px',
-            letterSpacing:'0.1rem',
-            fontWeight:'bold',
-            width:'100%',
-          }}
-          action='submit'
-        >
-          Add Note
-        </button>
-        <span 
-          style={{
-            margin:'6px 12px 6px',
-            fontSize:'14px',
-            fontFamily:'Consolas,monaco,monospace',
-          }}
-        >
-          <strong>Important:</strong> if you entered a passcode and you can't remember it later, your stuff will be lost forever. forever. forever.
-        </span>
-      </div>
+      <button style={{
+          backgroundColor:'blue',
+          fontSize:'24px',
+          color:'white',
+          border:'none',
+          height:'60px',
+          padding:'0 12px',
+          letterSpacing:'0.1rem',
+          fontWeight:'bold',
+          width:'100%',
+        }}
+        action='submit'
+      >
+        Add Note
+      </button>
     </form>
   </div>
 )
