@@ -14,6 +14,7 @@ const FireItem = ( props ) => {
     }}>
       <p style={{
           fontFamily:'Consolas,monaco,monospace',
+          color:'lightseagreen',
         }}
       > 
         <img src={hourglass}

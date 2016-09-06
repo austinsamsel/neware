@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react'
 import CryptoJS from 'crypto-js'
+import thekey from '../public/key.png'
 
 const FireEncrypted = ( props ) => {
 let input;
@@ -34,7 +35,7 @@ let input;
         : props.plaintext
         }
         <img 
-          src='http://emojipedia-us.s3.amazonaws.com/cache/2a/80/2a80a079191d67b5f01e8f19eb94942d.png' 
+          src={thekey}
           alt='lock and key'
           style={{
             height:'auto', 

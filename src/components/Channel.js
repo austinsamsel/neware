@@ -1,6 +1,7 @@
 import React from 'react'
 import FireNotes from '../containers/FireNotes'
 import Hr from './ui/Hr'
+import thumbsup from '../public/thumbsup.png'
 
 const Channel = ({name}) => (
   <div>
@@ -13,8 +14,9 @@ const Channel = ({name}) => (
           height:'auto',
           width:'40px',
           marginRight:'10px',
+          verticalAlign:'-3px',
         }} 
-        src="http://emojipedia-us.s3.amazonaws.com/cache/f8/69/f869f6512b0d7187f4e475fc9aa7f250.png" 
+        src={thumbsup}
         alt=":thumbs up emoji:"
       />
       {name}
