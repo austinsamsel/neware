@@ -18,7 +18,7 @@ const s = {
     border:'3px blue solid',
   },
   small: {
-    border:'3px darkgray solid'
+    border:'1px darkgray solid'
   }
 }
 
@@ -88,7 +88,7 @@ const FireForm = ( props ) => (
             fontFamily:'Consolas,monaco,monospace',
           }}
         >
-          Important: if you entered a passcode and you can't remember it later, your stuff will be lost forever. forever. forever.
+          <strong>Important:</strong> if you entered a passcode and you can't remember it later, your stuff will be lost forever. forever. forever.
         </span>
       </div>
     </form>
