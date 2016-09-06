@@ -7,6 +7,7 @@ const FireList = ( props ) => {
     return _.map(props.notes, (note, key) => {
       return <FireItem key={key} 
                note={note.text}
+               createdAt={note.createdAt}
                plaintext={note.plaintext} 
                encrypted={note.encrypted}
                onSubmit={props.onSubmit}
@@ -17,7 +18,7 @@ const FireList = ( props ) => {
   return(
     <ul style={{
       margin:'24px 0px 48px',
-      paddingLeft:'18px',
+      paddingLeft:'0',
     }}>
       { _.reverse(renderNotes()) }
     </ul>

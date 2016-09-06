@@ -5,7 +5,6 @@ const FireEncrypted = ( props ) => {
 let input;
   return(
     <div>
-      (SECRET): plaintext: {props.plaintext}
       <form onSubmit={e => {
           e.preventDefault();
           if (!input.value.trim()){
@@ -22,13 +21,28 @@ let input;
           }
         }
       }>
-        <input
-          placeholder="Enter your secret"
-          ref={(node) => {
-            input = node
-          }}
-        />
-        <button>decrypt</button>
+        {props.plaintext === '' ?
+          <span>
+            <input
+              placeholder='Your secret code'
+              ref={(node) => {
+                input = node
+              }}
+            />
+            <button>decrypt</button>
+          </span> 
+        : props.plaintext
+        }
+        <img 
+          src='http://emojipedia-us.s3.amazonaws.com/cache/2a/80/2a80a079191d67b5f01e8f19eb94942d.png' 
+          alt='lock and key'
+          style={{
+            height:'auto', 
+            width:'20px', 
+            marginLeft:'12px',
+            verticalAlign:'-5px',
+          }} 
+        /> 
       </form>
     </div>
   );

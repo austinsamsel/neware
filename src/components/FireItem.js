@@ -1,12 +1,34 @@
 import React, { PropTypes } from 'react'
 import FireEncrypted from './FireEncrypted'
+import moment from 'moment'
+import hourglass from '../public/hourglass.png'
 
 const FireItem = ( props ) => {
   
   return(
     <li style={{
-      padding:'12px 0'
+      listStyle:'none',
+      padding:'12px 0',
+      borderBottom:'1px solid #eee',
+      paddingBottom:'12px',
     }}>
+      <p style={{
+          fontFamily:'Consolas,monaco,monospace',
+        }}
+      > 
+        <img src={hourglass}
+          alt='Timestamp'
+          style={{
+            width:'16px',
+            height:'auto',
+            marginRight:'6px',
+            verticalAlign:'-3px',
+          }}
+        />
+        { moment(props.createdAt)
+          .format('ddd MMM Do YYYY, h:mm a') 
+        }
+      </p>
       { props.encrypted ?
           <FireEncrypted 
             note={props.note} 
@@ -16,7 +38,6 @@ const FireItem = ( props ) => {
           />
         : props.note
       }
-
     </li>
   );
 }

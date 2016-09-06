@@ -10,6 +10,7 @@ const Channel = ({name}) => (
     }}>
       <img
         style={{
+          height:'auto',
           width:'40px',
           marginRight:'10px',
         }} 
