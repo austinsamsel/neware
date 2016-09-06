@@ -1,25 +1,24 @@
 import React from 'react'
 import CryptoJS from 'crypto-js'
 
- // Encrypt 
- // var ciphertext = CryptoJS.AES.encrypt('my message', 'secret key 123');
-
- // Decrypt 
- // var bytes  = CryptoJS.AES.decrypt(ciphertext.toString(), 'secret key 123');
- // var plaintext = bytes.toString(CryptoJS.enc.Utf8);
-
 const s = {
   input: {
-    border:'3px blue solid',
     color: 'black',
     padding:'12px',
     fontSize:'16px',
     fontWeight:'bold',
     resize:'none',
-    height:'120px',
     width:'100%',
     boxSizing:'border-box',
     borderRadius:'0px',
+    marginBottom:'6px',
+  },
+  large: {
+    height:'120px',
+    border:'3px blue solid',
+  },
+  small: {
+    border:'3px darkgray solid'
   }
 }
 
@@ -51,18 +50,21 @@ const FireForm = ( props ) => (
          display:'flex',
          flexWrap: 'wrap',
       }}>
-
-        <input 
+        <textarea 
+          style={{...s.input, ...s.large}}
+          ref={node => {
+            textarea = node
+          }}
+          placeholder='Stuff to save for later' 
+        >
+        </textarea>
+        <input
+          style={{...s.input, ...s.small}}
+          placeholder='Optional. Add a passcode to encrypt it.' 
           ref={node => {
             input = node
           }} 
         />
-        <textarea 
-          style={s.input}
-          ref={node => {
-            textarea = node
-          }} 
-        ></textarea>
 
         <button style={{
             backgroundColor:'blue',
@@ -79,6 +81,15 @@ const FireForm = ( props ) => (
         >
           Add Note
         </button>
+        <span 
+          style={{
+            margin:'6px 12px 6px',
+            fontSize:'14px',
+            fontFamily:'Consolas,monaco,monospace',
+          }}
+        >
+          Important: if you entered a passcode and you can't remember it later, your stuff will be lost forever. forever. forever.
+        </span>
       </div>
     </form>
   </div>

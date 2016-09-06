@@ -25,12 +25,32 @@ let input;
         {props.plaintext === '' ?
           <span>
             <input
+              style={{
+                color: 'black',
+                padding:'12px',
+                fontSize:'16px',
+                fontWeight:'bold',
+                resize:'none',
+                boxSizing:'border-box',
+                borderRadius:'0px',
+              }}
               placeholder='Your secret code'
               ref={(node) => {
                 input = node
               }}
             />
-            <button>decrypt</button>
+
+            <button style={{
+              backgroundColor:'darkgray',
+              color:'white',
+              border:'none',
+              height:'52px',
+              padding:'12px',
+              letterSpacing:'0.1rem',
+              fontWeight:'bold',
+            }}>
+              Unlock
+            </button>
           </span> 
         : props.plaintext
         }
