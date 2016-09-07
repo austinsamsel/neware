@@ -1,9 +1,13 @@
 import _ from 'lodash'
 
-const passcodeToggle = (state = false, action) => {
+const initialState = {
+  bool: false
+}
+
+const passcodeToggle = (state = initialState, action) => {
   if (action.type === 'PASSCODE_TOGGLE') {
     return _.assign({}, state, {
-      passcodeToggle: !state.passcodeToggle
+      bool: !state.bool
     })
   }
   return state

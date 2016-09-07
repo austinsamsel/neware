@@ -55,7 +55,7 @@ class FireNotes extends Component {
 const mapStateToProps = (state) => {
   return {
     notes: state.notes,
-    passcodeToggle: state.passcodeToggle,
+    passcodeToggle: state.passcodeToggle.bool,
   };
 }
 
