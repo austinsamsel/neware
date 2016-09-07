@@ -10,10 +10,12 @@ import AddChannel from './containers/AddChannel'
 import ChannelContainer from './containers/ChannelContainer'
 import notes from './reducers/notes'
 import addChannel from './reducers/addChannel'
+import passcodeToggle from './reducers/passcodeToggle'
 
 const reducer = combineReducers({
   addChannel,
   notes,
+  passcodeToggle,
   routing: routerReducer
 })
 

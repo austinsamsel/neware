@@ -31,7 +31,7 @@ export const decryptNote = (plaintext, id) => {
 
 export const clearNotes = () => {
   return {
-    type: 'CLEAR_NOTES'
+    type: 'CLEAR_NOTES',
   }
 }
 
@@ -55,5 +55,11 @@ export const addChannel = (ch) => {
   return {
     type: 'ADD_CHANNEL',
     ch
+  }
+}
+
+export const encryptToggle = () => {
+  return {
+    type: 'PASSCODE_TOGGLE',
   }
 }

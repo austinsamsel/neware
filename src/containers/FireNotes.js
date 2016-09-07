@@ -1,24 +1,25 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
-import FireForm from '../components/FireForm';
-import FireList from '../components/FireList';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import * as actions from '../actions'
+import FireForm from '../components/FireForm'
+import FireList from '../components/FireList'
 
 class FireNotes extends Component {
   constructor(props){
     super(props)
     this.state = {}
-    this.submitHandler = this.submitHandler.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.submitHandler = this.submitHandler.bind(this)
+    this.onSubmit = this.onSubmit.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
-    this.props.fetchNotes(this.props.ch);
+    this.props.fetchNotes(this.props.ch)
   }
 
   componentWillUnmount() {
-    this.props.unloadNotes(this.props.ch);
-    this.props.clearNotes();
+    this.props.unloadNotes(this.props.ch)
+    this.props.clearNotes()
   }
 
   submitHandler(input, encrypted){
@@ -29,13 +30,23 @@ class FireNotes extends Component {
     this.props.decryptNote(plaintext, id)
   }
 
+  handleClick(){
+    this.props.encryptToggle()
+  }
+
   render() {
     return (
       <div>
-        <FireForm onSubmit={this.submitHandler}
+        <FireForm 
+          onSubmit={this.submitHandler}
+          handleClick={this.handleClick}
+          passcodeToggle={this.props.passcodeToggle}
           route={this.props.ch}
         />
-        <FireList notes={this.props.notes} onSubmit={this.onSubmit} />
+        <FireList 
+          notes={this.props.notes} 
+          onSubmit={this.onSubmit} 
+        />
       </div>
     );
   }
@@ -43,7 +54,8 @@ class FireNotes extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    notes: state.notes
+    notes: state.notes,
+    passcodeToggle: state.passcodeToggle,
   };
 }
 
