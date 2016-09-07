@@ -39,11 +39,9 @@ const FireForm = ( props ) => (
          
         if (input.value.trim()){
           // if encrypted
-          //console.log(ciphertext, true)
           props.onSubmit(ciphertext, true)
         } else {
           // not encrypted
-          //console.log(textarea.valuel, false)
           props.onSubmit(textarea.value, false)
         } 
         textarea.value = ''
@@ -58,35 +56,36 @@ const FireForm = ( props ) => (
           padding:'6px 12px',
           marginBottom:'6px',
           float:'right',
-          display: props.passcodeToggle ? 'block' : 'block',
+          backgroundColor:'#eee',
+          border:'none', 
         }}
       >
-        Keep it secret? 
+        Make it secret? 
         <img src={lockandkey}
           style={{
             height:'auto',
             width:'20px',
             marginLeft:'6px',
-            verticalAlign:'-3px' 
+            verticalAlign:'-3px',
           }}
           alt="Lock and Key"
         />
       </button>
       <div style={{
+        //opacity: props.passcodeToggle ? '1.0' : '0.0',
         display: props.passcodeToggle ? 'block' : 'none',
       }}>
         <span 
           style={{
-            margin:'6px 12px 6px',
             fontSize:'14px',
             fontFamily:'Consolas,monaco,monospace',
           }}
         >
-          <strong>Important:</strong> if you entered a passcode and you can't remember it later, your stuff will be lost forever. forever. forever.
+          <strong>Important:</strong> if you forget your passcode, your stuff will be lost forever.
         </span>
         <input
           style={{...s.input, ...s.small}}
-          placeholder='Add a passcode for encryption' 
+          placeholder='Your passcode' 
           ref={node => {
             input = node
           }} 
