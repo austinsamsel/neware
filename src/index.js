@@ -11,6 +11,7 @@ import ChannelContainer from './containers/ChannelContainer'
 import notes from './reducers/notes'
 import addChannel from './reducers/addChannel'
 import passcodeToggle from './reducers/passcodeToggle'
+import {StyleRoot} from 'radium'
 
 const reducer = combineReducers({
   addChannel,
@@ -34,12 +35,14 @@ const history = syncHistoryWithStore(browserHistory, store)
 
 render(
   <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={App}>
-        <IndexRoute component={AddChannel} />
-        <Route path=":name" component={ChannelContainer} />
-      </Route>
-    </Router>
+    <StyleRoot>
+      <Router history={history}>
+        <Route path="/" component={App}>
+          <IndexRoute component={AddChannel} />
+          <Route path=":name" component={ChannelContainer} />
+        </Route>
+      </Router>
+    </StyleRoot>
   </Provider>,
   document.getElementById('root')
 )

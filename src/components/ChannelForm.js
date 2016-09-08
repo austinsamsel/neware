@@ -2,6 +2,7 @@ import React from 'react'
 import ChannelSubmit from '../containers/ChannelSubmit'
 import About from './About'
 import Hr from './ui/Hr'
+import Radium from 'radium'
 
 const s = {
   input: {
@@ -15,6 +16,9 @@ const s = {
     boxSizing:'border-box',
     maxWidth:'100%',
     borderRadius:'0px',
+    '@media (max-width:480px)': {
+      width: '100%'
+    }
   }
 }
 
@@ -39,8 +43,9 @@ const ChannelForm = (props) => (
     <About />
   </div>
 )
-export default ChannelForm
 
 ChannelForm.propTypes = {
   onKeyUp: React.PropTypes.func.isRequired
 };
+
+export default Radium(ChannelForm)

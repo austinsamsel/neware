@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router';
+import Radium from 'radium'
 
 const ChannelBtn = ({ ch }) => (
   <Link to={`/${ch}`}>
@@ -12,6 +13,10 @@ const ChannelBtn = ({ ch }) => (
       padding:'0 12px',
       letterSpacing:'0.1rem',
       fontWeight:'bold',
+      boxSizing: 'border-box',
+      '@media (max-width:480px)': {
+        width: '100%'
+      }
     }}>
       Go
     </button>
@@ -22,4 +27,4 @@ ChannelBtn.propTypes = {
   ch: React.PropTypes.string.isRequired
 }
 
-export default ChannelBtn
+export default Radium(ChannelBtn)
