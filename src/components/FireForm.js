@@ -60,7 +60,10 @@ const FireForm = ( props ) => (
           border:'none', 
         }}
       >
-        Make it secret? 
+        {props.passcodeToggle ? 
+         'Public'
+        : 'Secret'
+        }
         <img src={lockandkey}
           style={{
             height:'auto',
