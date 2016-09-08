@@ -61,8 +61,8 @@ const FireForm = ( props ) => (
         }}
       >
         {props.passcodeToggle ? 
-         'Public'
-        : 'Secret'
+         'Secret'
+        : 'Public'
         }
         <img src={lockandkey}
           style={{
