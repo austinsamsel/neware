@@ -6,8 +6,7 @@ import Radium from 'radium'
 
 const s = {
   input: {
-    border:'blue solid',
-    borderWidth:'3px 3px 3px 3px',
+    border:'blue solid 3px',
     color: 'black',
     padding:'12px',
     fontSize:'24px',
