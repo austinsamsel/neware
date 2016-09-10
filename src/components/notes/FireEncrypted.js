@@ -33,6 +33,7 @@ let input;
                 resize:'none',
                 boxSizing:'border-box',
                 borderRadius:'0px',
+                border:'1px solid darkgray',
               }}
               placeholder='Your secret code'
               ref={(node) => {
@@ -44,7 +45,7 @@ let input;
               backgroundColor:'darkgray',
               color:'white',
               border:'none',
-              height:'52px',
+              height:'50px',
               padding:'12px',
               letterSpacing:'0.1rem',
               fontWeight:'bold',

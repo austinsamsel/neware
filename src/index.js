@@ -9,8 +9,8 @@ import App from './components/App'
 import AddChannel from './containers/channel/AddChannel'
 import ChannelContainer from './containers/channel/ChannelContainer'
 import notes from './reducers/notes'
-import addChannel from './reducers/addChannel'
-import passcodeToggle from './reducers/passcodeToggle'
+import addChannel from './reducers/channel'
+import passcodeToggle from './reducers/notes/passcodeToggle'
 import {StyleRoot} from 'radium'
 
 const reducer = combineReducers({

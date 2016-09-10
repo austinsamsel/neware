@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import ChannelForm from '../../components/channel/ChannelForm'
-import { addChannel } from '../../actions'
+import { addChannel } from '../../actions/channel'
 
 const mapDispatchToProps = (dispatch) => {
   return {
