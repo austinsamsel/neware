@@ -1,6 +1,6 @@
 import React from 'react'
-import FireNotes from '../containers/FireNotes'
-import Hr from './ui/Hr'
+import FireNotes from '../../containers/notes/FireNotes'
+import Hr from '../../ui/Hr'
 import thumbsup from '../public/thumbsup.png'
 
 const Channel = ({name}) => (

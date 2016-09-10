@@ -1,7 +1,7 @@
 import React from 'react'
-import ChannelSubmit from '../containers/ChannelSubmit'
-import About from './About'
-import Hr from './ui/Hr'
+import ChannelSubmit from '~/src/containers/channel/ChannelSubmit'
+import About from 'src/components/pages/About'
+import Hr from 'src/components/ui/Hr'
 import Radium from 'radium'
 
 const s = {

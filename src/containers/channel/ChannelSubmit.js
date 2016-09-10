@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import ChannelBtn from '../components/ChannelBtn'
+import ChannelBtn from '../../components/channel/ChannelBtn'
 
 const mapStateToProps = (state) => {
   return {
