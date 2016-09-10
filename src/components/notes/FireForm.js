@@ -20,7 +20,37 @@ const s = {
   },
   small: {
     border:'1px darkgray solid'
-  }
+  },
+  toggleBtn: { 
+    background:'#eee',
+    borderRadius:'3px',
+    padding:'6px 12px',
+    marginBottom:'6px',
+    float:'right',
+    backgroundColor:'#eee',
+    border:'none', 
+  },
+  image: { 
+    height:'auto',
+    width:'20px',
+    marginLeft:'6px',
+    verticalAlign:'-3px',
+  },
+  submitBtn: { 
+    backgroundColor:'blue',
+    fontSize:'24px',
+    color:'white',
+    border:'none',
+    height:'60px',
+    padding:'0 12px',
+    letterSpacing:'0.1rem',
+    fontWeight:'bold',
+    width:'100%',
+  },
+  serif: { 
+    fontSize:'14px',
+    fontFamily:'Consolas,monaco,monospace',
+  },
 }
 
 let textarea, input;
@@ -50,27 +80,14 @@ const FireForm = ( props ) => (
     }>     
       <button
         onClick={props.handleClick} 
-        style={{
-          background:'#eee',
-          borderRadius:'3px',
-          padding:'6px 12px',
-          marginBottom:'6px',
-          float:'right',
-          backgroundColor:'#eee',
-          border:'none', 
-        }}
+        style={s.toggleBtn}
       >
         {props.passcodeToggle ? 
          'Secret'
         : 'Public'
         }
         <img src={lockandkey}
-          style={{
-            height:'auto',
-            width:'20px',
-            marginLeft:'6px',
-            verticalAlign:'-3px',
-          }}
+          style={s.image}
           alt="Lock and Key"
         />
       </button>
@@ -79,10 +96,7 @@ const FireForm = ( props ) => (
         display: props.passcodeToggle ? 'block' : 'none',
       }}>
         <span 
-          style={{
-            fontSize:'14px',
-            fontFamily:'Consolas,monaco,monospace',
-          }}
+          style={s.serif}
         >
           <strong>Important:</strong> if you forget your passcode, your stuff will be lost forever.
         </span>
@@ -102,17 +116,7 @@ const FireForm = ( props ) => (
         placeholder='Stuff to save for later' 
       >
       </textarea>
-      <button style={{
-          backgroundColor:'blue',
-          fontSize:'24px',
-          color:'white',
-          border:'none',
-          height:'60px',
-          padding:'0 12px',
-          letterSpacing:'0.1rem',
-          fontWeight:'bold',
-          width:'100%',
-        }}
+      <button style={s.submitBtn}
         action='submit'
       >
         Add Note

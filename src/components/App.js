@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 
-const App = ({ children }) => (
+const App = (props) => (
   <div>
     <Link to="/" style={{textDecoration:'none'}}>
       <div style={{
@@ -13,7 +13,7 @@ const App = ({ children }) => (
         NEWARE
       </div>
     </Link>
-    {children}
+    {props.children}
   </div>
 )
 export default App

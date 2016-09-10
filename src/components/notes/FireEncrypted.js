@@ -2,6 +2,34 @@ import React, { PropTypes } from 'react'
 import CryptoJS from 'crypto-js'
 import thekey from '../../public/key.png'
 
+const s = {
+  button: {
+    backgroundColor:'darkgray',
+    color:'white',
+    border:'none',
+    height:'50px',
+    padding:'12px',
+    letterSpacing:'0.1rem',
+    fontWeight:'bold',
+  },
+  input: {
+    color: 'black',
+    padding:'12px',
+    fontSize:'16px',
+    fontWeight:'bold',
+    resize:'none',
+    boxSizing:'border-box',
+    borderRadius:'0px',
+    border:'1px solid darkgray',
+  },
+  image: {
+    height:'auto', 
+    width:'20px', 
+    marginLeft:'12px',
+    verticalAlign:'-5px',
+  },
+}
+
 const FireEncrypted = ( props ) => {
 let input;
   return(
@@ -25,31 +53,13 @@ let input;
         {props.plaintext === '' ?
           <span>
             <input
-              style={{
-                color: 'black',
-                padding:'12px',
-                fontSize:'16px',
-                fontWeight:'bold',
-                resize:'none',
-                boxSizing:'border-box',
-                borderRadius:'0px',
-                border:'1px solid darkgray',
-              }}
+              style={s.input}
               placeholder='Your secret code'
               ref={(node) => {
                 input = node
               }}
             />
-
-            <button style={{
-              backgroundColor:'darkgray',
-              color:'white',
-              border:'none',
-              height:'50px',
-              padding:'12px',
-              letterSpacing:'0.1rem',
-              fontWeight:'bold',
-            }}>
+            <button style={s.button}>
               Unlock
             </button>
           </span> 
@@ -58,12 +68,7 @@ let input;
         <img 
           src={thekey}
           alt='lock and key'
-          style={{
-            height:'auto', 
-            width:'20px', 
-            marginLeft:'12px',
-            verticalAlign:'-5px',
-          }} 
+          style={s.image} 
         /> 
       </form>
     </div>

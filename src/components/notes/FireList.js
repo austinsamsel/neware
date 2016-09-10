@@ -26,11 +26,9 @@ const FireList = ( props ) => {
 
 }
 
-// FireList.propTypes = {
-//   // notes: PropTypes.arrayOf(PropTypes.shape({
-//   //   id: PropTypes.number.isRequired,
-//   //   text: PropTypes.string.isRequired
-//   // }).isRequired).isRequired
-// }
+FireList.propTypes = {
+  // TODO: requires, notes, but validation triggers warning
+  // notes: React.PropTypes.object.isRequired
+}
 
 export default FireList
