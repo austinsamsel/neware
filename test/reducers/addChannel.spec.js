@@ -1,4 +1,3 @@
-import expect from 'expect'
 import addChannel from '../../src/reducers/addChannel'
 
 describe('channels reducer', () => {
