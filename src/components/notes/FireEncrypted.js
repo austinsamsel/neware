@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 import CryptoJS from 'crypto-js'
-import thekey from '../public/key.png'
+import thekey from '../../public/key.png'
 
 const FireEncrypted = ( props ) => {
 let input;

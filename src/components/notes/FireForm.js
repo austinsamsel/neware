@@ -1,6 +1,6 @@
 import React from 'react'
 import CryptoJS from 'crypto-js'
-import lockandkey from '../public/lockandkey.png'
+import lockandkey from '../../public/lockandkey.png'
 
 const s = {
   input: {

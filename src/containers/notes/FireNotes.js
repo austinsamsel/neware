@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import * as actions from '../actions'
-import FireForm from '../components/FireForm'
-import FireList from '../components/FireList'
+import * as actions from '../../actions'
+import FireForm from '../../components/notes/FireForm'
+import FireList from '../../components/notes/FireList'
 
 class FireNotes extends Component {
   constructor(props){
