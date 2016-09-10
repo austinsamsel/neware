@@ -1,4 +1,4 @@
-import addChannel from '../../src/reducers/addChannel'
+import addChannel from './addChannel'
 
 describe('channels reducer', () => {
 

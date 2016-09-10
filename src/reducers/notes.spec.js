@@ -1,4 +1,4 @@
-import notes from '../../src/reducers/notes'
+import notes from './notes'
 
 describe('notes reducer', () => {
 
