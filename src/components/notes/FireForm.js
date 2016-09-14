@@ -78,7 +78,7 @@ const FireForm = ( props ) => (
         input.value = ''
       }
     }>     
-      <button
+      <div
         onClick={props.handleClick} 
         style={s.toggleBtn}
       >
@@ -90,7 +90,7 @@ const FireForm = ( props ) => (
           style={s.image}
           alt="Lock and Key"
         />
-      </button>
+      </div>
       <div style={{
         //opacity: props.passcodeToggle ? '1.0' : '0.0',
         display: props.passcodeToggle ? 'block' : 'none',
