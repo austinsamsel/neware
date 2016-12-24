@@ -11,6 +11,7 @@ const FireItem = ( props ) => {
       padding:'12px 0',
       borderBottom:'1px solid #eee',
       paddingBottom:'12px',
+      overflowWrap: 'break-word'
     }}>
       <p style={{
           fontFamily:'Consolas,monaco,monospace',
