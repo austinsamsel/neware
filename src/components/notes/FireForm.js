@@ -102,6 +102,8 @@ const FireForm = ( props ) => (
         </span>
         <input
           style={{...s.input, ...s.small}}
+          type='password'
+          autocomplete='off'
           placeholder='Your passcode' 
           ref={node => {
             input = node
