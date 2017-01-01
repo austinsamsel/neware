@@ -1,57 +1,10 @@
 import React from 'react'
 import CryptoJS from 'crypto-js'
 import lockandkey from '../../public/lockandkey.png'
+import s from './FireForm.style.js'
 
-const s = {
-  input: {
-    color: 'black',
-    padding:'12px',
-    fontSize:'16px',
-    fontWeight:'bold',
-    resize:'none',
-    width:'100%',
-    boxSizing:'border-box',
-    borderRadius:'0px',
-    marginBottom:'6px',
-  },
-  large: {
-    height:'120px',
-    border:'3px blue solid',
-  },
-  small: {
-    border:'1px darkgray solid'
-  },
-  toggleBtn: { 
-    background:'#eee',
-    borderRadius:'3px',
-    padding:'6px 12px',
-    marginBottom:'6px',
-    float:'right',
-    backgroundColor:'#eee',
-    border:'none', 
-  },
-  image: { 
-    height:'auto',
-    width:'20px',
-    marginLeft:'6px',
-    verticalAlign:'-3px',
-  },
-  submitBtn: { 
-    backgroundColor:'blue',
-    fontSize:'24px',
-    color:'white',
-    border:'none',
-    height:'60px',
-    padding:'0 12px',
-    letterSpacing:'0.1rem',
-    fontWeight:'bold',
-    width:'100%',
-  },
-  serif: { 
-    fontSize:'14px',
-    fontFamily:'Consolas,monaco,monospace',
-  },
-}
+console.log(s)
+console.log(s.toggleBtn)
 
 let textarea, input;
 
@@ -100,15 +53,22 @@ const FireForm = ( props ) => (
         >
           <strong>Important:</strong> if you forget your passcode, your stuff will be lost forever.
         </span>
-        <input
-          style={{...s.input, ...s.small}}
-          type='password'
-          autocomplete='off'
-          placeholder='Your passcode' 
-          ref={node => {
-            input = node
-          }} 
-        />
+        <div 
+          style={{
+            display:'flex',
+            alignItems:'center',
+            width:'100%',
+        }}>
+          <input
+            style={{...s.input, ...s.small}}
+            type='password'
+            placeholder='Your passcode' 
+            ref={node => {
+              input = node
+            }} 
+          />
+          [show]
+        </div>
       </div>
       <textarea 
         style={{...s.input, ...s.large}}

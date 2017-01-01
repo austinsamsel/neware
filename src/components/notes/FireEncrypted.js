@@ -55,7 +55,6 @@ let input;
             <input
               style={s.input}
               type='password'
-              autocomplete='off'
               placeholder='Your secret code'
               ref={(node) => {
                 input = node
