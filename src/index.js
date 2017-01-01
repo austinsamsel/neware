@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
+import {StyleRoot} from 'radium'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import reduxThunk from 'redux-thunk'
 import { Provider } from 'react-redux'
@@ -11,13 +12,14 @@ import ChannelContainer from './containers/channel/ChannelContainer'
 import notes from './reducers/notes'
 import addChannel from './reducers/channel'
 import passcodeToggle from './reducers/notes/passcodeToggle'
-import {StyleRoot} from 'radium'
+import passcodeObscure from './reducers/notes/passcodeObscure'
 
 const reducer = combineReducers({
   addChannel,
   notes,
   passcodeToggle,
-  routing: routerReducer
+  passcodeObscure,
+  routing: routerReducer,
 })
 
 // Add the reducer to your store on the `routing` key

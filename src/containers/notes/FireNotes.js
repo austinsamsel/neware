@@ -11,6 +11,7 @@ class FireNotes extends Component {
     this.submitHandler = this.submitHandler.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
     this.handleClick = this.handleClick.bind(this)
+    this.passcodeObscureClick = this.passcodeObscureClick.bind(this)
   }
 
   componentDidMount() {
@@ -34,6 +35,10 @@ class FireNotes extends Component {
     this.props.encryptToggle()
   }
 
+  passcodeObscureClick(){ 
+    this.props.passcodeObscureToggle()
+  }
+
   render() {
     return (
       <div>
@@ -41,6 +46,8 @@ class FireNotes extends Component {
           onSubmit={this.submitHandler}
           handleClick={this.handleClick}
           passcodeToggle={this.props.passcodeToggle}
+          passcodeObscureClick={this.passcodeObscureClick}
+          passcodeObscure={this.props.passcodeObscure}
           route={this.props.ch}
         />
         <FireList 
@@ -56,6 +63,7 @@ const mapStateToProps = (state) => {
   return {
     notes: state.notes,
     passcodeToggle: state.passcodeToggle.bool,
+    passcodeObscure: state.passcodeObscure.bool,
   };
 }
 

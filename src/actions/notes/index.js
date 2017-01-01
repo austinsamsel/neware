@@ -57,3 +57,9 @@ export const encryptToggle = () => {
     type: 'PASSCODE_TOGGLE',
   }
 }
+
+export const passcodeObscureToggle = () => {
+  return {
+    type: 'PASSCODE_OBSCURE',
+  }
+} 

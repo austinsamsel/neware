@@ -3,9 +3,6 @@ import CryptoJS from 'crypto-js'
 import lockandkey from '../../public/lockandkey.png'
 import s from './FireForm.style.js'
 
-console.log(s)
-console.log(s.toggleBtn)
-
 let textarea, input;
 
 const FireForm = ( props ) => (
@@ -45,7 +42,6 @@ const FireForm = ( props ) => (
         />
       </div>
       <div style={{
-        //opacity: props.passcodeToggle ? '1.0' : '0.0',
         display: props.passcodeToggle ? 'block' : 'none',
       }}>
         <span 
@@ -67,7 +63,15 @@ const FireForm = ( props ) => (
               input = node
             }} 
           />
-          [show]
+          <div 
+            onClick={props.passcodeObscureClick}
+          >
+            {console.log(props)} 
+            {props.passcodeObscure ? 
+             'hide'
+            : 'show'
+            }
+          </div>
         </div>
       </div>
       <textarea 
@@ -91,5 +95,4 @@ export default FireForm
 FireForm.propTypes = {
   onSubmit: React.PropTypes.func.isRequired,
   handleClick: React.PropTypes.func.isRequired,
-  //passcodeToggle: React.Proptypes.bool.isRequired,
 };
