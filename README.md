@@ -19,3 +19,4 @@ I also have a service that runs every 24 hours that checks the database for post
 * abstract out 'input' element for passcode entry.
 * update all CSS styles - remove all inline styles and create JS objects.
 * fCSS more, remove repeats.
+* favicon
