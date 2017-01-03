@@ -57,7 +57,7 @@ const FireForm = ( props ) => (
         }}>
           <input
             style={{...s.input, ...s.small}}
-            type='password'
+            type={props.passcodeObscure ? 'password':'text'}
             placeholder='Your passcode' 
             ref={node => {
               input = node
@@ -68,8 +68,8 @@ const FireForm = ( props ) => (
           >
             {console.log(props)} 
             {props.passcodeObscure ? 
-             'hide'
-            : 'show'
+             'show'
+            : 'hide'
             }
           </div>
         </div>
