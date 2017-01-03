@@ -1,7 +1,7 @@
 const s = {
   input: {
     color: 'black',
-    padding:'12px',
+    padding:'12px 32px 12px 12px',
     fontSize:'16px',
     fontWeight:'bold',
     resize:'none',
@@ -17,22 +17,22 @@ const s = {
   small: {
     border:'1px darkgray solid'
   },
-  toggleBtn: { 
+  toggleBtn: {
     background:'#eee',
     borderRadius:'3px',
     padding:'6px 12px',
     marginBottom:'6px',
     float:'right',
     backgroundColor:'#eee',
-    border:'none', 
+    border:'none',
   },
-  image: { 
+  image: {
     height:'auto',
     width:'20px',
     marginLeft:'6px',
     verticalAlign:'-3px',
   },
-  submitBtn: { 
+  submitBtn: {
     backgroundColor:'blue',
     fontSize:'24px',
     color:'white',
@@ -43,7 +43,7 @@ const s = {
     fontWeight:'bold',
     width:'100%',
   },
-  serif: { 
+  serif: {
     fontSize:'14px',
     fontFamily:'Consolas,monaco,monospace',
   },

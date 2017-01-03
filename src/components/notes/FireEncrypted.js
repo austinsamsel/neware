@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react'
 import CryptoJS from 'crypto-js'
+import FontAwesome from 'react-fontawesome'
+import '../../vendor/font-awesome/font-awesome.css';
 import thekey from '../../public/key.png'
 
 const s = {
@@ -23,8 +25,8 @@ const s = {
     border:'1px solid darkgray',
   },
   image: {
-    height:'auto', 
-    width:'20px', 
+    height:'auto',
+    width:'20px',
     marginLeft:'12px',
     verticalAlign:'-5px',
   },
@@ -63,14 +65,14 @@ let input;
             <button style={s.button}>
               Unlock
             </button>
-          </span> 
+          </span>
         : props.plaintext
         }
-        <img 
+        <img
           src={thekey}
           alt='lock and key'
-          style={s.image} 
-        /> 
+          style={s.image}
+        />
       </form>
     </div>
   );

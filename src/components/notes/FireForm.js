@@ -1,5 +1,7 @@
 import React from 'react'
 import CryptoJS from 'crypto-js'
+import FontAwesome from 'react-fontawesome'
+import '../../vendor/font-awesome/font-awesome.css';
 import lockandkey from '../../public/lockandkey.png'
 import s from './FireForm.style.js'
 
@@ -64,6 +66,7 @@ const FireForm = ( props ) => (
             display:'flex',
             alignItems:'center',
             width:'100%',
+            position:'relative'
         }}>
           <input
             style={{...s.input, ...s.small}}
@@ -75,10 +78,21 @@ const FireForm = ( props ) => (
           />
           <div
             onClick={props.passcodeObscureClick}
+            style={{
+              position:'absolute',
+              right:'10px',
+              top:'13px'
+            }}
           >
             {props.passcodeObscure ?
-             'show'
-            : 'hide'
+              <FontAwesome
+                name='eye-slash'
+                style={{ color: '#666666' }}
+              />
+            : <FontAwesome
+                name='eye'
+                style={{ color: '#666666' }}
+              />
             }
           </div>
         </div>
