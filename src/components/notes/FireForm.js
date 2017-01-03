@@ -16,23 +16,33 @@ const FireForm = ( props ) => (
         var cipher = CryptoJS.AES.encrypt(textarea.value, input.value)
         //stringify
         var ciphertext = cipher.toString()
-         
+
+        // set field to password if its not obscured
+        if (props.passcodeObscure === false){
+          props.passcodeObscureClick()
+        }
+
         if (input.value.trim()){
           // if encrypted
           props.onSubmit(ciphertext, true)
         } else {
           // not encrypted
           props.onSubmit(textarea.value, false)
-        } 
+        }
         textarea.value = ''
         input.value = ''
+
+        // unset field to password if its not obscured
+        if (props.passcodeObscure === true){
+          props.passcodeObscureClick()
+        }
       }
-    }>     
+    }>
       <div
-        onClick={props.handleClick} 
+        onClick={props.handleClick}
         style={s.toggleBtn}
       >
-        {props.passcodeToggle ? 
+        {props.passcodeToggle ?
          'Secret'
         : 'Public'
         }
@@ -44,12 +54,12 @@ const FireForm = ( props ) => (
       <div style={{
         display: props.passcodeToggle ? 'block' : 'none',
       }}>
-        <span 
+        <span
           style={s.serif}
         >
           <strong>Important:</strong> if you forget your passcode, your stuff will be lost forever.
         </span>
-        <div 
+        <div
           style={{
             display:'flex',
             alignItems:'center',
@@ -58,28 +68,27 @@ const FireForm = ( props ) => (
           <input
             style={{...s.input, ...s.small}}
             type={props.passcodeObscure ? 'password':'text'}
-            placeholder='Your passcode' 
+            placeholder='Your passcode'
             ref={node => {
               input = node
-            }} 
+            }}
           />
-          <div 
+          <div
             onClick={props.passcodeObscureClick}
           >
-            {console.log(props)} 
-            {props.passcodeObscure ? 
+            {props.passcodeObscure ?
              'show'
             : 'hide'
             }
           </div>
         </div>
       </div>
-      <textarea 
+      <textarea
         style={{...s.input, ...s.large}}
         ref={node => {
           textarea = node
         }}
-        placeholder='Stuff to save for later' 
+        placeholder='Stuff to save for later'
       >
       </textarea>
       <button style={s.submitBtn}
