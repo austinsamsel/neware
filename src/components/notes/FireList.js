@@ -1,17 +1,19 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import FireItem from './FireItem';
 import _ from 'lodash';
 
 const FireList = ( props ) => {
   const renderNotes = () => {
     return _.map(props.notes, (note, key) => {
-      return <FireItem key={key} 
+      return <FireItem key={key}
                note={note.text}
                createdAt={note.createdAt}
-               plaintext={note.plaintext} 
+               plaintext={note.plaintext}
                encrypted={note.encrypted}
                onSubmit={props.onSubmit}
-               id={key} 
+               passcodeObscure={props.passcodeObscure}
+               passcodeObscureClick={props.passcodeObscureClick}
+               id={key}
              />
     });
   }
@@ -27,8 +29,10 @@ const FireList = ( props ) => {
 }
 
 FireList.propTypes = {
-  // TODO: requires, notes, but validation triggers warning
-  // notes: React.PropTypes.object.isRequired
+  // note: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  // passcodeObscure: PropTypes.bool.isRequired,
+  // passcodeObscureClick: PropTypes.func.isRequired,
 }
 
 export default FireList

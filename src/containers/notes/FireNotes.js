@@ -35,24 +35,26 @@ class FireNotes extends Component {
     this.props.encryptToggle()
   }
 
-  passcodeObscureClick(){ 
+  passcodeObscureClick(){
     this.props.passcodeObscureToggle()
   }
 
   render() {
     return (
       <div>
-        <FireForm 
+        <FireForm
           onSubmit={this.submitHandler}
-          handleClick={this.handleClick}
           passcodeToggle={this.props.passcodeToggle}
-          passcodeObscureClick={this.passcodeObscureClick}
+          handleClick={this.handleClick}
           passcodeObscure={this.props.passcodeObscure}
+          passcodeObscureClick={this.passcodeObscureClick}
           route={this.props.ch}
         />
-        <FireList 
-          notes={this.props.notes} 
-          onSubmit={this.onSubmit} 
+        <FireList
+          notes={this.props.notes}
+          onSubmit={this.onSubmit}
+          passcodeObscure={this.props.passcodeObscure}
+          passcodeObscureClick={this.passcodeObscureClick}
         />
       </div>
     );

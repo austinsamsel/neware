@@ -16,7 +16,7 @@ const s = {
   },
   input: {
     color: 'black',
-    padding:'12px',
+    padding:'12px 32px 12px 12px',
     fontSize:'16px',
     fontWeight:'bold',
     resize:'none',
@@ -54,14 +54,39 @@ let input;
       }>
         {props.plaintext === '' ?
           <span>
-            <input
-              style={s.input}
-              type='password'
-              placeholder='Your secret code'
-              ref={(node) => {
-                input = node
+            <span
+              style={{
+                position:'relative'
               }}
-            />
+            >
+              <input
+                style={s.input}
+                type={props.passcodeObscure ? 'password':'text'}
+                placeholder='Your passcode'
+                ref={(node) => {
+                  input = node
+                }}
+              />
+              <div
+                onClick={props.passcodeObscureClick}
+                style={{
+                  position:'absolute',
+                  right:'10px',
+                  top:'-2px',
+                }}
+              >
+                {props.passcodeObscure ?
+                  <FontAwesome
+                    name='eye-slash'
+                    style={{ color: '#666666' }}
+                  />
+                : <FontAwesome
+                    name='eye'
+                    style={{ color: '#666666' }}
+                  />
+                }
+              </div>
+            </span>
             <button style={s.button}>
               Unlock
             </button>
@@ -82,6 +107,8 @@ FireEncrypted.propTypes = {
   note: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   plaintext: PropTypes.string.isRequired,
+  passcodeObscure: PropTypes.bool.isRequired,
+  passcodeObscureClick: PropTypes.func.isRequired,
 }
 
 export default FireEncrypted

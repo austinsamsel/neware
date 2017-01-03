@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import CryptoJS from 'crypto-js'
 import FontAwesome from 'react-fontawesome'
 import '../../vendor/font-awesome/font-awesome.css';
@@ -116,6 +116,10 @@ const FireForm = ( props ) => (
 export default FireForm
 
 FireForm.propTypes = {
-  onSubmit: React.PropTypes.func.isRequired,
-  handleClick: React.PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
+  // passcodeToggle: PropTypes.bool.isRequired,
+  // passcodeToggleClick: PropTypes.func.isRequired,
+  // passcodeObscure: PropTypes.bool.isRequired,
+  // passcodeObscureClick: PropTypes.func.isRequired,
 };

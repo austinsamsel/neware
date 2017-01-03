@@ -4,7 +4,7 @@ import moment from 'moment'
 import hourglass from '../../public/hourglass.png'
 
 const FireItem = ( props ) => {
-  
+
   return(
     <li style={{
       listStyle:'none',
@@ -17,7 +17,7 @@ const FireItem = ( props ) => {
           fontFamily:'Consolas,monaco,monospace',
           color:'lightseagreen',
         }}
-      > 
+      >
         <img src={hourglass}
           alt='Timestamp'
           style={{
@@ -28,15 +28,17 @@ const FireItem = ( props ) => {
           }}
         />
         { moment(props.createdAt)
-          .format('ddd MMM Do YYYY, h:mm a') 
+          .format('ddd MMM Do YYYY, h:mm a')
         }
       </p>
       { props.encrypted ?
-          <FireEncrypted 
-            note={props.note} 
+          <FireEncrypted
+            note={props.note}
             plaintext={props.plaintext}
-            onSubmit={props.onSubmit} 
-            id={props.id} 
+            onSubmit={props.onSubmit}
+            id={props.id}
+            passcodeObscure={props.passcodeObscure}
+            passcodeObscureClick={props.passcodeObscureClick}
           />
         : props.note
       }
@@ -47,7 +49,9 @@ const FireItem = ( props ) => {
 FireItem.propTypes = {
   note: PropTypes.string.isRequired,
   plaintext: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  passcodeObscure: PropTypes.bool.isRequired,
+  passcodeObscureClick: PropTypes.func.isRequired,
 }
 
 export default FireItem
