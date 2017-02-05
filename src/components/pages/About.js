@@ -4,14 +4,8 @@ const About = () => (
   <div style={{
     maxWidth:'600px'
   }}>
-    <h2 style={{
-      marginTop:'0px',
-      color:'darkgray',
-    }}>
-      Save it for later from anywhere.
-    </h2>
     <p>
-      These days if you want to do anything on the internet you need to create an account, sign up and login. If your password is any good, you probably can't remember it. So when you find yourself on a public computer or a friend's device... but you need to save a note for later... you can use NEWARE.
+      These days if you want to do anything on the internet you need to create an account, sign up and login. If your password is hard to guess, you probably can't remember it. So when you find yourself on a public computer or a friend's device... but you need to save a note for later... you can use NEWARE.
     </p>
     <p>
       <strong>How it works:</strong> Create a memorable channel, which becomes a URL, for example: 
@@ -19,11 +13,11 @@ const About = () => (
 
     <p style={{
       fontFamily:'Consolas,monaco,monospace',
-      backgroundColor:'#eee',
-      padding:'12px',
-      borderRadius:'3px'
+      fontSize: '14px',
+      backgroundColor:'#f7f7f7',
+      padding:'16px',
     }}>
-    {window.location.href}<strong>your-channel-here</strong> 
+    {window.location.href}<span style={{color:'blueviolet'}}>your-channel-here</span> 
     </p>
 
     <p>
