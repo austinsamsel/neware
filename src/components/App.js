@@ -12,12 +12,13 @@ const App = (props) => (
       }}> 
         NEWARE
       </div>
-      <h2 style={{
-        fontSize: '16px',
-        fontWeight:'500',
-        margin:'0',
-        color:'darkgray',
-      }}>
+    </Link>
+    <h2 style={{
+      fontSize: '16px',
+      fontWeight:'500',
+      margin:'0',
+      color:'darkgray',
+    }}>
       Save it for later from anywhere.
     </h2>
     <div style={{
@@ -25,12 +26,11 @@ const App = (props) => (
       fontSize:'10px',
       fontWeight:'100',
       fontFamily:'monospace',
-      margin:'0 0 24px 0',
+      margin:'0 0 48px 0',
     }}
     >
       --------------------------------------
     </div>
-    </Link>
     {props.children}
   </div>
 )
