@@ -17,7 +17,7 @@ const About = () => (
       backgroundColor:'#f7f7f7',
       padding:'16px',
     }}>
-    {window.location.href}<span style={{color:'blueviolet'}}>your-channel-here</span> 
+    {window.location.href}<span style={{color:'blue'}}>your-channel-here</span> 
     </p>
 
     <p>
