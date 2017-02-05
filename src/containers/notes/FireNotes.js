@@ -12,6 +12,7 @@ class FireNotes extends Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.passcodeObscureClick = this.passcodeObscureClick.bind(this)
+    this.showFireForm = this.showFireForm.bind(this)
   }
 
   componentDidMount() {
@@ -39,17 +40,25 @@ class FireNotes extends Component {
     this.props.passcodeObscureToggle()
   }
 
+  showFireForm() {
+    if (this.props.notes < 1 ){
+      return <FireForm
+        onSubmit={this.submitHandler}
+        passcodeToggle={this.props.passcodeToggle}
+        handleClick={this.handleClick}
+        passcodeObscure={this.props.passcodeObscure}
+        passcodeObscureClick={this.passcodeObscureClick}
+        route={this.props.ch}
+      />
+    }
+  }
+
   render() {
     return (
       <div>
-        <FireForm
-          onSubmit={this.submitHandler}
-          passcodeToggle={this.props.passcodeToggle}
-          handleClick={this.handleClick}
-          passcodeObscure={this.props.passcodeObscure}
-          passcodeObscureClick={this.passcodeObscureClick}
-          route={this.props.ch}
-        />
+
+        { this.showFireForm() }
+
         <FireList
           notes={this.props.notes}
           onSubmit={this.onSubmit}

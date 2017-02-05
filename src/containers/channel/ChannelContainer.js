@@ -3,7 +3,7 @@ import Channel from '../../components/channel/Channel'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    name: ownProps.params.name
+    name: ownProps.params.name.toLowerCase()
   };
 }
 

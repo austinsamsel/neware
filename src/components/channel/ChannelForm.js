@@ -31,7 +31,7 @@ const ChannelForm = (props) => (
         if (!input.value.trim()) {
           return
         }
-        props.onKeyUp(input.value)
+        props.onKeyUp(input.value.toLowerCase())
       }}
       ref={node => {
         input = node
