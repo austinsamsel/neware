@@ -16,21 +16,11 @@ const App = (props) => (
     <h2 style={{
       fontSize: '16px',
       fontWeight:'500',
-      margin:'0',
       color:'darkgray',
+      margin:'0 0 48px 0',
     }}>
       Save it for later from anywhere.
     </h2>
-    <div style={{
-      color:'gray',
-      fontSize:'10px',
-      fontWeight:'100',
-      fontFamily:'monospace',
-      margin:'0 0 48px 0',
-    }}
-    >
-      --------------------------------------
-    </div>
     {props.children}
   </div>
 )
