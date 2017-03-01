@@ -11,9 +11,17 @@ const FireForm = ( props ) => (
   <div>
     <form onSubmit={e => {
         e.preventDefault();
+        // disallow blank posts.
         if (!textarea.value.trim()){
           return
+          // TODO: flash messages.
         }
+        // block if secret is on & passcode field is empty
+        if (props.passcodeToggle && !input.value){
+          return
+          // TODO: flash messages.
+        }
+        
         //encrypt
         var cipher = CryptoJS.AES.encrypt(textarea.value, input.value)
         //stringify
@@ -56,9 +64,7 @@ const FireForm = ( props ) => (
       <div style={{
         display: props.passcodeToggle ? 'block' : 'none',
       }}>
-        <span
-          style={s.serif}
-        >
+        <span style={s.serif}>
           <strong>Important:</strong> if you forget your passcode, your stuff will be lost forever.
         </span>
         <div
@@ -72,6 +78,7 @@ const FireForm = ( props ) => (
             style={{...s.input, ...s.small}}
             type={props.passcodeObscure ? 'password':'text'}
             placeholder='Your passcode'
+            minLength='12'
             ref={node => {
               input = node
             }}
