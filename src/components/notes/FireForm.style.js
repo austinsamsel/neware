@@ -25,6 +25,7 @@ const s = {
     float:'right',
     backgroundColor:'#eee',
     border:'none',
+    cursor:'default',
   },
   image: {
     height:'auto',

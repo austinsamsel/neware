@@ -14,6 +14,7 @@ const ChannelBtn = ({ ch }) => (
       letterSpacing:'0.1rem',
       fontWeight:'bold',
       boxSizing: 'border-box',
+      verticalAlign:'bottom',
       '@media (max-width:480px)': {
         width: '100%'
       }

@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
+import 'normalize.css'
 import {StyleRoot} from 'radium'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import reduxThunk from 'redux-thunk'
