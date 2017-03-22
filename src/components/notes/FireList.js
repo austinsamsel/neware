@@ -23,7 +23,7 @@ const FireList = ( props ) => {
     });
   }
   return(
-    <ul style={spacing}>
+    <ul style={spacing} data-c='FireList'>
       { _.reverse(renderNotes()) }
     </ul>
   )

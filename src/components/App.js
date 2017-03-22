@@ -18,11 +18,11 @@ const subtitle = {
 }
 
 const App = (props) => (
-  <div>
+  <div data-c='App'>
     <Link to="/" style={td_none}>
-      <div style={logo}> 
+      <span style={logo}> 
         NEWARE
-      </div>
+      </span>
     </Link>
     <h2 style={subtitle}>
       Save it for later from anywhere.

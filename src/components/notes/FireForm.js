@@ -3,13 +3,14 @@ import CryptoJS from 'crypto-js'
 import FontAwesome from 'react-fontawesome'
 import '../../vendor/font-awesome/font-awesome.css';
 import lockandkey from '../../public/lockandkey.png'
-import s from './FireForm.style.js'
+import c from './FireForm.style.js' // component styles
+import s from '../ui/Styles.js' // styles utility
 
 let textarea, input;
 
 const FireForm = ( props ) => (
-  <div>
-    <form onSubmit={e => {
+  <div data-c='FireForm'>
+    <form onSubmit={ e => {
         e.preventDefault();
         // disallow blank posts.
         if (!textarea.value.trim()){
@@ -21,7 +22,6 @@ const FireForm = ( props ) => (
           return
           // TODO: flash messages.
         }
-        
         //encrypt
         var cipher = CryptoJS.AES.encrypt(textarea.value, input.value)
         //stringify
@@ -50,27 +50,27 @@ const FireForm = ( props ) => (
     }>
       <div
         onClick={props.handleClick}
-        style={s.toggleBtn}
+        style={{...c.toggleBtn, ...s.cursor_default, ...s.bg_whitesmoke, ...s.br0}}
       >
         {props.passcodeToggle ?
          'Secret'
         : 'Public'
         }
         <img src={lockandkey}
-          style={s.image}
+          style={c.image}
           alt="Lock and Key"
         />
       </div>
       <div style={{
         display: props.passcodeToggle ? 'block' : 'none',
       }}>
-        <span style={s.serif}>
+        <span style={{...s.ff_mono, ...s.fs__14}}>
           <strong>Important:</strong> if you forget your passcode, your stuff will be lost forever.
         </span>
         <div
-          style={s.flex_wrap}>
+          style={{...s.w_100, ...s.relative}} {...s.df} {...s.aic}>
           <input
-            style={{...s.input, ...s.small}}
+            style={{...c.input, ...s.br0, ...s.w_100, ...s.black, ...s.bold, ...c.small}}
             type={props.passcodeObscure ? 'password':'text'}
             placeholder='Your passcode'
             minLength='12'
@@ -80,30 +80,30 @@ const FireForm = ( props ) => (
           />
           <div
             onClick={props.passcodeObscureClick}
-            style={s.icon_eye}
+            style={c.icon_eye}
           >
             {props.passcodeObscure ?
               <FontAwesome
                 name='eye-slash'
-                style={s.gray}
+                style={s.dimgray}
               />
             : <FontAwesome
                 name='eye'
-                style={s.gray}
+                style={s.dimgray}
               />
             }
           </div>
         </div>
       </div>
       <textarea
-        style={{...s.input, ...s.large}}
+        style={{...c.input, ...s.br0, ...s.black, ...s.bold, ...s.w_100, ...c.large}}
         ref={node => {
           textarea = node
         }}
         placeholder='Stuff to save for later'
       >
       </textarea>
-      <button style={s.submitBtn}
+      <button style={{...c.submitBtn, ...s.white, ...s.bg_blue, ...s.bold, ...s.w_100, ...s.fs__24}}
         action='submit'
       >
         Add Note

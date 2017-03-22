@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router';
-import Radium from 'radium'
+import { css } from 'glamor-react'
 
-const btn = {
+const btn = css({
   backgroundColor:'blue',
   fontSize:'24px',
   color:'white',
@@ -16,18 +16,20 @@ const btn = {
   '@media (max-width:480px)': {
     width: '100%'
   }
-}
+})
 
 const ChannelBtn = ({ ch }) => (
-  <Link to={`/${ch}`}>
-    <button style={btn}>
-      Go
-    </button>
-  </Link>
+  <span data-c='ChannelBtn'>
+    <Link to={`/${ch}`}>
+      <button {...btn}>
+        Go
+      </button>
+    </Link>
+  </span>
 )
 
 ChannelBtn.propTypes = {
   ch: React.PropTypes.string.isRequired
 }
 
-export default Radium(ChannelBtn)
+export default ChannelBtn

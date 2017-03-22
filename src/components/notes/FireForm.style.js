@@ -1,13 +1,8 @@
 const s = {
   input: {
-    color: 'black',
     padding:'12px 32px 12px 12px',
-    fontSize:'16px',
-    fontWeight:'bold',
     resize:'none',
-    width:'100%',
     boxSizing:'border-box',
-    borderRadius:'0px',
     marginBottom:'6px',
   },
   large: {
@@ -17,29 +12,16 @@ const s = {
   small: {
     border:'1px darkgray solid'
   },
-  flex_wrap: {
-    display:'flex',
-    alignItems:'center',
-    width:'100%',
-    position:'relative'
-  },
   icon_eye: {
     position:'absolute',
     right:'10px',
     top:'10px',
   },
-  gray: {
-    color: '#666666'
-  },
   toggleBtn: {
-    background:'#eee',
-    borderRadius:'3px',
     padding:'6px 12px',
     marginBottom:'6px',
     float:'right',
-    backgroundColor:'#eee',
     border:'none',
-    cursor:'default',
   },
   image: {
     height:'auto',
@@ -48,19 +30,10 @@ const s = {
     verticalAlign:'-3px',
   },
   submitBtn: {
-    backgroundColor:'blue',
-    fontSize:'24px',
-    color:'white',
     border:'none',
     height:'60px',
     padding:'0 12px',
     letterSpacing:'0.1rem',
-    fontWeight:'bold',
-    width:'100%',
-  },
-  serif: {
-    fontSize:'14px',
-    fontFamily:'Consolas,monaco,monospace',
   },
 }
 export default s;

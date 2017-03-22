@@ -46,7 +46,7 @@ const s = {
 const FireEncrypted = ( props ) => {
 let input;
   return(
-    <div>
+    <div data-c='FireEncrypted'>
       <form onSubmit={e => {
           e.preventDefault();
           if (!input.value.trim()){

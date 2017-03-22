@@ -8,7 +8,9 @@ const hr_style = (height_val) => {
 }
 
 const Hr = (props) => (
-  <hr style={hr_style(props.height)} />
+  <div data-c='Hr'>
+    <hr style={hr_style(props.height)} />
+  </div>
 )
 export default Hr
 

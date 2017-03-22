@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 import 'normalize.css'
-import {StyleRoot} from 'radium'
+import './index.css'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import reduxThunk from 'redux-thunk'
 import { Provider } from 'react-redux'
@@ -38,14 +38,12 @@ const history = syncHistoryWithStore(browserHistory, store)
 
 render(
   <Provider store={store}>
-    <StyleRoot>
-      <Router history={history}>
-        <Route path="/" component={App}>
-          <IndexRoute component={AddChannel} />
-          <Route path=":name" component={ChannelContainer} />
-        </Route>
-      </Router>
-    </StyleRoot>
+    <Router history={history}>
+      <Route path="/" component={App}>
+        <IndexRoute component={AddChannel} />
+        <Route path=":name" component={ChannelContainer} />
+      </Route>
+    </Router>
   </Provider>,
   document.getElementById('root')
 )

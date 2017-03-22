@@ -23,7 +23,7 @@ const icon_hourglass = {
 
 const FireItem = ( props ) => {
   return(
-    <li style={li_item}>
+    <li style={li_item} data-c='FireItem'>
       <p style={li_p}
       >
         <img src={hourglass}

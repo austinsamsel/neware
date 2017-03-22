@@ -18,7 +18,7 @@ const mono = {
 }
 
 const Channel = ({name}) => (
-  <div>
+  <div data-c='Channel'>
     <h1 style={h1}>
       <img
         style={emoji_thumbsup} 
