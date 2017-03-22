@@ -3,44 +3,26 @@ import CryptoJS from 'crypto-js'
 import FontAwesome from 'react-fontawesome'
 import '../../vendor/font-awesome/font-awesome.css';
 import thekey from '../../public/key.png'
+import s from '../ui/Styles.js' // styles utility
 
-const s = {
+const c = {
   button: {
-    backgroundColor:'darkgray',
-    color:'white',
-    border:'none',
     height:'44px',
     padding:'12px',
-    letterSpacing:'0.1rem',
-    fontWeight:'bold',
   },
   input: {
-    color: 'black',
     padding:'12px 32px 12px 12px',
-    fontSize:'16px',
-    fontWeight:'bold',
-    resize:'none',
-    boxSizing:'border-box',
-    borderRadius:'0px',
     border:'1px solid darkgray',
   },
   image: {
-    height:'auto',
     width:'20px',
     marginLeft:'12px',
     verticalAlign:'-5px',
   },
-  gray: {
-    color: '#666666'
-  },
   icon_eye_input: {
-    position:'absolute',
     right:'10px',
     top:'-2px',
   },
-  relative: {
-    position: 'relative'
-  }
 }
 
 const FireEncrypted = ( props ) => {
@@ -69,7 +51,7 @@ let input;
               style={s.relative}
             >
               <input
-                style={s.input}
+                style={{...c.input, ...s.black, ...s.bold, ...s.border_box, ...s.br0, ...s.resize_none }}
                 type={props.passcodeObscure ? 'password':'text'}
                 placeholder='Your passcode'
                 ref={(node) => {
@@ -78,21 +60,21 @@ let input;
               />
               <div
                 onClick={props.passcodeObscureClick}
-                style={s.icon_eye_input}
+                style={{...c.icon_eye_input, ...s.absolute}}
               >
                 {props.passcodeObscure ?
                   <FontAwesome
                     name='eye-slash'
-                    style={s.gray}
+                    style={s.dimgray}
                   />
                 : <FontAwesome
                     name='eye'
-                    style={s.gray}
+                    style={s.dimgray}
                   />
                 }
               </div>
             </span>
-            <button style={s.button}>
+            <button style={{...c.button, ...s.bg_darkgray, ...s.white, ...s.bn, ...s.bold, ...s.tracked_spaced }}>
               Unlock
             </button>
           </span>
@@ -101,7 +83,7 @@ let input;
         <img
           src={thekey}
           alt='lock and key'
-          style={s.image}
+          style={{...c.image, ...s.h_auto}}
         />
       </form>
     </div>

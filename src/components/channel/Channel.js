@@ -2,32 +2,25 @@ import React from 'react'
 import FireNotes from '../../containers/notes/FireNotes'
 import Hr from '../ui/Hr'
 import thumbsup from '../../public/thumbsup.png'
+import s from '../ui/Styles.js' // styles utility
 
-const h1 = {
-  fontSize:'36px',
-  margin:'0',
-}
 const emoji_thumbsup = {
-  height:'auto',
-  width:'30px',
+  height:'24px',
   marginRight:'10px',
   verticalAlign:'-3px',
-}
-const mono = {
-  fontFamily:'Consolas,monaco,monospace',
 }
 
 const Channel = ({name}) => (
   <div data-c='Channel'>
-    <h1 style={h1}>
+    <h1 style={{...s.fs__36, ...s.m0}}>
       <img
-        style={emoji_thumbsup} 
+        style={{...emoji_thumbsup, ...s.w_auto}}
         src={thumbsup}
         alt=":thumbs up emoji:"
       />
       {name}
     </h1>
-    <p style={mono}
+    <p style={{...s.ff_mono}}
     >   
       Find it later: {window.location.href}
     </p>

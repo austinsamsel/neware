@@ -3,18 +3,12 @@ import ChannelSubmit from '../../containers/channel/ChannelSubmit'
 import About from '../pages/About'
 import Hr from '../ui/Hr'
 import { css } from 'glamor-react'
+import s from '../ui/Styles.js' // styles utility
 
 
 const input_el = css({
-  border:'blue solid 3px',
-  color: 'black',
   padding:'12px',
-  fontSize:'24px',
   height:'60px',
-  fontWeight:'bold',
-  boxSizing:'border-box',
-  maxWidth:'100%',
-  borderRadius:'0px',
   '@media (max-width:480px)': {
     width: '100%'
   }
@@ -24,7 +18,6 @@ let input;
 const ChannelForm = (props) => (
   <div data-c='ChannelForm'>
     <input
-      {...input_el}
       placeholder="Name a channel"
       onKeyUp={e => {
         if (!input.value.trim()) {
@@ -35,6 +28,8 @@ const ChannelForm = (props) => (
       ref={node => {
         input = node
       }}
+      {...input_el}
+      style={{...s.mw_100, ...s.bold, ...s.black, ...s.border_box, ...s.fs__24, ...s.br0, ...s.border_blue}}
     />
     <ChannelSubmit />
     <Hr height='48px' />

@@ -1,15 +1,15 @@
 import React from 'react'
+import s from './Styles.js' // styles utility
 
 const hr_style = (height_val) => {
   return {
     height: height_val,
-    border: 'none',
   }
 }
 
 const Hr = (props) => (
   <div data-c='Hr'>
-    <hr style={hr_style(props.height)} />
+    <hr style={{...hr_style(props.height), ...s.bn}} />
   </div>
 )
 export default Hr

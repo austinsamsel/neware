@@ -1,20 +1,16 @@
 import React from 'react'
+import s from '../ui/Styles.js' // styles utility
 
-const mw_m = {
+const mw__600 = {
   maxWidth: '600px'
 }
-const p_body = {
-  fontFamily:'Consolas,monaco,monospace',
-  fontSize: '14px',
-  backgroundColor:'#f7f7f7',
+const p__16 = {
   padding:'16px',
 }
-const blue = { color:'blue' }
-const fuchsia = {color:'fuchsia'}
 
 const About = () => (
   <div data-c='About'>
-    <div style={mw_m}>
+    <div style={mw__600}>
       <p>
         These days if you want to do anything on the internet you need to create an account, sign up and login. If your password is hard to guess, you probably can't remember it. So when you find yourself on a public computer or a friend's device... but you need to save a note for later... you can use NEWARE.
       </p>
@@ -22,8 +18,8 @@ const About = () => (
         <strong>How it works:</strong> Create a memorable channel, which becomes a URL, for example: 
       </p>
 
-      <p style={p_body}>
-      {window.location.href}<span style={blue}>your-channel-here</span> 
+      <p style={{...p__16, ...s.ff_mono, ...s.fs__14,  }}>
+      {window.location.href}<span style={s.blue}>your-channel-here</span> 
       </p>
 
       <p>
@@ -33,7 +29,7 @@ const About = () => (
         All notes are available for 24 hours and after that, they get removed.
       </p>
       <p>
-        Made by <a style={fuchsia} href="https://hightops.co">High Tops</a>.
+        Made by <a style={s.fuchsia} href="https://hightops.co">High Tops</a>.
       </p>
     </div>
   </div>

@@ -1,17 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router';
 import { css } from 'glamor-react'
+import s from '../ui/Styles.js' // styles utility
 
 const btn = css({
-  backgroundColor:'blue',
-  fontSize:'24px',
-  color:'white',
-  border:'none',
   height:'60px',
   padding:'0 12px',
-  letterSpacing:'0.1rem',
-  fontWeight:'bold',
-  boxSizing: 'border-box',
   verticalAlign:'bottom',
   '@media (max-width:480px)': {
     width: '100%'
@@ -21,7 +15,7 @@ const btn = css({
 const ChannelBtn = ({ ch }) => (
   <span data-c='ChannelBtn'>
     <Link to={`/${ch}`}>
-      <button {...btn}>
+      <button {...btn} style={{...s.bg_blue, ...s.white, ...s.fs__24, ...s.bn, ...s.bold, ...s.border_box, ...s.tracked_spaced}}>
         Go
       </button>
     </Link>

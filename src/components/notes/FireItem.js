@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 import FireEncrypted from './FireEncrypted'
 import moment from 'moment'
 import hourglass from '../../public/hourglass.png'
+import s from '../ui/Styles.js' // styles utility
 
 const li_item = {
   listStyle:'none',
@@ -9,10 +10,6 @@ const li_item = {
   borderBottom:'1px solid #eee',
   paddingBottom:'12px',
   overflowWrap: 'break-word'
-}
-const li_p = {
-  fontFamily:'Consolas,monaco,monospace',
-  color:'lightseagreen',
 }
 const icon_hourglass = {
   width:'16px',
@@ -24,7 +21,7 @@ const icon_hourglass = {
 const FireItem = ( props ) => {
   return(
     <li style={li_item} data-c='FireItem'>
-      <p style={li_p}
+      <p style={{...s.ff_mono, ...s.lightseagreen}}
       >
         <img src={hourglass}
           alt='Timestamp'

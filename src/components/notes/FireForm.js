@@ -70,7 +70,7 @@ const FireForm = ( props ) => (
         <div
           style={{...s.w_100, ...s.relative}} {...s.df} {...s.aic}>
           <input
-            style={{...c.input, ...s.br0, ...s.w_100, ...s.black, ...s.bold, ...c.small}}
+            style={{...c.input, ...s.br0, ...s.w_100, ...s.black, ...s.bold, ...c.small, ...s.border_box, ...s.resize_none}}
             type={props.passcodeObscure ? 'password':'text'}
             placeholder='Your passcode'
             minLength='12'
@@ -96,7 +96,7 @@ const FireForm = ( props ) => (
         </div>
       </div>
       <textarea
-        style={{...c.input, ...s.br0, ...s.black, ...s.bold, ...s.w_100, ...c.large}}
+        style={{...c.input, ...s.br0, ...s.black, ...s.bold, ...s.w_100, ...c.large, ...s.border_box, ...s.resize_none}}
         ref={node => {
           textarea = node
         }}
