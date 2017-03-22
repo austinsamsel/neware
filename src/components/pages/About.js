@@ -18,7 +18,7 @@ const About = () => (
         <strong>How it works:</strong> Create a memorable channel, which becomes a URL, for example: 
       </p>
 
-      <p style={{...p__16, ...s.ff_mono, ...s.fs__14,  }}>
+      <p style={{...p__16, ...s.ff_mono, ...s.fs__14, ...s.bg_snowsmoke }}>
       {window.location.href}<span style={s.blue}>your-channel-here</span> 
       </p>
 
