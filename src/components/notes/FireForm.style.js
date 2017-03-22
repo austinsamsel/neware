@@ -1,8 +1,6 @@
 const s = {
   input: {
     padding:'12px 32px 12px 12px',
-    resize:'none',
-    boxSizing:'border-box',
     marginBottom:'6px',
   },
   large: {
