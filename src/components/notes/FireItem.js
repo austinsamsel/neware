@@ -3,33 +3,34 @@ import FireEncrypted from './FireEncrypted'
 import moment from 'moment'
 import hourglass from '../../public/hourglass.png'
 
-const FireItem = ( props ) => {
+const li_item = {
+  listStyle:'none',
+  padding:'12px 0',
+  borderBottom:'1px solid #eee',
+  paddingBottom:'12px',
+  overflowWrap: 'break-word'
+}
+const li_p = {
+  fontFamily:'Consolas,monaco,monospace',
+  color:'lightseagreen',
+}
+const icon_hourglass = {
+  width:'16px',
+  height:'auto',
+  marginRight:'6px',
+  verticalAlign:'-3px',
+}
 
+const FireItem = ( props ) => {
   return(
-    <li style={{
-      listStyle:'none',
-      padding:'12px 0',
-      borderBottom:'1px solid #eee',
-      paddingBottom:'12px',
-      overflowWrap: 'break-word'
-    }}>
-      <p style={{
-          fontFamily:'Consolas,monaco,monospace',
-          color:'lightseagreen',
-        }}
+    <li style={li_item}>
+      <p style={li_p}
       >
         <img src={hourglass}
           alt='Timestamp'
-          style={{
-            width:'16px',
-            height:'auto',
-            marginRight:'6px',
-            verticalAlign:'-3px',
-          }}
+          style={icon_hourglass}
         />
-        { moment(props.createdAt)
-          .format('ddd MMM Do YYYY, h:mm a')
-        }
+        { moment(props.createdAt).format('ddd MMM Do YYYY, h:mm a') }
       </p>
       { props.encrypted ?
           <FireEncrypted

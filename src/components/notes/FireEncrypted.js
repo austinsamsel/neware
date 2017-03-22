@@ -9,7 +9,7 @@ const s = {
     backgroundColor:'darkgray',
     color:'white',
     border:'none',
-    height:'50px',
+    height:'44px',
     padding:'12px',
     letterSpacing:'0.1rem',
     fontWeight:'bold',
@@ -30,6 +30,17 @@ const s = {
     marginLeft:'12px',
     verticalAlign:'-5px',
   },
+  gray: {
+    color: '#666666'
+  },
+  icon_eye_input: {
+    position:'absolute',
+    right:'10px',
+    top:'-2px',
+  },
+  relative: {
+    position: 'relative'
+  }
 }
 
 const FireEncrypted = ( props ) => {
@@ -55,9 +66,7 @@ let input;
         {props.plaintext === '' ?
           <span>
             <span
-              style={{
-                position:'relative'
-              }}
+              style={s.relative}
             >
               <input
                 style={s.input}
@@ -69,20 +78,16 @@ let input;
               />
               <div
                 onClick={props.passcodeObscureClick}
-                style={{
-                  position:'absolute',
-                  right:'10px',
-                  top:'-2px',
-                }}
+                style={s.icon_eye_input}
               >
                 {props.passcodeObscure ?
                   <FontAwesome
                     name='eye-slash'
-                    style={{ color: '#666666' }}
+                    style={s.gray}
                   />
                 : <FontAwesome
                     name='eye'
-                    style={{ color: '#666666' }}
+                    style={s.gray}
                   />
                 }
               </div>

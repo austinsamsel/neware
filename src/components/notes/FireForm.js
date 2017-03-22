@@ -68,12 +68,7 @@ const FireForm = ( props ) => (
           <strong>Important:</strong> if you forget your passcode, your stuff will be lost forever.
         </span>
         <div
-          style={{
-            display:'flex',
-            alignItems:'center',
-            width:'100%',
-            position:'relative'
-        }}>
+          style={s.flex_wrap}>
           <input
             style={{...s.input, ...s.small}}
             type={props.passcodeObscure ? 'password':'text'}
@@ -85,20 +80,16 @@ const FireForm = ( props ) => (
           />
           <div
             onClick={props.passcodeObscureClick}
-            style={{
-              position:'absolute',
-              right:'10px',
-              top:'13px'
-            }}
+            style={s.icon_eye}
           >
             {props.passcodeObscure ?
               <FontAwesome
                 name='eye-slash'
-                style={{ color: '#666666' }}
+                style={s.gray}
               />
             : <FontAwesome
                 name='eye'
-                style={{ color: '#666666' }}
+                style={s.gray}
               />
             }
           </div>
@@ -125,8 +116,8 @@ export default FireForm
 FireForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   handleClick: PropTypes.func.isRequired,
-  // passcodeToggle: PropTypes.bool.isRequired,
-  // passcodeToggleClick: PropTypes.func.isRequired,
-  // passcodeObscure: PropTypes.bool.isRequired,
-  // passcodeObscureClick: PropTypes.func.isRequired,
+  passcodeToggle: PropTypes.bool,
+  passcodeToggleClick: PropTypes.func,
+  passcodeObscure: PropTypes.bool.isRequired,
+  passcodeObscureClick: PropTypes.func.isRequired,
 };

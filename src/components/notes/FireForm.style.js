@@ -17,6 +17,20 @@ const s = {
   small: {
     border:'1px darkgray solid'
   },
+  flex_wrap: {
+    display:'flex',
+    alignItems:'center',
+    width:'100%',
+    position:'relative'
+  },
+  icon_eye: {
+    position:'absolute',
+    right:'10px',
+    top:'10px',
+  },
+  gray: {
+    color: '#666666'
+  },
   toggleBtn: {
     background:'#eee',
     borderRadius:'3px',

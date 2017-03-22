@@ -2,6 +2,11 @@ import React, { PropTypes } from 'react'
 import FireItem from './FireItem';
 import _ from 'lodash';
 
+const spacing = {
+  margin:'24px 0px 48px',
+  paddingLeft:'0',
+}
+
 const FireList = ( props ) => {
   const renderNotes = () => {
     return _.map(props.notes, (note, key) => {
@@ -18,21 +23,17 @@ const FireList = ( props ) => {
     });
   }
   return(
-    <ul style={{
-      margin:'24px 0px 48px',
-      paddingLeft:'0',
-    }}>
+    <ul style={spacing}>
       { _.reverse(renderNotes()) }
     </ul>
   )
-
 }
 
 FireList.propTypes = {
-  // note: PropTypes.string.isRequired,
+  note: PropTypes.string,
   onSubmit: PropTypes.func.isRequired,
-  // passcodeObscure: PropTypes.bool.isRequired,
-  // passcodeObscureClick: PropTypes.func.isRequired,
+  passcodeObscure: PropTypes.bool,
+  passcodeObscureClick: PropTypes.func,
 }
 
 export default FireList
