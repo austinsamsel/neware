@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import FireEncrypted from './FireEncrypted'
 import moment from 'moment'
-import hourglass from '../../public/hourglass.png'
+import hourglass from '../../assets/hourglass.png'
 import s from '../ui/Styles.js' // styles utility
 
 const li_item = {

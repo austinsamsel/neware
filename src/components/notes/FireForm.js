@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import CryptoJS from 'crypto-js'
 import FontAwesome from 'react-fontawesome'
 import '../../vendor/font-awesome/font-awesome.css';
-import lockandkey from '../../public/lockandkey.png'
+import lockandkey from '../../assets/lockandkey.png'
 import c from './FireForm.style.js' // component styles
 import s from '../ui/Styles.js' // styles utility
 

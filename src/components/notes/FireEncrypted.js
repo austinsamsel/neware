@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import CryptoJS from 'crypto-js'
 import FontAwesome from 'react-fontawesome'
 import '../../vendor/font-awesome/font-awesome.css';
-import thekey from '../../public/key.png'
+import thekey from '../../assets/key.png'
 import s from '../ui/Styles.js' // styles utility
 
 const c = {
