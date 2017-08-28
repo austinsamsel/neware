@@ -9,7 +9,10 @@
     "babel-register": "^6.14.0",
     "cross-env": "^2.0.1",
     "enzyme": "^2.4.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^4.0.4",
     "nock": "^8.0.0",
+    "prettier": "^1.6.0",
     "react-addons-test-utils": "^15.3.1",
     "react-scripts": "1.0.12",
     "redux-devtools": "^3.3.1",
@@ -27,6 +30,7 @@
     "lodash": "^4.15.0",
     "moment": "^2.14.1",
     "normalize.css": "^5.0.0",
+    "prop-types": "^15.5.10",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-fontawesome": "^1.5.0",
@@ -40,10 +44,18 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "stage": "react-scripts build && mv build/index.html build/200.html && surge ./build --domain neware.surge.sh",
+    "prettier": "prettier --single-quote --no-semi --write  \"src/**/*.js\"",
+    "precommit": "lint-staged",
     "production": "react-scripts build && mv build/index.html build/200.html && surge ./build --domain ne.hightops.co",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "test-old": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "prettier --single-quote --no-semi --write",
+      "git add"
+    ]
   },
   "eslintConfig": {
     "extends": "./node_modules/react-scripts/config/eslint.js"

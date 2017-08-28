@@ -14,13 +14,14 @@ import notes from './reducers/notes'
 import addChannel from './reducers/channel'
 import passcodeToggle from './reducers/notes/passcodeToggle'
 import passcodeObscure from './reducers/notes/passcodeObscure'
+import registerServiceWorker from './registerServiceWorker'
 
 const reducer = combineReducers({
   addChannel,
   notes,
   passcodeToggle,
   passcodeObscure,
-  routing: routerReducer,
+  routing: routerReducer
 })
 
 // Add the reducer to your store on the `routing` key
@@ -47,3 +48,4 @@ render(
   </Provider>,
   document.getElementById('root')
 )
+registerServiceWorker()

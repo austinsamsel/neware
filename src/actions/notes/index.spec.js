@@ -1,10 +1,10 @@
 import configureMockStore from 'redux-mock-store'
 import thunk from 'redux-thunk'
 import nock from 'nock'
-const middlewares = [ thunk ]
+const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
+require('es6-promise').polyfill()
+require('isomorphic-fetch')
 
 //import expect from 'expect'
 import * as actions from './index'
@@ -24,10 +24,10 @@ describe('async actions', () => {
       })
 
     const NotesState = {
-      '1' : {
+      '1': {
         text: 'test1'
       },
-      '2' : {
+      '2': {
         text: 'test2'
       }
     }
@@ -35,11 +35,11 @@ describe('async actions', () => {
     const expectedActions = [
       {
         type: 'FETCH_NOTES',
-        payload: { notes: ['do something']  }
+        payload: { notes: ['do something'] }
       }
     ]
     const store = mockStore({})
-    
+
     // WIP
     // store.dispatch(actions.fetchNotes('test')).then(() =>{
     //   expect(store.getActions()[0]).toEqual({
@@ -58,29 +58,27 @@ describe('async actions', () => {
 })
 
 describe('note actions', () => {
-
   // Promise test example with mocha and expect
   it('should fetch notes when FETCH_NOTES action', () => {
-      function success() {
-        return {
-          type: 'FETCH_NOTES'
-        }
+    function success() {
+      return {
+        type: 'FETCH_NOTES'
       }
+    }
 
-      function fetchNotes () {
-        return dispatch => {
-          return fetch('https://anywhere-32729.firebaseio.com/notes/sup.json') // Some async action with promise
-            .then(() => dispatch(success()))
-        };
+    function fetchNotes() {
+      return dispatch => {
+        return fetch('https://anywhere-32729.firebaseio.com/notes/sup.json') // Some async action with promise
+          .then(() => dispatch(success()))
       }
+    }
 
-      const store = mockStore({})
+    const store = mockStore({})
 
-      // Return the promise
-      return store.dispatch(fetchNotes())
-        .then(() => {
-          expect(store.getActions()[0]).toEqual(success())
-        })
+    // Return the promise
+    return store.dispatch(fetchNotes()).then(() => {
+      expect(store.getActions()[0]).toEqual(success())
+    })
   })
 
   it('clear notes should create CLEAR_NOTES action', () => {

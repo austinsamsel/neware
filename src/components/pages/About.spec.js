@@ -1,13 +1,13 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import About from './About';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import { shallow } from 'enzyme'
+import About from './About'
+import ReactDOM from 'react-dom'
 
 // smoke test:
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<About />, div);
-});
+  const div = document.createElement('div')
+  ReactDOM.render(<About />, div)
+})
 
 // shallow rendering with Enzyme
 // it('renders some about text', () => {
