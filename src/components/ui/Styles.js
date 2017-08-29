@@ -3,7 +3,6 @@ import { css } from 'glamor'
 // functional css styles
 
 export default {
-
   dimgray: { color: '#666' },
   black: { color: 'black' },
   white: { color: 'white' },
@@ -18,14 +17,17 @@ export default {
 
   bold: { fontWeight: 'bold' },
 
-  ff_mono: { fontFamily:'Consolas,monaco,monospace' },
-  ff_body: { fontFamily:'-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif' },
+  ff_mono: { fontFamily: 'Consolas,monaco,monospace' },
+  ff_body: {
+    fontFamily:
+      '-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif'
+  },
 
   fs__14: { fontSize: '14px' },
   fs__24: { fontSize: '24px' },
   fs__36: { fontSize: '36px' },
 
-  tracked_spaced: { letterSpacing:'0.1rem' },
+  tracked_spaced: { letterSpacing: '0.1rem' },
 
   m0: { margin: '0' },
 
@@ -36,19 +38,18 @@ export default {
 
   bn: { border: 'none' },
   br0: { borderRadius: '0' },
-  
+
   border_blue: { border: 'blue solid 3px' },
 
   border_box: { boxSizing: 'border-box' },
 
-  df : css({ display: 'flex' }),
-  aic : css({ alignItems: 'center' }),
+  df: css({ display: 'flex' }),
+  aic: css({ alignItems: 'center' }),
 
   relative: { position: 'relative' },
   absolute: { position: 'absolute' },
 
-  cursor_default : { cursor: 'default' },
+  cursor_default: { cursor: 'default' },
 
-  resize_none: { resize:'none' },
-
+  resize_none: { resize: 'none' }
 }

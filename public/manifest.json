@@ -1,0 +1,15 @@
+{
+  "short_name": "NEWARE",
+  "name": "NEWARE: Save it for later from anywhere.",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "563x563",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#ff00ff",
+  "background_color": "#ffffff"
+}
