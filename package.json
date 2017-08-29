@@ -43,10 +43,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "stage": "react-scripts build && mv build/index.html build/200.html && surge ./build --domain neware.surge.sh",
+    "stage": "react-scripts build && mv build/index.html build/200.html && surge ./build --domain https://neware.surge.sh",
     "prettier": "prettier --single-quote --no-semi --write  \"src/**/*.js\"",
     "precommit": "lint-staged",
-    "production": "react-scripts build && mv build/index.html build/200.html && surge ./build --domain ne.hightops.co",
+    "production": "react-scripts build && mv build/index.html build/200.html && surge ./build --domain https://ne.hightops.co",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "test-old": "cross-env NODE_ENV=test mocha --recursive --compilers js:babel-register --require ./test/setup.js"
