@@ -1,23 +1,20 @@
-import firebase from 'firebase'
-
-var config = {
-  apiKey: 'AIzaSyA8Gn5ygzzT8RaAkKF-SfSM4URnk2dsOyQ',
-  authDomain: 'anywhere-32729.firebaseapp.com',
-  databaseURL: 'https://anywhere-32729.firebaseio.com',
-  storageBucket: 'anywhere-32729.appspot.com'
-}
-firebase.initializeApp(config)
-
-const notesRef = firebase.database().ref('notes')
+import 'whatwg-fetch'
 
 export const fetchNotes = route => {
   return function(dispatch) {
-    notesRef.child(route).on('value', snapshot => {
-      dispatch({
-        type: 'FETCH_NOTES',
-        payload: snapshot.val()
+    fetch(`https://neware-posts.now.sh/api/posts?channel=${route}`)
+      .then(function(response) {
+        if (response.status >= 400) {
+          throw new Error('Bad response from server')
+        }
+        return response.json()
       })
-    })
+      .then(data => {
+        dispatch({
+          type: 'FETCH_NOTES',
+          payload: data.data
+        })
+      })
   }
 }
 
@@ -36,17 +33,29 @@ export const clearNotes = () => {
 }
 
 export const createNote = (text, route, encrypted) => {
-  return dispatch =>
-    notesRef.child(route).push({
-      createdAt: firebase.database.ServerValue.TIMESTAMP,
-      text: text,
-      encrypted: encrypted,
-      plaintext: ''
-    })
+  return function(dispatch) {
+    fetch(
+      `https://neware-posts.now.sh/api/posts?channel=${route}&encrypted=${encrypted}&plaintext=${''}&text=${text}`,
+      {
+        method: 'POST'
+      }
+    )
+      .then(function(response) {
+        if (response.status >= 400) {
+          throw new Error('Bad response from server')
+        }
+        return response.json()
+      })
+      .then(data => {
+        dispatch({
+          type: 'FETCH_NOTES',
+          payload: data.data
+        })
+      })
+  }
 }
 
 export const unloadNotes = route => {
-  notesRef.child(route).off()
   return {
     type: 'UNLOAD_NOTES_SUCCESS'
   }

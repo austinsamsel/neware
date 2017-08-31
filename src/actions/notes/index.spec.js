@@ -15,7 +15,7 @@ describe('async actions', () => {
   })
 
   it('creates FETCH_NOTES when fetching notes has been done', () => {
-    nock('https://anywhere-32729.firebaseio.com')
+    nock('https://SERVER_URL') //todo
       .get('/notes/cool')
       .reply(200, {
         payload: {
@@ -68,7 +68,7 @@ describe('note actions', () => {
 
     function fetchNotes() {
       return dispatch => {
-        return fetch('https://anywhere-32729.firebaseio.com/notes/sup.json') // Some async action with promise
+        return fetch('https://SERVER_URL.com') // todo: Some async action with promise
           .then(() => dispatch(success()))
       }
     }
@@ -86,19 +86,4 @@ describe('note actions', () => {
       type: 'CLEAR_NOTES'
     })
   })
-
-  // it('fetchNotes should create FETCH_NOTES action', () => {
-  //   expect(actions.fetchNotes('test')).toEqual({
-  //     type: 'ADD_NOTE',
-  //     id: 0,
-  //     text: 'Use Redux'
-  //   })
-  // })
-
-  // it('create note should create CREATE_NOTE action', () => {
-  //   expect(actions.createNote('hi', 'route')).toEqual({
-  //     type: 'CREATE_NOTE',
-  //     text: 'hi'
-  //   })
-  // })
 })
