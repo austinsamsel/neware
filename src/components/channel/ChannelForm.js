@@ -18,6 +18,7 @@ let input
 const ChannelForm = props => (
   <div data-c="ChannelForm">
     <input
+      data-t="channelInput"
       placeholder="Name a channel"
       onKeyUp={e => {
         if (!input.value.trim()) {
