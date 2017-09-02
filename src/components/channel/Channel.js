@@ -13,7 +13,7 @@ const emoji_thumbsup = {
 
 const Channel = ({ name }) => (
   <div data-c="Channel">
-    <h1 style={{ ...s.fs__36, ...s.m0 }}>
+    <h1 data-t="channelH1" style={{ ...s.fs__36, ...s.m0 }}>
       <img
         style={{ ...emoji_thumbsup, ...s.w_auto }}
         src={thumbsup}

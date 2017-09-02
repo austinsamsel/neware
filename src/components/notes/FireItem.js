@@ -27,18 +27,20 @@ const FireItem = props => {
         <img src={hourglass} alt="Timestamp" style={icon_hourglass} />
         {moment(props.createdAt).format('ddd MMM Do YYYY, h:mm a')}
       </p>
-      {props.encrypted ? (
-        <FireEncrypted
-          note={props.note}
-          plaintext={props.plaintext}
-          onSubmit={props.onSubmit}
-          id={props.id}
-          passcodeObscure={props.passcodeObscure}
-          passcodeObscureClick={props.passcodeObscureClick}
-        />
-      ) : (
-        props.note
-      )}
+      <span data-t="noteContent">
+        {props.encrypted ? (
+          <FireEncrypted
+            note={props.note}
+            plaintext={props.plaintext}
+            onSubmit={props.onSubmit}
+            id={props.id}
+            passcodeObscure={props.passcodeObscure}
+            passcodeObscureClick={props.passcodeObscureClick}
+          />
+        ) : (
+          props.note
+        )}
+      </span>
     </li>
   )
 }

@@ -17,6 +17,7 @@ const ChannelBtn = ({ ch }) => (
   <span data-c="ChannelBtn">
     <Link to={`/${ch}`}>
       <button
+        data-t="channelBtn"
         {...btn}
         style={{
           ...s.bg_blue,
