@@ -27,7 +27,7 @@ const FireItem = props => {
         <img src={hourglass} alt="Timestamp" style={icon_hourglass} />
         {moment(props.createdAt).format('ddd MMM Do YYYY, h:mm a')}
       </p>
-      <span data-c="noteContent">
+      <span data-t="noteContent">
         {props.encrypted ? (
           <FireEncrypted
             note={props.note}

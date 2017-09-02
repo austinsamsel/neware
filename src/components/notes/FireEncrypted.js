@@ -51,6 +51,7 @@ const FireEncrypted = props => {
           <span>
             <span style={s.relative}>
               <input
+                data-t="unlockPasscode"
                 style={{
                   ...c.input,
                   ...s.black,
@@ -77,6 +78,7 @@ const FireEncrypted = props => {
               </div>
             </span>
             <button
+              data-t="unlockPasscodeBtn"
               style={{
                 ...c.button,
                 ...s.bg_darkgray,
@@ -90,7 +92,7 @@ const FireEncrypted = props => {
             </button>
           </span>
         ) : (
-          props.plaintext
+          <span data-t="noteContentSecret">{props.plaintext}</span>
         )}
         <img
           src={thekey}
