@@ -51,6 +51,7 @@ const FireForm = props => (
       }}
     >
       <div
+        data-t="toggleSecretBtn"
         onClick={props.handleClick}
         style={{
           ...c.toggleBtn,
@@ -73,6 +74,7 @@ const FireForm = props => (
         </span>
         <div style={{ ...s.w_100, ...s.relative }} {...s.df} {...s.aic}>
           <input
+            data-t="createPasscode"
             style={{
               ...c.input,
               ...s.br0,
@@ -116,6 +118,7 @@ const FireForm = props => (
         placeholder="Stuff to save for later"
       />
       <button
+        data-t="addNoteBtn"
         style={{
           ...c.submitBtn,
           ...s.white,
