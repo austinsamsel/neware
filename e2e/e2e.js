@@ -3,11 +3,15 @@ require('dotenv').config()
 import crypto from 'crypto'
 import fb_clean from './fb_clean.js'
 
-const development = true
+const e2e_env = 'dev'
 let client_url
-if (development) {
+if (e2e_env === 'dev') {
   client_url = process.env.URL_DEVELOPMENT
-} else {
+} 
+if (e2e_env === 'stage'){
+  client_url = process.env.URL_STAGING
+}
+if (e2e_env === 'production'){
   client_url = process.env.URL_PRODUCTION
 }
 
@@ -16,7 +20,7 @@ const test_channel = `zzz_test___${crypto_string.toLowerCase()}`
 
 const passcode = crypto.randomBytes(12).toString('hex')
 
-fixture`Can create a channel`.page`${process.env.URL_DEVELOPMENT}`
+fixture`Can create a channel`.page`${client_url}`
 test('go to a channel/route', async t => {
   await t
     .typeText('[data-t="channelInput"]', test_channel)
@@ -25,7 +29,7 @@ test('go to a channel/route', async t => {
     .eql(test_channel)
 })
 
-fixture`Can create a note`.page`${process.env.URL_DEVELOPMENT}/${test_channel}`
+fixture`Can create a note`.page`${client_url}/${test_channel}`
 test('post public message', async t => {
   await t
     .typeText('textarea', test_channel)
@@ -37,7 +41,7 @@ test('post public message', async t => {
   fb_clean.clean(test_channel)
 })
 
-fixture`Can create a secret note`.page`${process.env.URL_DEVELOPMENT}/${test_channel}`
+fixture`Can create a secret note`.page`${client_url}/${test_channel}`
 test('post public message', async t => {
   await t
     .click('[data-t="toggleSecretBtn"]')
