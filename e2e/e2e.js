@@ -4,7 +4,7 @@ import fb_clean from './fb_clean.js'
 import config from '../src/config/index.js'
 
 // environment
-const client_url = config.e2e_client_url('staging')
+const client_url = config.e2e_client_url('development')
 
 // set up
 const crypto_string = crypto.randomBytes(24).toString('hex')

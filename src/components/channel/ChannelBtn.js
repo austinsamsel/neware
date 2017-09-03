@@ -26,7 +26,8 @@ const ChannelBtn = ({ ch }) => (
           ...s.bn,
           ...s.bold,
           ...s.border_box,
-          ...s.tracked_spaced
+          ...s.tracked_spaced,
+          ...s.br0
         }}
       >
         Go

@@ -125,7 +125,8 @@ const FireForm = props => (
           ...s.bg_blue,
           ...s.bold,
           ...s.w_100,
-          ...s.fs__24
+          ...s.fs__24,
+          ...s.br0
         }}
         action="submit"
       >
