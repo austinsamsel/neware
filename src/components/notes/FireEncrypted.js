@@ -89,7 +89,8 @@ const FireEncrypted = props => {
                 ...s.white,
                 ...s.bn,
                 ...s.bold,
-                ...s.tracked_spaced
+                ...s.tracked_spaced,
+                ...s.br0
               }}
             >
               Unlock
