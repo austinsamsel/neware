@@ -46,7 +46,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "stage": "react-scripts build && mv build/index.html build/200.html && surge ./build --domain https://neware.surge.sh",
+    "staging": "react-scripts build && mv build/index.html build/200.html && surge ./build --domain https://neware.surge.sh",
     "prettier": "prettier --single-quote --no-semi --write  \"src/**/*.js\" \"e2e/**/*.js\"",
     "precommit": "lint-staged",
     "production": "react-scripts build && mv build/index.html build/200.html && surge ./build --domain https://ne.hightops.co",

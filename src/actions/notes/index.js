@@ -1,10 +1,11 @@
 import 'whatwg-fetch'
+import config from '../../config/index.js'
 
-//https://neware-posts.now.sh
+const posts_url = config.posts_url('development')
 
 export const fetchNotes = route => {
   return function(dispatch) {
-    fetch(`//localhost:8080/api/posts?channel=${route}`)
+    fetch(`${posts_url}/api/posts?channel=${route}`)
       .then(function(response) {
         if (response.status >= 400) {
           throw new Error('Bad response from server')
@@ -42,7 +43,7 @@ export const createNote = (text, route, encrypted) => {
     plaintext: ''
   }
   return function(dispatch) {
-    fetch(`//localhost:8080/api/posts`, {
+    fetch(`${posts_url}/api/posts`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',

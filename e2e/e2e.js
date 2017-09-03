@@ -1,23 +1,14 @@
 import { Selector } from 'testcafe'
-require('dotenv').config()
 import crypto from 'crypto'
 import fb_clean from './fb_clean.js'
+import config from '../src/config/index.js'
 
-const e2e_env = 'dev'
-let client_url
-if (e2e_env === 'dev') {
-  client_url = process.env.URL_DEVELOPMENT
-} 
-if (e2e_env === 'stage'){
-  client_url = process.env.URL_STAGING
-}
-if (e2e_env === 'production'){
-  client_url = process.env.URL_PRODUCTION
-}
+// environment
+const client_url = config.e2e_client_url('staging')
 
+// set up
 const crypto_string = crypto.randomBytes(24).toString('hex')
 const test_channel = `zzz-test---${crypto_string.toLowerCase()}`
-
 const passcode = crypto.randomBytes(12).toString('hex')
 
 fixture`Can create a channel`.page`${client_url}`
