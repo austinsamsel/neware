@@ -1,23 +1,23 @@
-import firebase from 'firebase'
+import 'whatwg-fetch'
+import config from '../../config/index.js'
 
-var config = {
-  apiKey: 'AIzaSyA8Gn5ygzzT8RaAkKF-SfSM4URnk2dsOyQ',
-  authDomain: 'anywhere-32729.firebaseapp.com',
-  databaseURL: 'https://anywhere-32729.firebaseio.com',
-  storageBucket: 'anywhere-32729.appspot.com'
-}
-firebase.initializeApp(config)
-
-const notesRef = firebase.database().ref('notes')
+const posts_url = config.posts_url('development')
 
 export const fetchNotes = route => {
   return function(dispatch) {
-    notesRef.child(route).on('value', snapshot => {
-      dispatch({
-        type: 'FETCH_NOTES',
-        payload: snapshot.val()
+    fetch(`${posts_url}/api/posts?channel=${route}`)
+      .then(function(response) {
+        if (response.status >= 400) {
+          throw new Error('Bad response from server')
+        }
+        return response.json()
       })
-    })
+      .then(data => {
+        dispatch({
+          type: 'FETCH_NOTES',
+          payload: data.data
+        })
+      })
   }
 }
 
@@ -36,17 +36,37 @@ export const clearNotes = () => {
 }
 
 export const createNote = (text, route, encrypted) => {
-  return dispatch =>
-    notesRef.child(route).push({
-      createdAt: firebase.database.ServerValue.TIMESTAMP,
-      text: text,
-      encrypted: encrypted,
-      plaintext: ''
+  const note = {
+    channel: route,
+    encrypted: encrypted,
+    text: text,
+    plaintext: ''
+  }
+  return function(dispatch) {
+    fetch(`${posts_url}/api/posts`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(note)
     })
+      .then(function(response) {
+        if (response.status >= 400) {
+          throw new Error('Bad response from server')
+        }
+        return response.json()
+      })
+      .then(data => {
+        dispatch({
+          type: 'FETCH_NOTES',
+          payload: data.data
+        })
+      })
+  }
 }
 
 export const unloadNotes = route => {
-  notesRef.child(route).off()
   return {
     type: 'UNLOAD_NOTES_SUCCESS'
   }

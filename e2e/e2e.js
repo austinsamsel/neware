@@ -1,23 +1,14 @@
 import { Selector } from 'testcafe'
-require('dotenv').config()
 import crypto from 'crypto'
 import fb_clean from './fb_clean.js'
+import config from '../src/config/index.js'
 
-const e2e_env = 'dev'
-let client_url
-if (e2e_env === 'dev') {
-  client_url = process.env.URL_DEVELOPMENT
-} 
-if (e2e_env === 'stage'){
-  client_url = process.env.URL_STAGING
-}
-if (e2e_env === 'production'){
-  client_url = process.env.URL_PRODUCTION
-}
+// environment
+const client_url = config.e2e_client_url('staging')
 
-const crypto_string = crypto.randomBytes(48).toString('hex')
-const test_channel = `zzz_test___${crypto_string.toLowerCase()}`
-
+// set up
+const crypto_string = crypto.randomBytes(24).toString('hex')
+const test_channel = `zzz-test---${crypto_string.toLowerCase()}`
 const passcode = crypto.randomBytes(12).toString('hex')
 
 fixture`Can create a channel`.page`${client_url}`
@@ -48,6 +39,7 @@ test('post public message', async t => {
     .typeText('[data-t="createPasscode"]', passcode)
     .typeText('textarea', test_channel)
     .click('[data-t="addNoteBtn"]')
+    .click('[data-t="passcodeObscured"]')
     .typeText('[data-t="unlockPasscode"]', passcode)
     .click('[data-t="unlockPasscodeBtn"]')
     .expect(Selector('[data-t="noteContentSecret"]').innerText)
