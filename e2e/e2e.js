@@ -15,8 +15,8 @@ if (e2e_env === 'production'){
   client_url = process.env.URL_PRODUCTION
 }
 
-const crypto_string = crypto.randomBytes(48).toString('hex')
-const test_channel = `zzz_test___${crypto_string.toLowerCase()}`
+const crypto_string = crypto.randomBytes(24).toString('hex')
+const test_channel = `zzz-test---${crypto_string.toLowerCase()}`
 
 const passcode = crypto.randomBytes(12).toString('hex')
 
@@ -48,6 +48,7 @@ test('post public message', async t => {
     .typeText('[data-t="createPasscode"]', passcode)
     .typeText('textarea', test_channel)
     .click('[data-t="addNoteBtn"]')
+    .click('[data-t="passcodeObscured"]')
     .typeText('[data-t="unlockPasscode"]', passcode)
     .click('[data-t="unlockPasscodeBtn"]')
     .expect(Selector('[data-t="noteContentSecret"]').innerText)

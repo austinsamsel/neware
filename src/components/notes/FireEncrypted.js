@@ -71,7 +71,11 @@ const FireEncrypted = props => {
                 style={{ ...c.icon_eye_input, ...s.absolute }}
               >
                 {props.passcodeObscure ? (
-                  <FontAwesome name="eye-slash" style={s.dimgray} />
+                  <FontAwesome
+                    data-t="passcodeObscured"
+                    name="eye-slash"
+                    style={s.dimgray}
+                  />
                 ) : (
                   <FontAwesome name="eye" style={s.dimgray} />
                 )}

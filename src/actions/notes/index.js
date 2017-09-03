@@ -1,8 +1,10 @@
 import 'whatwg-fetch'
 
+//https://neware-posts.now.sh
+
 export const fetchNotes = route => {
   return function(dispatch) {
-    fetch(`https://neware-posts.now.sh/api/posts?channel=${route}`)
+    fetch(`//localhost:8080/api/posts?channel=${route}`)
       .then(function(response) {
         if (response.status >= 400) {
           throw new Error('Bad response from server')
@@ -33,13 +35,21 @@ export const clearNotes = () => {
 }
 
 export const createNote = (text, route, encrypted) => {
+  const note = {
+    channel: route,
+    encrypted: encrypted,
+    text: text,
+    plaintext: ''
+  }
   return function(dispatch) {
-    fetch(
-      `https://neware-posts.now.sh/api/posts?channel=${route}&encrypted=${encrypted}&plaintext=${''}&text=${text}`,
-      {
-        method: 'POST'
-      }
-    )
+    fetch(`//localhost:8080/api/posts`, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(note)
+    })
       .then(function(response) {
         if (response.status >= 400) {
           throw new Error('Bad response from server')
