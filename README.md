@@ -1,4 +1,5 @@
-# NEWARE: a React, Redux, Firebase App
+# NEWARE: a React, Redux, Express, Firebase App
+---
 
 currently living at: 🌍 [https://ne.hightops.co](https://ne.hightops.co/)
 
@@ -12,11 +13,4 @@ for deploying used surge, I needed to create a 200 catch all as explained [here]
 
 This way, if you create a note at the URL https://ne.hightops.co/test you can go straight to that URL later on.
 
-I also have a service that runs every 24 hours that checks the database for posts older than 24 hours and deletes them. So all posts on neware are temporary.
-
-# TODO
-
-* abstract out 'input' element for passcode entry.
-* update all CSS styles - remove all inline styles and create JS objects.
-* fCSS more, remove repeats.
-* favicon
+A service runs every 24 hours that checks the database for posts older than 24 hours and deletes them. So all posts on neware are temporary.
