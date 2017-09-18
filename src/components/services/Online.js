@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import 'whatwg-fetch'
 import config from '../../config/index.js'
 const posts_url = config.posts_url('development')
 
-class Online extends Component {
-  // TODO: reflect in UI, have fallback.
-
-  componentDidMount() {
+const Online = () => {
+  const posts_service = () => {
     fetch(`${posts_url}/api/`)
       .then(function(response) {
         if (response.status >= 400) {
@@ -18,10 +16,10 @@ class Online extends Component {
         console.log('OK: neware-posts')
       })
   }
+  posts_service()
 
-  render() {
-    return <span data-c="Online" />
-  }
+  return <span data-c="Online" />
 }
-
 export default Online
+
+// MAKE *NOT* a react component...
