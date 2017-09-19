@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router'
 import Online from './services/Online.js'
 
+Online.posts_service()
+
 const td_none = {
   textDecoration: 'none'
 }
@@ -21,7 +23,6 @@ const subtitle = {
 
 const App = props => (
   <div data-c="App">
-    <Online />
     <Link to="/" style={td_none}>
       <span style={logo}>NEWARE</span>
     </Link>
