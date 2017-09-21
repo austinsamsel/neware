@@ -1,7 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+// import PropTypes from 'prop-types'
+import { Route, Switch, Link } from 'react-router-dom'
 import Online from './services/Online.js'
+
+import AddChannel from '../containers/channel/AddChannel'
+import ChannelContainer from '../containers/channel/ChannelContainer'
 
 Online.posts_service()
 
@@ -27,11 +30,15 @@ const App = props => (
       <span style={logo}>NEWARE</span>
     </Link>
     <h2 style={subtitle}>Save it for later from anywhere.</h2>
-    {props.children}
+    <Switch>
+      {/* {props.children} */}
+      <Route exact path="/" component={AddChannel} /> */}
+      <Route path=":name" component={ChannelContainer} />
+    </Switch>
   </div>
 )
 export default App
 
-App.propTypes = {
-  children: PropTypes.object.isRequired
-}
+// App.propTypes = {
+//   children: PropTypes.object.isRequired
+// }
