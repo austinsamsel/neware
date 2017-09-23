@@ -29,6 +29,7 @@
     "dotenv": "^4.0.0",
     "es6-promise": "^3.2.1",
     "glamor-react": "^3.0.0-1",
+    "history": "^4.7.2",
     "lodash": "^4.15.0",
     "moment": "^2.14.1",
     "normalize.css": "^5.0.0",
