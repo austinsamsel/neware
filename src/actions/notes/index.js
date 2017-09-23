@@ -43,7 +43,6 @@ export const createNote = (text, route, encrypted) => {
     text: text,
     plaintext: ''
   }
-  console.log(note)
   return function(dispatch) {
     fetch(`${posts_url}/api/posts`, {
       method: 'POST',

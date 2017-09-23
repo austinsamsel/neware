@@ -1,4 +1,4 @@
-require('dotenv').config('../../.env')
+require('dotenv').config()
 
 const NE_POSTS_DEVELOPMENT = 'http://localhost:8080'
 const NE_POSTS_PRODUCTION = 'https://neware-posts.now.sh'
