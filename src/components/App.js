@@ -1,7 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'react-router'
+import { Route, Switch, Link } from 'react-router-dom'
 import Online from './services/Online.js'
+import AddChannel from '../containers/channel/AddChannel'
+import ChannelContainer from '../containers/channel/ChannelContainer'
 
 Online.posts_service()
 
@@ -21,17 +22,18 @@ const subtitle = {
   margin: '0 0 48px 0'
 }
 
-const App = props => (
-  <div data-c="App">
-    <Link to="/" style={td_none}>
-      <span style={logo}>NEWARE</span>
-    </Link>
-    <h2 style={subtitle}>Save it for later from anywhere.</h2>
-    {props.children}
-  </div>
-)
-export default App
-
-App.propTypes = {
-  children: PropTypes.object.isRequired
+const App = () => {
+  return (
+    <div data-c="App">
+      <Link to="/" style={td_none}>
+        <span style={logo}>NEWARE</span>
+      </Link>
+      <h2 style={subtitle}>Save it for later from anywhere.</h2>
+      <Switch>
+        <Route exact path="/" component={AddChannel} /> */}
+        <Route path={`/:id`} component={ChannelContainer} />
+      </Switch>
+    </div>
+  )
 }
+export default App

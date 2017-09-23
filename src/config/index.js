@@ -17,24 +17,8 @@ const e2e_client_url = environment => {
   return client_url
 }
 
-const posts_url = environment => {
-  let posts_url
-  if (environment === 'development') {
-    posts_url = NE_POSTS_DEVELOPMENT
-  }
-  if (environment === 'production') {
-    posts_url = NE_POSTS_PRODUCTION
-  }
-  if (!process.env.LOCAL_DEV) {
-    // default to production url if in production
-    posts_url = NE_POSTS_PRODUCTION
-  }
-  return posts_url
-}
-
 module.exports = {
   NE_POSTS_DEVELOPMENT,
   NE_POSTS_PRODUCTION,
-  e2e_client_url,
-  posts_url
+  e2e_client_url
 }

@@ -1,11 +1,12 @@
 import 'whatwg-fetch'
 import config from '../../config/index.js'
 
-const posts_url = config.posts_url('development')
+const posts_url = config.NE_POSTS_PRODUCTION
 
 export const fetchNotes = route => {
+  const encode_route = encodeURIComponent(route)
   return function(dispatch) {
-    fetch(`${posts_url}/api/posts?channel=${route}`)
+    fetch(`${posts_url}/api/posts?channel=${encode_route}`)
       .then(function(response) {
         if (response.status >= 400) {
           throw new Error('Bad response from server')
@@ -37,7 +38,7 @@ export const clearNotes = () => {
 
 export const createNote = (text, route, encrypted) => {
   const note = {
-    channel: route,
+    channel: encodeURIComponent(route),
     encrypted: encrypted,
     text: text,
     plaintext: ''

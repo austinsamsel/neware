@@ -1,19 +1,29 @@
+// Redux
+import { combineReducers, createStore, compose, applyMiddleware } from 'redux'
+import { Provider } from 'react-redux'
+import { Route, Switch } from 'react-router-dom'
+import createHistory from 'history/createBrowserHistory'
+import {
+  ConnectedRouter,
+  routerReducer,
+  routerMiddleware
+} from 'react-router-redux'
+import reduxThunk from 'redux-thunk'
+
+// React & App
 import React from 'react'
 import { render } from 'react-dom'
 import 'normalize.css'
 import './index.css'
-import { createStore, combineReducers, applyMiddleware } from 'redux'
-import reduxThunk from 'redux-thunk'
-import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
-import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import App from './components/App'
-import AddChannel from './containers/channel/AddChannel'
-import ChannelContainer from './containers/channel/ChannelContainer'
+
+// Reducers
 import notes from './reducers/notes'
 import addChannel from './reducers/channel'
 import passcodeToggle from './reducers/notes/passcodeToggle'
 import passcodeObscure from './reducers/notes/passcodeObscure'
+
+//PWA
 import registerServiceWorker from './registerServiceWorker'
 
 const reducer = combineReducers({
@@ -24,27 +34,26 @@ const reducer = combineReducers({
   routing: routerReducer
 })
 
-// Add the reducer to your store on the `routing` key
-// add chrome dev tools extension
-
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore)
 
-let store = createStoreWithMiddleware(
-  reducer,
-  window.devToolsExtension && window.devToolsExtension()
-)
+const history = createHistory()
 
-// Create an enhanced history that syncs navigation events with the store
-const history = syncHistoryWithStore(browserHistory, store)
+const store = createStoreWithMiddleware(
+  reducer,
+  undefined,
+  compose(
+    applyMiddleware(routerMiddleware(history)),
+    window.devToolsExtension ? window.devToolsExtension() : f => f
+  )
+)
 
 render(
   <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={App}>
-        <IndexRoute component={AddChannel} />
-        <Route path=":name" component={ChannelContainer} />
-      </Route>
-    </Router>
+    <ConnectedRouter history={history}>
+      <Switch>
+        <Route path="/" component={App} />
+      </Switch>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById('root')
 )
