@@ -24,7 +24,7 @@ const ChannelForm = props => (
         if (!input.value.trim()) {
           return
         }
-        props.onKeyUp(input.value.toLowerCase())
+        props.onKeyUp(encodeURIComponent(input.value.toLowerCase()))
       }}
       ref={node => {
         input = node

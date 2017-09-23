@@ -22,7 +22,7 @@ const subtitle = {
   margin: '0 0 48px 0'
 }
 
-const App = ({ props, match }) => {
+const App = () => {
   return (
     <div data-c="App">
       <Link to="/" style={td_none}>
