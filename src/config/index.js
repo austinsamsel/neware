@@ -1,7 +1,9 @@
 require('dotenv').config()
 
-const NE_POSTS_DEVELOPMENT = 'http://localhost:8080'
-const NE_POSTS_PRODUCTION = 'https://neware-posts.now.sh'
+const NE_POSTS_URL = 'https://neware-posts.now.sh'
+// neware-posts url:
+// | 'https://neware-posts.now.sh'
+// | 'http://localhost:8080'
 
 const e2e_client_url = environment => {
   let client_url
@@ -18,7 +20,6 @@ const e2e_client_url = environment => {
 }
 
 module.exports = {
-  NE_POSTS_DEVELOPMENT,
-  NE_POSTS_PRODUCTION,
+  NE_POSTS_URL,
   e2e_client_url
 }

@@ -1,7 +1,7 @@
 import 'whatwg-fetch'
 import config from '../../config/index.js'
 
-const posts_url = config.NE_POSTS_PRODUCTION
+const posts_url = config.NE_POSTS_URL
 
 export const fetchNotes = route => {
   const encode_route = encodeURIComponent(route)
