@@ -1,5 +1,5 @@
 import config from '../../config/index.js'
-const posts_url = config.NE_POSTS_PRODUCTION
+const posts_url = config.NE_POSTS_URL
 
 const posts_service = () => {
   fetch(`${posts_url}/api/`)
