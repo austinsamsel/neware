@@ -5,7 +5,7 @@ const NE_POSTS_URL = 'https://neware-posts.now.sh'
 // | 'https://neware-posts.now.sh'
 // | 'http://localhost:8080'
 
-const NE_SERVER_URL = 'https://neware-posts.now.sh'
+const NE_SERVER_URL = 'https://neware-server.now.sh'
 // neware-server url:
 // | 'https://neware-posts.now.sh'
 // | 'http://localhost:5000'
