@@ -28,6 +28,7 @@
     "crypto-js": "^3.1.6",
     "dotenv": "^4.0.0",
     "es6-promise": "^3.2.1",
+    "firebase": "^4.4.0",
     "glamor-react": "^3.0.0-1",
     "history": "^4.7.2",
     "lodash": "^4.15.0",

@@ -1,24 +1,24 @@
-import 'whatwg-fetch'
-import config from '../../config/index.js'
+import firebase from 'firebase'
 
-const posts_url = config.NE_POSTS_URL
+const config = {
+  apiKey: 'AIzaSyA8Gn5ygzzT8RaAkKF-SfSM4URnk2dsOyQ',
+  authDomain: 'anywhere-32729.firebaseapp.com',
+  databaseURL: 'https://anywhere-32729.firebaseio.com',
+  storageBucket: 'anywhere-32729.appspot.com'
+}
+firebase.initializeApp(config)
+
+const notesRef = firebase.database().ref('notes')
 
 export const fetchNotes = route => {
   const encode_route = encodeURIComponent(route)
   return function(dispatch) {
-    fetch(`${posts_url}/api/posts?channel=${encode_route}`)
-      .then(function(response) {
-        if (response.status >= 400) {
-          throw new Error('Bad response from server')
-        }
-        return response.json()
+    notesRef.child(route).on('value', snapshot => {
+      dispatch({
+        type: 'FETCH_NOTES',
+        payload: snapshot.val()
       })
-      .then(data => {
-        dispatch({
-          type: 'FETCH_NOTES',
-          payload: data.data
-        })
-      })
+    })
   }
 }
 
@@ -37,37 +37,17 @@ export const clearNotes = () => {
 }
 
 export const createNote = (text, route, encrypted) => {
-  const note = {
-    channel: encodeURIComponent(route),
-    encrypted: encrypted,
-    text: text,
-    plaintext: ''
-  }
-  return function(dispatch) {
-    fetch(`${posts_url}/api/posts`, {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(note)
+  return dispatch =>
+    notesRef.child(route).push({
+      createdAt: firebase.database.ServerValue.TIMESTAMP,
+      text: text,
+      encrypted: encrypted,
+      plaintext: ''
     })
-      .then(function(response) {
-        if (response.status >= 400) {
-          throw new Error('Bad response from server')
-        }
-        return response.json()
-      })
-      .then(data => {
-        dispatch({
-          type: 'FETCH_NOTES',
-          payload: data.data
-        })
-      })
-  }
 }
 
 export const unloadNotes = route => {
+  notesRef.child(route).off()
   return {
     type: 'UNLOAD_NOTES_SUCCESS'
   }
