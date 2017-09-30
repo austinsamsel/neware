@@ -5,6 +5,11 @@ const NE_POSTS_URL = 'https://neware-posts.now.sh'
 // | 'https://neware-posts.now.sh'
 // | 'http://localhost:8080'
 
+const NE_SERVER_URL = 'https://neware-posts.now.sh'
+// neware-server url:
+// | 'https://neware-posts.now.sh'
+// | 'http://localhost:5000'
+
 const e2e_client_url = environment => {
   let client_url
   if (environment === 'development') {
@@ -21,5 +26,6 @@ const e2e_client_url = environment => {
 
 module.exports = {
   NE_POSTS_URL,
+  NE_SERVER_URL,
   e2e_client_url
 }
