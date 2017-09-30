@@ -13,7 +13,7 @@ const notesRef = firebase.database().ref('notes')
 export const fetchNotes = route => {
   const encode_route = encodeURIComponent(route)
   return function(dispatch) {
-    notesRef.child(route).on('value', snapshot => {
+    notesRef.child(encode_route).on('value', snapshot => {
       dispatch({
         type: 'FETCH_NOTES',
         payload: snapshot.val()
@@ -37,8 +37,9 @@ export const clearNotes = () => {
 }
 
 export const createNote = (text, route, encrypted) => {
+  const encode_route = encodeURIComponent(route)
   return dispatch =>
-    notesRef.child(route).push({
+    notesRef.child(encode_route).push({
       createdAt: firebase.database.ServerValue.TIMESTAMP,
       text: text,
       encrypted: encrypted,
