@@ -1,19 +1,22 @@
 import config from '../../config/index.js'
-const posts_url = config.NE_POSTS_URL
+const server_url = config.NE_SERVER_URL
 
-const posts_service = () => {
-  fetch(`${posts_url}/api/`)
-    .then(function(response) {
+const neware_service = () => {
+  fetch(`${server_url}`)
+    .then(response => {
       if (response.status >= 400) {
-        throw new Error(response.status, ': neware-server')
+        console.log(response.status, ': neware-server')
       }
       return response.json()
     })
     .then(data => {
-      //console.log('OK: neware-posts')
+      //console.log('OK: neware-service')
+    })
+    .catch(() => {
+      console.log('neware-server offline')
     })
 }
 
 export default {
-  posts_service
+  neware_service
 }

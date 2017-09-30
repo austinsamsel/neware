@@ -4,7 +4,7 @@ import Online from './services/Online.js'
 import AddChannel from '../containers/channel/AddChannel'
 import ChannelContainer from '../containers/channel/ChannelContainer'
 
-Online.posts_service()
+Online.neware_service()
 
 const td_none = {
   textDecoration: 'none'
