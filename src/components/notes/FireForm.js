@@ -17,12 +17,12 @@ const FireForm = props => (
         // disallow blank posts.
         if (!textarea.value.trim()) {
           return
-          // TODO: flash messages.
+          // TODO: validation message.
         }
         // block if secret is on & passcode field is empty
         if (props.passcodeToggle && !input.value) {
           return
-          // TODO: flash messages.
+          // TODO: validation message.
         }
         //encrypt
         var cipher = CryptoJS.AES.encrypt(textarea.value, input.value)

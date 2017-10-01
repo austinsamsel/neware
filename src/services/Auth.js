@@ -1,4 +1,6 @@
 import firebase from 'firebase'
+import { store } from '../store/index.js'
+import { authUser } from '../actions/auth'
 
 const anonymous = () => {
   firebase
@@ -16,11 +18,19 @@ const state = () => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
-      // var isAnonymous = user.isAnonymous;
-      // var uid = user.uid;
-      // console.log('anonymous: ', isAnonymous, 'uid: ', uid);
+      const auth = {
+        anonymous: user.isAnonymous,
+        uid: user.uid
+      }
+      store.dispatch(authUser(auth))
+      return auth
     } else {
-      // User is signed out.
+      const auth = {
+        anonymous: null,
+        uid: false
+      }
+      console.log(auth)
+      return auth
     }
   })
 }

@@ -1,4 +1,4 @@
-import config from '../../config/index.js'
+import config from '../config/index.js'
 const server_url = config.NE_SERVER_URL
 
 const neware_service = () => {

@@ -1,4 +1,5 @@
 import firebase from 'firebase'
+import moment from 'moment'
 
 const config = {
   apiKey: 'AIzaSyA8Gn5ygzzT8RaAkKF-SfSM4URnk2dsOyQ',
@@ -37,10 +38,12 @@ export const clearNotes = () => {
 }
 
 export const createNote = (text, route, encrypted) => {
-  const encode_route = encodeURIComponent(route)
+  const encoded_route = encodeURIComponent(route)
   return dispatch =>
-    notesRef.child(encode_route).push({
+    notesRef.child(`${encoded_route}/${'uid'}`).set({
       createdAt: firebase.database.ServerValue.TIMESTAMP,
+      createdAtUserTime: moment(new Date()).valueOf(),
+      uid: 'uid',
       text: text,
       encrypted: encrypted,
       plaintext: ''
