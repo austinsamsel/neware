@@ -1,10 +1,13 @@
 import React from 'react'
 import { Route, Switch, Link } from 'react-router-dom'
 import Online from './services/Online.js'
+import Auth from './services/Auth.js'
 import AddChannel from '../containers/channel/AddChannel'
 import ChannelContainer from '../containers/channel/ChannelContainer'
 
 Online.neware_service()
+Auth.anonymous()
+Auth.state()
 
 const td_none = {
   textDecoration: 'none'

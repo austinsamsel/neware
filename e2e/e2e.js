@@ -3,15 +3,14 @@ import crypto from 'crypto'
 import fb_clean from './fb_clean.js'
 import config from '../src/config/index.js'
 
-// environment: production | staging | development
-const client_url = config.e2e_client_url('development')
+const client_url = config.e2e_client_url(process.env.E2E_CLIENT_URL)
 
 // set up
 const crypto_string = crypto.randomBytes(24).toString('hex')
 const test_channel = `zzz-test---${crypto_string.toLowerCase()}`
 const passcode = crypto.randomBytes(12).toString('hex')
 
-fixture`Can create a channel`.page`${client_url}`
+fixture`Can create a channel at ${client_url}`.page`${client_url}`
 test('go to a channel/route', async t => {
   await t
     .typeText('[data-t="channelInput"]', test_channel)
@@ -20,7 +19,7 @@ test('go to a channel/route', async t => {
     .eql(test_channel)
 })
 
-fixture`Can create a note`.page`${client_url}/${test_channel}`
+fixture`Can create a note at ${client_url}`.page`${client_url}/${test_channel}`
 test('post public message', async t => {
   await t
     .typeText('textarea', test_channel)
@@ -32,7 +31,7 @@ test('post public message', async t => {
   fb_clean.clean(test_channel)
 })
 
-fixture`Can create a secret note`.page`${client_url}/${test_channel}`
+fixture`Can create a secret note at ${client_url}`.page`${client_url}/${test_channel}`
 test('post public message', async t => {
   await t
     .click('[data-t="toggleSecretBtn"]')
