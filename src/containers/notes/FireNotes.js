@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../actions/notes'
 import FireForm from '../../components/notes/FireForm'
-import FireList from '../../components/notes/FireList'
+import FireItem from '../../components/notes/FireItem'
 
 class FireNotes extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class FireNotes extends Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.passcodeObscureClick = this.passcodeObscureClick.bind(this)
-    this.showFireForm = this.showFireForm.bind(this)
+    this.showFireContent = this.showFireContent.bind(this)
   }
 
   componentDidMount() {
@@ -40,7 +40,7 @@ class FireNotes extends Component {
     this.props.passcodeObscureToggle()
   }
 
-  showFireForm() {
+  showFireContent = () => {
     if (this.props.notes < 1) {
       return (
         <FireForm
@@ -52,22 +52,23 @@ class FireNotes extends Component {
           route={this.props.ch}
         />
       )
-    }
-  }
-
-  render() {
-    return (
-      <div>
-        {this.showFireForm()}
-
-        <FireList
-          notes={this.props.notes}
+    } else {
+      return (
+        <FireItem
+          note={this.props.notes.text}
+          createdAt={this.props.notes.createdAt}
+          plaintext={this.props.notes.plaintext}
+          encrypted={this.props.notes.encrypted}
           onSubmit={this.onSubmit}
           passcodeObscure={this.props.passcodeObscure}
           passcodeObscureClick={this.passcodeObscureClick}
         />
-      </div>
-    )
+      )
+    }
+  }
+
+  render() {
+    return <div>{this.showFireContent()}</div>
   }
 }
 

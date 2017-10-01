@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import FireEncrypted from './FireEncrypted'
 import moment from 'moment'
 import hourglass from '../../assets/hourglass.png'
-import s from '../ui/Styles.js' // styles utility
+import s from '../ui/Styles.js'
 
 const li_item = {
   listStyle: 'none',
@@ -21,6 +21,7 @@ const icon_hourglass = {
 }
 
 const FireItem = props => {
+  console.log(props.plaintext)
   return (
     <li style={li_item} data-c="FireItem">
       <p style={{ ...s.ff_mono, ...s.lightseagreen }}>
@@ -33,7 +34,6 @@ const FireItem = props => {
             note={props.note}
             plaintext={props.plaintext}
             onSubmit={props.onSubmit}
-            id={props.id}
             passcodeObscure={props.passcodeObscure}
             passcodeObscureClick={props.passcodeObscureClick}
           />
@@ -46,9 +46,8 @@ const FireItem = props => {
 }
 
 FireItem.propTypes = {
-  note: PropTypes.string.isRequired,
-  plaintext: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
+  // note: PropTypes.string.isRequired,
+  // plaintext: PropTypes.string.isRequired,
   passcodeObscure: PropTypes.bool.isRequired,
   passcodeObscureClick: PropTypes.func.isRequired
 }

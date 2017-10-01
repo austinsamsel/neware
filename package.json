@@ -31,7 +31,7 @@
     "firebase": "^4.4.0",
     "glamor-react": "^3.0.0-1",
     "history": "^4.7.2",
-    "lodash": "^4.15.0",
+    "lodash": "^4.17.4",
     "moment": "^2.14.1",
     "normalize.css": "^5.0.0",
     "prop-types": "^15.5.10",

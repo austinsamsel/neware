@@ -43,10 +43,10 @@ export const createNote = (text, route, encrypted) => {
   const uid = store.getState().authUser.uid
 
   return dispatch =>
-    notesRef.child(`${encoded_route}/${uid}`).set({
+    notesRef.child(`${encoded_route}`).set({
       createdAt: firebase.database.ServerValue.TIMESTAMP,
       createdAtUserTime: moment(new Date()).valueOf(),
-      uid: 'uid',
+      uid: uid,
       text: text,
       encrypted: encrypted,
       plaintext: ''

@@ -7,13 +7,8 @@ const notes = (state = [], action) => {
     case 'CLEAR_NOTES':
       return (state = [])
     case 'DECRYPT_NOTE':
-      return _.mapValues(state, (note, index) => {
-        if (index === action.id) {
-          return _.assign({}, note, {
-            plaintext: action.plaintext
-          })
-        }
-        return note
+      return _.assign({}, state, {
+        plaintext: action.plaintext
       })
     default:
       return state
