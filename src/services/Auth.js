@@ -18,19 +18,11 @@ const state = () => {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
-      const auth = {
-        anonymous: user.isAnonymous,
-        uid: user.uid
-      }
-      store.dispatch(authUser(auth))
-      return auth
+      const anonymous = user.isAnonymous
+      const uid = user.uid
+      store.dispatch(authUser(uid, anonymous))
     } else {
-      const auth = {
-        anonymous: null,
-        uid: false
-      }
-      console.log(auth)
-      return auth
+      console.log('not authed...')
     }
   })
 }
