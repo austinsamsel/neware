@@ -21,7 +21,6 @@ const icon_hourglass = {
 }
 
 const FireItem = props => {
-  console.log(props.plaintext)
   return (
     <li style={li_item} data-c="FireItem">
       <p style={{ ...s.ff_mono, ...s.lightseagreen }}>

@@ -10,7 +10,6 @@ const anonymous = () => {
       // Handle Errors here.
       // var errorCode = error.code;
       // var errorMessage = error.message;
-      // console.log(errorCode, errorMessage);
     })
 }
 
@@ -22,7 +21,7 @@ const state = () => {
       const uid = user.uid
       store.dispatch(authUser(uid, anonymous))
     } else {
-      console.log('not authed...')
+      console.info('not authed...')
     }
   })
 }
