@@ -12,6 +12,10 @@ firebase.initializeApp(config)
 
 const notesRef = firebase.database().ref('documents')
 
+// notesRef.child('heya').set({'hi': 'hi'})
+
+// notesRef.child('new/overwrite3').remove()
+
 export const fetchNotes = route => {
   const encode_route = encodeURIComponent(route)
   return function(dispatch) {

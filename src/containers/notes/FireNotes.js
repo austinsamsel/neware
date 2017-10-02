@@ -25,6 +25,7 @@ class FireNotes extends Component {
   }
 
   submitHandler(input, encrypted) {
+    console.log(input, encrypted)
     this.props.createNote(input, this.props.ch, encrypted)
   }
 
@@ -54,15 +55,25 @@ class FireNotes extends Component {
       )
     } else {
       return (
-        <FireItem
-          note={this.props.notes.text}
-          createdAt={this.props.notes.createdAt}
-          plaintext={this.props.notes.plaintext}
-          encrypted={this.props.notes.encrypted}
-          onSubmit={this.onSubmit}
-          passcodeObscure={this.props.passcodeObscure}
-          passcodeObscureClick={this.passcodeObscureClick}
-        />
+        <div>
+          <FireForm
+            onSubmit={this.submitHandler}
+            passcodeToggle={this.props.passcodeToggle}
+            handleClick={this.handleClick}
+            passcodeObscure={this.props.passcodeObscure}
+            passcodeObscureClick={this.passcodeObscureClick}
+            route={this.props.ch}
+          />
+          <FireItem
+            note={this.props.notes.text}
+            createdAt={this.props.notes.createdAt}
+            plaintext={this.props.notes.plaintext}
+            encrypted={this.props.notes.encrypted}
+            onSubmit={this.onSubmit}
+            passcodeObscure={this.props.passcodeObscure}
+            passcodeObscureClick={this.passcodeObscureClick}
+          />
+        </div>
       )
     }
   }
