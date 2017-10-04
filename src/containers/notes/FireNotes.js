@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import * as actions from '../../actions/notes'
 import FireForm from '../../components/notes/FireForm'
 import FireItem from '../../components/notes/FireItem'
+import UndoSave from './UndoSave.js'
 
 class FireNotes extends Component {
   constructor(props) {
@@ -56,14 +57,6 @@ class FireNotes extends Component {
     } else {
       return (
         <div>
-          <FireForm
-            onSubmit={this.submitHandler}
-            passcodeToggle={this.props.passcodeToggle}
-            handleClick={this.handleClick}
-            passcodeObscure={this.props.passcodeObscure}
-            passcodeObscureClick={this.passcodeObscureClick}
-            route={this.props.ch}
-          />
           <FireItem
             note={this.props.notes.text}
             createdAt={this.props.notes.createdAt}
@@ -73,6 +66,7 @@ class FireNotes extends Component {
             passcodeObscure={this.props.passcodeObscure}
             passcodeObscureClick={this.passcodeObscureClick}
           />
+          <UndoSave />
         </div>
       )
     }

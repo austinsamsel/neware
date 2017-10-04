@@ -16,6 +16,8 @@ const notesRef = firebase.database().ref('documents')
 
 // notesRef.child('new/overwrite3').remove()
 
+notesRef.child('removal2').remove()
+
 export const fetchNotes = route => {
   const encode_route = encodeURIComponent(route)
   return function(dispatch) {
@@ -74,4 +76,8 @@ export const passcodeObscureToggle = () => {
   return {
     type: 'PASSCODE_OBSCURE'
   }
+}
+
+export const undoSave = () => {
+  console.log('undoing...')
 }
