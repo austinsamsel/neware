@@ -1,20 +1,25 @@
-import React from 'react'
 import { connect } from 'react-redux'
 import { undoSave } from '../../actions/notes'
-import Undo from '../../components/notes/Undo'
+import UndoPrompt from '../../components/notes/UndoPrompt'
 
-let UndoSave = ({ dispatch, note }) => {
-  const undo = id => {
-    dispatch(undoSave(id))
-  }
-  return <Undo note={note} undo_save={undo} />
-}
-UndoSave = connect(mapStateToProps)(UndoSave)
-
-export default UndoSave
-
-function mapStateToProps(state) {
+const mapDispatchToProps = dispatch => {
   return {
-    note: {}
+    removeItem: route => {
+      dispatch(undoSave(route))
+    }
   }
 }
+
+const mapStateToProps = (state, ownProps) => {
+  var pathname = state.routing.location.pathname
+  console.log(pathname)
+  var channel = pathname.replace(/\//g, '')
+  console.log(channel)
+
+  return {
+    channel: channel
+  }
+}
+
+const UndoSave = connect(mapStateToProps, mapDispatchToProps)(UndoPrompt)
+export default UndoSave
