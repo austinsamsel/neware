@@ -5,6 +5,7 @@ import About from '../pages/About'
 import Hr from '../ui/Hr'
 import { css } from 'glamor-react'
 import s from '../ui/Styles.js' // styles utility
+import { encode } from '../../services/Util.js'
 
 const input_el = css({
   padding: '12px',
@@ -24,7 +25,7 @@ const ChannelForm = props => (
         if (!input.value.trim()) {
           return
         }
-        props.onKeyUp(encodeURIComponent(input.value.toLowerCase()))
+        props.onKeyUp(encode(input.value.toLowerCase()))
       }}
       ref={node => {
         input = node

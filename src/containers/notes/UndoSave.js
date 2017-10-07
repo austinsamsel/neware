@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { undoSave } from '../../actions/notes'
 import UndoPrompt from '../../components/notes/UndoPrompt'
+import { strip_slash } from '../../services/Util.js'
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -12,10 +13,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = (state, ownProps) => {
   var pathname = state.routing.location.pathname
-  console.log(pathname)
-  var channel = pathname.replace(/\//g, '')
-  console.log(channel)
-
+  var channel = strip_slash(pathname)
   return {
     channel: channel
   }

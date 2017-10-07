@@ -1,21 +1,24 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const UndoPrompt = ({ channel, removeItem }) => {
-  console.log('UndoPrompt.js : ', channel, removeItem)
   return (
-    <span
+    <div
       onClick={e => {
         e.preventDefault()
         removeItem(channel)
       }}
       style={{ cursor: 'default' }}
     >
-      Undo Save - {channel} -
-    </span>
+      Remove Note - {channel} -
+    </div>
   )
 }
 
-export default UndoPrompt
+//TODO: checking?
+UndoPrompt.propTypes = {
+  channel: PropTypes.string.isRequired,
+  removeItem: PropTypes.func.isRequired
+}
 
-//TODO:
-// prop types
+export default UndoPrompt

@@ -41,8 +41,6 @@ const FireForm = props => (
           // not encrypted
           props.onSubmit(textarea.value, false)
         }
-        textarea.value = ''
-        input.value = ''
 
         // unset field to password if its not obscured
         if (props.passcodeObscure === true) {
