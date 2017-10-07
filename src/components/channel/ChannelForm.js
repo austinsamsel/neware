@@ -4,7 +4,7 @@ import ChannelSubmit from '../../containers/channel/ChannelSubmit'
 import About from '../pages/About'
 import Hr from '../ui/Hr'
 import { css } from 'glamor-react'
-import s from '../ui/Styles.js' // styles utility
+import { s } from '../ui/Styles.js' // styles utility
 import { encode } from '../../services/Util.js'
 
 const input_el = css({

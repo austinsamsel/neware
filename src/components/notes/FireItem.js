@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import FireEncrypted from './FireEncrypted'
 import moment from 'moment'
 import hourglass from '../../assets/hourglass.png'
-import s from '../ui/Styles.js'
+import { s } from '../ui/Styles.js'
 
 const li_item = {
   listStyle: 'none',

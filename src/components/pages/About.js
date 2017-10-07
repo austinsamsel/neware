@@ -1,5 +1,5 @@
 import React from 'react'
-import s from '../ui/Styles.js' // styles utility
+import { s } from '../ui/Styles.js' // styles utility
 
 const mw__600 = {
   maxWidth: '600px'
