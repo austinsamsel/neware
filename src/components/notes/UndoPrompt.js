@@ -7,9 +7,6 @@ import { s, fadeout, slidein } from '../ui/Styles.js'
 const UndoPrompt = ({ channel, timer, note, removeItem }) => {
   const wrapper = css(
     {
-      bottom: '1rem',
-      left: '50%',
-      transform: 'translateX(-50%)',
       backgroundColor: 'peachpuff',
       cursor: `url(${hourglass}) 4 12, wait`,
       transition: '1s',
@@ -17,33 +14,33 @@ const UndoPrompt = ({ channel, timer, note, removeItem }) => {
       height: '44px',
       animation: `${fadeout} ${timer}s forwards`
     },
-    s.absolute
+    s.bg_blue,
+    s.relative,
+    s.m0auto
   )
   const progress_bar = css(
     {
-      background: 'darksalmon',
       height: '5px',
       bottom: '0px',
       left: '0px',
       animation: `${slidein} ${timer}s forwards`
     },
     s.w_100,
-    s.absolute
+    s.absolute,
+    s.bg_fuchsia
   )
   const remove_note = css(
-    {
-      color: 'darksalmon'
-    },
     s.w_100,
     s.h_100,
     s.df,
     s.aic,
     s.jcc,
-    s.center
+    s.center,
+    s.white
   )
   return (
     <div
-      data-c="UndoPrompt"
+      data-t="UndoPrompt"
       {...wrapper}
       onClick={e => {
         e.preventDefault()

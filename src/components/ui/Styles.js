@@ -26,6 +26,7 @@ export const s = {
   bg_snowsmoke: { backgroundColor: '#f7f7f7' },
   bg_whitesmoke: { backgroundColor: '#eee' },
   bg_blue: { backgroundColor: 'blue' },
+  bg_fuchsia: { backgroundColor: 'fuchsia' },
 
   bold: { fontWeight: 'bold' },
 
@@ -44,6 +45,7 @@ export const s = {
   tracked_spaced: { letterSpacing: '0.1rem' },
 
   m0: { margin: '0' },
+  m0auto: { margin: '0 auto' },
 
   w_100: { width: '100%' },
   mw_100: { maxWidth: '100%' },

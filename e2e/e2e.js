@@ -1,4 +1,4 @@
-import { Selector } from 'testcafe'
+import { Selector, Role } from 'testcafe'
 import crypto from 'crypto'
 import fb_clean from './fb_clean.js'
 import config from '../src/config/index.js'
@@ -32,7 +32,7 @@ test('post public message', async t => {
 })
 
 fixture`Can create a secret note at ${client_url}`.page`${client_url}/${test_channel}`
-test('post public message', async t => {
+test('secret note', async t => {
   await t
     .click('[data-t="toggleSecretBtn"]')
     .typeText('[data-t="createPasscode"]', passcode)
@@ -47,3 +47,21 @@ test('post public message', async t => {
   // clean up
   fb_clean.clean(test_channel)
 })
+
+//TODO: firebase won't authenticate test browser anonymously...
+// const anonymousAuthedUser = Role(`${client_url}`, async t => {
+//   await t
+// });
+// fixture`Can create a note at ${client_url}`.page`${client_url}/${test_channel} then remove it`
+// test('undo save', async t => {
+//   await t
+//     .useRole(anonymousAuthedUser)
+//     .typeText('textarea', test_channel)
+//     .click('[data-t="addNoteBtn"]')
+//     .wait(30000)
+//     .click('[data-t="UndoPrompt"]')
+//     .expect(Selector('[data-t="noteContent"]').innerText)
+//     .notEql(test_channel)
+// })
+
+    

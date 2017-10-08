@@ -66,7 +66,7 @@ class FireNotes extends Component {
             passcodeObscure={this.props.passcodeObscure}
             passcodeObscureClick={this.passcodeObscureClick}
           />
-          <UndoSave />
+          {this.props.authedUser === this.props.notes.uid ? <UndoSave /> : ''}
         </div>
       )
     }
@@ -81,7 +81,8 @@ const mapStateToProps = state => {
   return {
     notes: state.notes,
     passcodeToggle: state.passcodeToggle.bool,
-    passcodeObscure: state.passcodeObscure.bool
+    passcodeObscure: state.passcodeObscure.bool,
+    authedUser: state.authUser.uid
   }
 }
 

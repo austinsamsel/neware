@@ -11,7 +11,7 @@ const config = {
 }
 firebase.initializeApp(config)
 
-const notesRef = firebase.database().ref('documents')
+const notesRef = firebase.database().ref('notes')
 
 export const fetchNotes = route => {
   const encode_route = encode(route)
