@@ -26,7 +26,6 @@ class FireNotes extends Component {
   }
 
   submitHandler(input, encrypted) {
-    console.log(input, encrypted)
     this.props.createNote(input, this.props.ch, encrypted)
   }
 
