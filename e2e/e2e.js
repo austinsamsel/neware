@@ -3,6 +3,7 @@ import crypto from 'crypto'
 import fb_clean from './fb_clean.js'
 import config from '../src/config/index.js'
 
+// environment: production | staging | development
 const client_url = config.e2e_client_url(process.env.E2E_CLIENT_URL)
 
 // set up
