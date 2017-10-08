@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import s from './Styles.js' // styles utility
+import { s } from './Styles.js' // styles utility
 
 const hr_style = height_val => {
   return {

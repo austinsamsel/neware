@@ -5,7 +5,7 @@ import FontAwesome from 'react-fontawesome'
 import '../../vendor/font-awesome/font-awesome.css'
 import lockandkey from '../../assets/lockandkey.png'
 import c from './FireForm.style.js' // component styles
-import s from '../ui/Styles.js' // styles utility
+import { s } from '../ui/Styles.js' // styles utility
 
 let textarea, input
 
@@ -17,12 +17,12 @@ const FireForm = props => (
         // disallow blank posts.
         if (!textarea.value.trim()) {
           return
-          // TODO: flash messages.
+          // TODO: validation message.
         }
         // block if secret is on & passcode field is empty
         if (props.passcodeToggle && !input.value) {
           return
-          // TODO: flash messages.
+          // TODO: validation message.
         }
         //encrypt
         var cipher = CryptoJS.AES.encrypt(textarea.value, input.value)
@@ -41,8 +41,6 @@ const FireForm = props => (
           // not encrypted
           props.onSubmit(textarea.value, false)
         }
-        textarea.value = ''
-        input.value = ''
 
         // unset field to password if its not obscured
         if (props.passcodeObscure === true) {

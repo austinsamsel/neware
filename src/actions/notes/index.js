@@ -1,4 +1,7 @@
 import firebase from 'firebase'
+import moment from 'moment'
+import { store } from '../../store/index.js'
+import { encode } from '../../services/Util.js'
 
 const config = {
   apiKey: 'AIzaSyA8Gn5ygzzT8RaAkKF-SfSM4URnk2dsOyQ',
@@ -11,7 +14,7 @@ firebase.initializeApp(config)
 const notesRef = firebase.database().ref('notes')
 
 export const fetchNotes = route => {
-  const encode_route = encodeURIComponent(route)
+  const encode_route = encode(route)
   return function(dispatch) {
     notesRef.child(encode_route).on('value', snapshot => {
       dispatch({
@@ -37,10 +40,14 @@ export const clearNotes = () => {
 }
 
 export const createNote = (text, route, encrypted) => {
-  const encode_route = encodeURIComponent(route)
+  const encoded_route = encode(route)
+  const uid = store.getState().authUser.uid
+
   return dispatch =>
-    notesRef.child(encode_route).push({
+    notesRef.child(`${encoded_route}`).set({
       createdAt: firebase.database.ServerValue.TIMESTAMP,
+      createdAtUserTime: moment(new Date()).valueOf(),
+      uid: uid,
       text: text,
       encrypted: encrypted,
       plaintext: ''
@@ -64,4 +71,8 @@ export const passcodeObscureToggle = () => {
   return {
     type: 'PASSCODE_OBSCURE'
   }
+}
+
+export const undoSave = route => {
+  return dispatch => notesRef.child(route).remove()
 }

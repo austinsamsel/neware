@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import * as actions from '../../actions/notes'
 import FireForm from '../../components/notes/FireForm'
-import FireList from '../../components/notes/FireList'
+import FireItem from '../../components/notes/FireItem'
+import UndoSave from './UndoSave.js'
 
 class FireNotes extends Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class FireNotes extends Component {
     this.onSubmit = this.onSubmit.bind(this)
     this.handleClick = this.handleClick.bind(this)
     this.passcodeObscureClick = this.passcodeObscureClick.bind(this)
-    this.showFireForm = this.showFireForm.bind(this)
+    this.showFireContent = this.showFireContent.bind(this)
   }
 
   componentDidMount() {
@@ -25,6 +26,7 @@ class FireNotes extends Component {
   }
 
   submitHandler(input, encrypted) {
+    console.log(input, encrypted)
     this.props.createNote(input, this.props.ch, encrypted)
   }
 
@@ -40,7 +42,7 @@ class FireNotes extends Component {
     this.props.passcodeObscureToggle()
   }
 
-  showFireForm() {
+  showFireContent = () => {
     if (this.props.notes < 1) {
       return (
         <FireForm
@@ -52,22 +54,26 @@ class FireNotes extends Component {
           route={this.props.ch}
         />
       )
+    } else {
+      return (
+        <div>
+          <FireItem
+            note={this.props.notes.text}
+            createdAt={this.props.notes.createdAt}
+            plaintext={this.props.notes.plaintext}
+            encrypted={this.props.notes.encrypted}
+            onSubmit={this.onSubmit}
+            passcodeObscure={this.props.passcodeObscure}
+            passcodeObscureClick={this.passcodeObscureClick}
+          />
+          {this.props.authedUser === this.props.notes.uid ? <UndoSave /> : ''}
+        </div>
+      )
     }
   }
 
   render() {
-    return (
-      <div>
-        {this.showFireForm()}
-
-        <FireList
-          notes={this.props.notes}
-          onSubmit={this.onSubmit}
-          passcodeObscure={this.props.passcodeObscure}
-          passcodeObscureClick={this.passcodeObscureClick}
-        />
-      </div>
-    )
+    return <div>{this.showFireContent()}</div>
   }
 }
 
@@ -75,7 +81,8 @@ const mapStateToProps = state => {
   return {
     notes: state.notes,
     passcodeToggle: state.passcodeToggle.bool,
-    passcodeObscure: state.passcodeObscure.bool
+    passcodeObscure: state.passcodeObscure.bool,
+    authedUser: state.authUser.uid
   }
 }
 

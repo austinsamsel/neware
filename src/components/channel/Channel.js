@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import FireNotes from '../../containers/notes/FireNotes'
 import Hr from '../ui/Hr'
 import thumbsup from '../../assets/thumbsup.png'
-import s from '../ui/Styles.js' // styles utility
+import { s } from '../ui/Styles.js' // styles utility
 
 const emoji_thumbsup = {
   height: '24px',
