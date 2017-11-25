@@ -10,10 +10,12 @@ const UndoPrompt = ({ channel, timer, note, removeItem }) => {
       backgroundColor: 'peachpuff',
       cursor: `url(${hourglass}) 4 12, wait`,
       transition: '1s',
-      width: '132px',
-      height: '44px',
+      height: '60px',
       animation: `${fadeout} ${timer}s forwards`
     },
+    s.bold,
+    s.fs__24,
+    s.w_100,
     s.bg_blue,
     s.relative,
     s.m0auto
@@ -47,7 +49,7 @@ const UndoPrompt = ({ channel, timer, note, removeItem }) => {
         removeItem(channel)
       }}
     >
-      <span {...remove_note}>Remove Note</span>
+      <span {...remove_note}>Undo</span>
       <span {...progress_bar} />
     </div>
   )
