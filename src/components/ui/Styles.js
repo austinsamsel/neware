@@ -8,9 +8,8 @@ export const fadeout = css.keyframes('fadeout', {
 })
 
 export const slidein = css.keyframes('slidein', {
-  '0%': { transform: 'scaleX(1)', opacity: 1 },
-  '50%': { opacity: 1 },
-  '100%': { transform: 'scaleX(0)', opacity: 0 }
+  '0%': { transform: 'scaleX(1)' },
+  '100%': { transform: 'scaleX(0)' }
 })
 
 // functional css styles
