@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import FireEncrypted from './FireEncrypted'
-import moment from 'moment'
-import hourglass from '../../assets/hourglass.png'
+import TimeLeft from './TimeLeft'
 import { s } from '../ui/Styles.js'
 
 const note_item = {
@@ -12,20 +11,17 @@ const note_item = {
   overflowWrap: 'break-word',
   marginBottom: '3rem'
 }
-const icon_hourglass = {
-  width: '16px',
-  height: 'auto',
-  marginRight: '6px',
-  verticalAlign: '-3px'
-}
 
 const FireItem = props => {
   return (
-    <div style={{ ...note_item, ...s.h_auto }} data-c="FireItem">
-      <p style={{ ...s.ff_mono, ...s.lightseagreen }}>
-        <img src={hourglass} alt="Timestamp" style={icon_hourglass} />
-        {moment(props.createdAt).format('ddd MMM Do YYYY, h:mm a')}
-      </p>
+    <div
+      data-c="FireItem"
+      style={{
+        ...note_item,
+        ...s.h_auto
+      }}
+    >
+      <TimeLeft createdAt={props.createdAt} />
       <span data-t="noteContent">
         {props.encrypted ? (
           <FireEncrypted
@@ -44,8 +40,8 @@ const FireItem = props => {
 }
 
 FireItem.propTypes = {
-  // note: PropTypes.string.isRequired,
-  // plaintext: PropTypes.string.isRequired,
+  note: PropTypes.string.isRequired,
+  plaintext: PropTypes.string.isRequired,
   passcodeObscure: PropTypes.bool.isRequired,
   passcodeObscureClick: PropTypes.func.isRequired
 }
