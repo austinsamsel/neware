@@ -4,6 +4,7 @@ import FireNotes from '../../containers/notes/FireNotes'
 import Hr from '../ui/Hr'
 import thumbsup from '../../assets/thumbsup.png'
 import { s } from '../ui/Styles.js' // styles utility
+import ShareUrl from './ShareUrl'
 
 const emoji_thumbsup = {
   height: '24px',
@@ -22,7 +23,7 @@ const Channel = ({ name }) => {
         />
         {name}
       </h1>
-      <p style={{ ...s.ff_mono }}>Find it later: {window.location.href}</p>
+      <ShareUrl />
       <Hr height="36px" />
       <FireNotes ch={name} />
     </div>
