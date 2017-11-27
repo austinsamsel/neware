@@ -14,8 +14,15 @@ const icon_hourglass = {
 
 const TimeLeft = props => {
   const createdAt = moment(props.createdAt)
-  const deleteAt = moment(createdAt).add(1, 'days')
-  const timespan = countdown(createdAt, deleteAt).toString()
+  const deleteAt = moment(createdAt).add(1, 'day')
+  const now = moment()
+  const timespan = countdown(
+    now,
+    deleteAt,
+    countdown.HOURS | countdown.MINUTES
+  ).toString()
+
+  console.log(countdown(now, deleteAt))
 
   return (
     <div data-c="TimeLeft">
